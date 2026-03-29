@@ -195,8 +195,8 @@ const faqs = [
 				<div class="gallery-mobile-viewport">
 					<div class="gallery-mobile-stack">
 						{
-							gallerySlides.map((slide) => (
-								<article class="gallery-mobile-card">
+							gallerySlides.map((slide, index) => (
+								<article class={`gallery-mobile-card${index === 0 ? ' is-active' : ''}`}>
 									<div class="gallery-mobile-image">
 										<img src={slide.image} alt={slide.alt} />
 									</div>
@@ -565,7 +565,7 @@ const faqs = [
 
 	.gallery-mobile-shell,
 	.gallery-mobile-dots {
-		display: none !important;
+		display: none;
 	}
 
 	.gallery-mobile-image img {
@@ -734,7 +734,7 @@ const faqs = [
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		.experience-hero {
 			padding: 9rem 0 4rem;
 		}
@@ -865,6 +865,37 @@ const faqs = [
 
 		.gallery-mobile-nav.next {
 			right: 0;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.experience-hero h1 {
+			font-size: 3.4rem;
+		}
+
+		.gallery-mobile-viewport {
+			min-height: 500px;
+		}
+
+		.gallery-mobile-image img {
+			min-height: 300px;
+			max-height: 340px;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.gallery-mobile-shell {
+			padding: 0 1.25rem;
+		}
+
+		.gallery-mobile-viewport {
+			min-height: 470px;
+		}
+
+		.gallery-mobile-nav {
+			top: 145px;
+			width: 2.2rem;
+			height: 2.2rem;
 		}
 
 		.faq-section {
