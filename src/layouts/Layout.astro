@@ -6,7 +6,7 @@ interface Props {
 
 import '../styles/global.css';
 
-const { title, description = "Experience Saco Bay Hotel - The premier boutique in Saco / Old Orchard Beach area." } = Astro.props;
+const { title, description = "Saco Bay Hotel in Saco, Maine, near Old Orchard Beach and the southern Maine coast." } = Astro.props;
 const normalizePath = (value: string) => {
 	if (!value || value === '/') return '';
 	return value.endsWith('/') ? value.slice(0, -1) : value;
@@ -21,6 +21,8 @@ const roomsHref = `${baseUrl}rooms`;
 const experienceHref = `${baseUrl}experience`;
 const homeBookingHref = `${baseUrl}#home`;
 const locationHref = isHome ? '#location' : `${baseUrl}#location`;
+const bookingBaseHref = 'https://us2.cloudbeds.com/en/reservation/wOOQW0';
+const bookingFallbackHref = `${bookingBaseHref}?currency=usd&adults=2&kids=0`;
 ---
 
 <!doctype html>
@@ -73,7 +75,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 								<span class="hamburger-line"></span>
 								<span class="hamburger-line"></span>
 							</button>
-							<a href="https://www.choicehotels.com/maine/south-portland/ascend-hotels/me049" class="btn-book">
+							<a href={bookingFallbackHref} class="btn-book" data-booking-link>
 								Book Now
 							</a>
 						</div>
@@ -91,9 +93,9 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 					<a href={locationHref} class="menu-link">Location</a>
 				</div>
 				<div class="menu-dropdown-footer">
-					<p>80 John Roberts Rd, South Portland, ME 04106</p>
+					<p>352 North St, Saco, ME 04072</p>
 					<p>-</p>
-					<p>(207) 558-4341</p>
+					<p>(207) 747-0368</p>
 				</div>
 			</div>
 		</nav>
@@ -107,8 +109,8 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				<div class="footer-top">
 					<div class="footer-brand">
 						<h3 class="logo-text footer-logo" style="color: var(--navy-deep);">Saco Bay Hotel</h3>
-						<p class="address">80 John Roberts Rd, South Portland, ME 04106</p>
-						<p class="phone">(207) 558-4341</p>
+						<p class="address">352 North St, Saco, ME 04072</p>
+						<p class="phone">(207) 747-0368</p>
 					</div>
 					<nav class="footer-nav">
 						<div class="footer-nav-col">
@@ -119,15 +121,37 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 						<div class="footer-nav-col">
 							<h4>Stay</h4>
 							<a href={roomsHref}>Rooms</a>
-							<a href="https://www.choicehotels.com/maine/south-portland/ascend-hotels/me049">Reservations</a>
+							<a href={bookingFallbackHref} data-booking-link>Reservations</a>
 						</div>
 					</nav>
 				</div>
 				<div class="footer-bottom">
-					<p>&copy; {new Date().getFullYear()} Saco Bay Hotel. A South Portland Boutique Escape.</p>
+					<p>&copy; {new Date().getFullYear()} Saco Bay Hotel. A good place to stay in Saco.</p>
 				</div>
 			</div>
 		</footer>
+
+		<script>
+			const bookingBaseHref = 'https://us2.cloudbeds.com/en/reservation/wOOQW0';
+
+			function formatBookingDate(date: Date) {
+				const offset = date.getTimezoneOffset();
+				const localDate = new Date(date.getTime() - offset * 60 * 1000);
+				return localDate.toISOString().split('T')[0] ?? '';
+			}
+
+			const defaultCheckin = new Date();
+			const defaultCheckout = new Date();
+			defaultCheckout.setDate(defaultCheckout.getDate() + 1);
+
+			const defaultBookingUrl = `${bookingBaseHref}?currency=usd&checkin=${formatBookingDate(defaultCheckin)}&checkout=${formatBookingDate(defaultCheckout)}&adults=2&kids=0`;
+
+			document.querySelectorAll('[data-booking-link]').forEach((link) => {
+				if (link instanceof HTMLAnchorElement) {
+					link.href = defaultBookingUrl;
+				}
+			});
+		</script>
 
 		<style is:global>
 			html {
@@ -355,26 +379,26 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 			}
 
 			#main-header.scrolled .btn-book {
-				background: var(--accent);
-				border-color: var(--accent);
-				box-shadow: 0 10px 25px rgba(106, 173, 163, 0.4);
+				background: var(--navy-muted);
+				border-color: var(--navy-muted);
+				box-shadow: 0 10px 25px rgba(42, 85, 98, 0.35);
 			}
 
 			.btn-book:hover {
 				background: var(--white) !important;
-				color: var(--accent) !important;
+				color: var(--navy-muted) !important;
 				border-color: var(--white);
 			}
 
 			#main-header.scrolled .btn-book:hover {
-				background: #4a8a82 !important;
-				border-color: #4a8a82;
+				background: var(--navy-deep) !important;
+				border-color: var(--navy-deep);
 				transform: translateY(-2px);
 			}
 
 			/* Footer */
 			footer {
-				background-color: var(--cream-muted);
+				background-color: var(--bg-warm);
 				padding: 5rem 0 5rem;
 				color: var(--text-main);
 				border-top: 1px solid var(--border-light);
@@ -392,7 +416,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 			}
 
 			.footer-brand p {
-				color: var(--text-muted);
+				color: var(--navy-muted);
 				font-size: 0.9rem;
 				margin-bottom: 0.5rem;
 			}
@@ -407,7 +431,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				font-size: 0.7rem;
 				letter-spacing: 0.2rem;
 				margin-bottom: 2.5rem;
-				color: var(--accent);
+				color: var(--navy-muted);
 			}
 
 			.footer-nav-col a {
@@ -425,7 +449,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 			.footer-bottom {
 				border-top: 1px solid var(--border-light);
 				font-size: 0.75rem;
-				color: var(--text-muted);
+				color: var(--navy-muted);
 				text-transform: uppercase;
 				letter-spacing: 0.1rem;
 				text-align: center;

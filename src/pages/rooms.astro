@@ -3,44 +3,44 @@ import Layout from '../layouts/Layout.astro';
 
 const rooms = [
 	{
-		eyebrow: 'Signature Stay',
+		eyebrow: 'More Space',
 		title: 'Deluxe King',
 		image: `${import.meta.env.BASE_URL}assets/rooms/king.jpg`,
-		alt: 'Deluxe King room at Saco Bay Hotel South Portland Maine',
+		alt: 'Deluxe King room at Saco Bay Hotel Saco Maine',
 		specs: ['2 Guests', '1 King Bed', '350 SQFT'],
 		description:
-			'Our largest room, with a king bed, dedicated desk, and enough space to actually unpack. Good blackout shades, a Keurig, a mini fridge, and the breathing room that makes a longer stay feel easy.',
-		highlights: ['Dedicated desk', 'Mini fridge & microwave', 'Keurig coffee maker', 'Premium WiFi']
+			'Our largest room, with a king bed, a desk, and enough room to spread out a bit. A good choice if you are staying more than a night or just do not like a cramped room.',
+		highlights: ['Dedicated desk', 'Mini fridge & microwave', 'Keurig coffee maker', 'Fast WiFi']
 	},
 	{
-		eyebrow: 'Modern Retreat',
+		eyebrow: 'Straightforward Stay',
 		title: 'Deluxe Queen',
 		image: `${import.meta.env.BASE_URL}assets/rooms/queen.jpg`,
-		alt: 'Deluxe Queen room at Saco Bay Hotel South Portland Maine',
+		alt: 'Deluxe Queen room at Saco Bay Hotel Saco Maine',
 		specs: ['2 Guests', '1 Queen Bed', '280 SQFT'],
 		description:
-			'A well-sized room with a queen bed that works whether you are here for one night or four. Same core amenities as our king rooms, in a layout that keeps everything simple and efficient.',
-		highlights: ['Queen bed', 'Compact, efficient layout', 'Premium WiFi', 'Keurig, fridge & microwave']
+			'A queen room that keeps things simple. It has the same basic amenities as the larger rooms, just in a layout that works well for a quick stay.',
+		highlights: ['Queen bed', 'Simple, efficient layout', 'Fast WiFi', 'Keurig, fridge & microwave']
 	},
 	{
-		eyebrow: 'Premium Suite',
+		eyebrow: 'Most Room',
 		title: 'Suite King',
 		image: `${import.meta.env.BASE_URL}assets/rooms/suite.jpg`,
 		alt: 'Suite King room at Saco Bay Hotel Maine',
 		specs: ['2 Guests', '1 King Bed', 'Suite'],
 		description:
-			'Our most elevated option — a full suite with a king bed and a generous layout that gives you real room to settle in. The right choice when you want more than a standard room without sacrificing comfort.',
-		highlights: ['King bed', 'Full suite layout', 'Premium WiFi', 'Mini fridge & microwave']
+			'The Suite King gives you the most room to work with. If you want a little breathing room after a long beach day or a long drive up the coast, this is the one.',
+		highlights: ['King bed', 'Full suite layout', 'Fast WiFi', 'Mini fridge & microwave']
 	}
 ];
 ---
 
-<Layout title="Rooms | Saco Bay Hotel" description="Explore our Deluxe King, Deluxe Queen, and Suite King rooms at Saco Bay Hotel — minutes from Old Orchard Beach, Maine.">
+<Layout title="Rooms | Saco Bay Hotel" description="Take a look at the room options at Saco Bay Hotel in Saco, Maine, close to Old Orchard Beach and the southern Maine coast.">
 	<section class="rooms-hero bg-warm">
 		<div class="container rooms-hero-inner">
 			<span class="eyebrow">Saco Bay Hotel</span>
 			<h1>Our Rooms</h1>
-			<p>Three room types, one consistent approach: renovated spaces, practical amenities, and layouts that feel easy to settle into whether you are here for a quick overnight or a longer Maine stay.</p>
+			<p>Three room types, all set up for an easy stay near the beach, downtown Saco, and the rest of the southern Maine coast.</p>
 		</div>
 	</section>
 
@@ -48,8 +48,8 @@ const rooms = [
 		<div class="container">
 			<div class="section-heading">
 				<span class="eyebrow">Choose Your Stay</span>
-				<h2 class="navy-text">Comfort That Fits the Trip</h2>
-				<p>All rooms include premium WiFi, a Keurig, a refrigerator, a microwave, and the same clean, updated finish. The main difference is how much room you want and how many beds you need.</p>
+				<h2 class="navy-text">Pick What Fits</h2>
+				<p>Every room comes with the same basics: WiFi, Keurig, fridge, microwave, and a clean place to land at the end of the day. The main question is how much space you want.</p>
 			</div>
 
 			<div class="rooms-editorial-stack">
@@ -69,7 +69,7 @@ const rooms = [
 								<ul class="room-feature-list">
 									{room.highlights.map((item) => <li>{item}</li>)}
 								</ul>
-								<a href="https://www.choicehotels.com/maine/south-portland/ascend-hotels/me049" class="btn-primary">Book This Room</a>
+								<a href="https://us2.cloudbeds.com/en/reservation/wOOQW0?currency=usd&adults=2&kids=0" class="btn-primary" data-booking-link>Book This Room</a>
 							</div>
 						</article>
 					))

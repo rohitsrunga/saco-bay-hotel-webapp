@@ -3,18 +3,18 @@ import Layout from '../layouts/Layout.astro';
 
 const testimonials = [
 	{
-		quote: 'Perfect location for our Portland trip. The airport shuttle was super convenient and the kids loved the breakfast.',
-		author: 'Sarah M.',
+		quote: 'We wanted to be close to OOB without all the noise. Was an easy drive to the beach in the morning, quiet at night, and plenty of space in the room to shower off the sand, and relax.',
+		author: 'Karen D.',
 		source: 'Google Review'
 	},
 	{
-		quote: 'Clean, modern rooms and the staff (shout out to Srini) was very friendly, definitely recommend.',
-		author: 'James T.',
+		quote: 'Stayed here for a long weekend and used it as our base for Saco, Biddeford, and Old Orchard. Loved chatting with the staff, and room was clean, spacious, and comfortable.',
+		author: 'Juan L.',
 		source: 'TripAdvisor'
 	},
 	{
-		quote: 'Loved this place. Rooms and lobby had that sleek, contemporary feel. Will definitely be back',
-		author: 'Linda K.',
+		quote: 'This felt like a much easier way to do southern Maine. We grabbed breakfast, spent the day down by the water, got dinner in Biddeford, and lounged in our room. Straightforward stay, friendly staff, and a good spot if you know the area.',
+		author: 'Jen L.',
 		source: 'Choice Privileges'
 	}
 ];
@@ -22,36 +22,36 @@ const testimonials = [
 const roomSlides = [
 	{
 		id: 'king',
-		eyebrow: 'Signature Stay',
+		eyebrow: 'Room To Spread Out',
 		title: 'Deluxe King',
 		image: `${import.meta.env.BASE_URL}assets/rooms/king.jpg`,
-		alt: 'Deluxe King room at Saco Bay Hotel South Portland Maine',
+		alt: 'Deluxe King room at Saco Bay Hotel Saco Maine',
 		specs: ['2 Guests', '1 King Bed', '350 SQFT'],
-		summary: 'Our largest room; comes with extra space to unpack and settle in.',
+		summary: 'Our biggest room, with enough space to spread out a little.',
 		description:
-			'Our largest room, with a king bed, dedicated desk, and enough space to actually unpack. Good blackout shades, a Keurig, a mini fridge — the things that matter when you\'re in for more than one night.'
+			'This is the one to book if you do not want to feel boxed in. You get a king bed, a proper desk, blackout shades, a Keurig, and enough room to toss your bag down and stay awhile.'
 	},
 	{
 		id: 'queen',
-		eyebrow: 'Modern Retreat',
+		eyebrow: 'Easy And Simple',
 		title: 'Deluxe Queen',
 		image: `${import.meta.env.BASE_URL}assets/rooms/queen.jpg`,
-		alt: 'Deluxe Queen room at Saco Bay Hotel South Portland Maine',
+		alt: 'Deluxe Queen room at Saco Bay Hotel Saco Maine',
 		specs: ['2 Guests', '1 Queen Bed', '280 SQFT'],
-		summary: 'A contemporary, spacious option with 2 Queen beds.',
+		summary: 'A straightforward room that works well for a quick coast trip.',
 		description:
-			'A well-sized room with a queen bed that works whether you\'re here for one night or four. Same amenities as our king rooms — premium WiFi, Keurig, microwave and fridge — in a layout that doesn\'t waste space.'
+			'Good for one night or a few. It has the same basics as the king rooms, just in a tighter layout that keeps things easy.'
 	},
 	{
 		id: 'double',
-		eyebrow: 'Premium Suite',
+		eyebrow: 'More Elbow Room',
 		title: 'Suite King',
 		image: `${import.meta.env.BASE_URL}assets/rooms/suite.jpg`,
 		alt: 'Suite King room at Saco Bay Hotel Maine',
 		specs: ['2 Guests', '1 King Bed', 'Suite'],
-		summary: 'Our most elevated room — a full suite with a king bed and added space.',
+		summary: 'A full suite when you want more space than a standard room gives you.',
 		description:
-			'The Suite King is the most spacious option we offer — a full suite layout with a king bed, generous living area, and the kind of room you actually look forward to coming back to after a day at Old Orchard Beach.'
+			'If you are planning to be out all day and want a room that still feels good to come back to, this is the one. It gives you a king bed and extra living space without getting fussy about it.'
 	}
 ];
 
@@ -59,7 +59,7 @@ const roomsHref = `${import.meta.env.BASE_URL}rooms`;
 const experienceHref = `${import.meta.env.BASE_URL}experience`;
 ---
 
-<Layout title="Saco Bay Hotel | South Portland, ME | Hotel Near Portland Airport" description="Saco Bay Hotel in South Portland, Maine — boutique hotel minutes from Portland International Jetport. Free airport shuttle, hot breakfast, free parking & Park & Fly packages. Book direct.">
+<Layout title="Saco Bay Hotel | Saco, ME | Stay Near Old Orchard Beach" description="Saco Bay Hotel in Saco, Maine, near Old Orchard Beach, Camp Ellis, and the rest of the southern Maine coast.">
 	<section id="home" class="hero-press">
 		<div id="hero-placeholder" class="hero-image-overlay" style={`background: url('${import.meta.env.BASE_URL}main-hero-bg.png') center/cover no-repeat;`}></div>
 
@@ -73,30 +73,22 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			<div class="hero-top-row">
 				<div class="hero-content-press">
 					<div class="hero-logo-wrapper fade-in-up">
-						<svg class="main-logo" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<rect x="18" y="18" width="204" height="204" stroke="rgba(255,255,255,0.82)" stroke-width="1.5" />
-							<rect x="32" y="32" width="176" height="176" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
-							<text x="66" y="122" font-family="Cormorant Garamond, serif" font-size="88" fill="white" font-weight="500">S</text>
-							<text x="128" y="122" font-family="Cormorant Garamond, serif" font-size="88" fill="white" font-weight="400" opacity="0.95">B</text>
-							<line x1="86" y1="145" x2="154" y2="145" stroke="rgba(255,255,255,0.55)" stroke-width="1" />
-							<text x="120" y="166" text-anchor="middle" font-family="Cinzel, serif" font-size="12" fill="white" letter-spacing="0.14em">SACO BAY</text>
-							<text x="120" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" fill="rgba(255,255,255,0.82)" letter-spacing="0.34em" font-weight="700">HOTEL</text>
-						</svg>
+						<img
+							class="main-logo"
+							src={`${import.meta.env.BASE_URL}assets/SB.svg`}
+							alt="Saco Bay Hotel logo"
+						/>
 					</div>
 					<div class="hero-slogan-box fade-in-up">
 						<div class="hero-logo-wrapper hero-logo-mobile">
-							<svg class="main-logo" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<rect x="18" y="18" width="204" height="204" stroke="rgba(255,255,255,0.82)" stroke-width="1.5" />
-								<rect x="32" y="32" width="176" height="176" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
-								<text x="66" y="122" font-family="Cormorant Garamond, serif" font-size="88" fill="white" font-weight="500">S</text>
-								<text x="128" y="122" font-family="Cormorant Garamond, serif" font-size="88" fill="white" font-weight="400" opacity="0.95">B</text>
-								<line x1="86" y1="145" x2="154" y2="145" stroke="rgba(255,255,255,0.55)" stroke-width="1" />
-								<text x="120" y="166" text-anchor="middle" font-family="Cinzel, serif" font-size="12" fill="white" letter-spacing="0.14em">SACO BAY</text>
-								<text x="120" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" fill="rgba(255,255,255,0.82)" letter-spacing="0.34em" font-weight="700">HOTEL</text>
-							</svg>
+							<img
+								class="main-logo"
+								src={`${import.meta.env.BASE_URL}assets/SB.svg`}
+								alt="Saco Bay Hotel logo"
+							/>
 						</div>
 						<div class="slogan-divider-line"></div>
-						<h1 class="hero-h1">Rest in Saco.<br>Play in OOB.</h1>
+						<h1 class="hero-h1">Stay in Saco.<br>Head to the beach.</h1>
 					</div>
 				</div>
 
@@ -254,9 +246,8 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			const checkin = checkinInput?.value ?? '';
 			const checkout = checkoutInput?.value ?? '';
 			const adults = adultsSelect?.value ?? '2';
-			const rooms = roomsSelect?.value ?? '1';
 
-			return `https://www.choicehotels.com/maine/south-portland/ascend-hotels/me049?checkInDate=${checkin}&checkOutDate=${checkout}&adults=${adults}&rooms=${rooms}`;
+			return `https://us2.cloudbeds.com/en/reservation/wOOQW0?currency=usd&checkin=${checkin}&checkout=${checkout}&adults=${adults}&kids=0`;
 		}
 
 		mainBookBtn?.addEventListener('click', () => {
@@ -353,14 +344,13 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			</div>
 			<div class="experience-block">
 				<div class="experience-visual">
-					<img src={`${import.meta.env.BASE_URL}assets/amenities/exterior.jpg`} alt="Saco Bay Hotel exterior building in South Portland Maine" />
+					<img src={`${import.meta.env.BASE_URL}assets/amenities/exterior.jpg`} alt="Saco Bay Hotel exterior building in Saco Maine" />
 				</div>
-				<div class="experience-content">
-					<h2 class="experience-heading">Unwind in Style <span class="serif-italic">with</span> <br /> <strong>Saco Bay Hotel</strong></h2>
-					<p>Our hotel sits in South Portland, just across the bridge from the Old Port and a five-minute drive from Portland International Jetport.
-					We renovated completely in 2022 (new rooms, new lobby, new everything) because we wanted guests to actually look forward to coming back.</p>
-					<p>Work trip, weekend getaway, or full Maine adventure — you're in the right place.</p>
-					<a href="https://www.choicehotels.com/maine/south-portland/ascend-hotels/me049" class="btn-primary">Book Now</a>
+					<div class="experience-content">
+					<h2 class="experience-heading"><span class="serif-italic">Your Home Base</span></h2>
+					<p>We are in Saco, close to Old Orchard Beach, Camp Ellis, Ferry Beach, and downtown Biddeford. If you know the area, you know that means you can get to just about everything without making a whole day out of the drive.</p>
+					<p>This is a good spot for beach weekends, family trips, and a few days on the coast when you want a clean room, an easy place to park, and no nonsense.</p>
+					<a href="https://us2.cloudbeds.com/en/reservation/wOOQW0?currency=usd&adults=2&kids=0" class="btn-primary" data-booking-link>Book Now</a>
 				</div>
 			</div>
 		</div>
@@ -579,26 +569,26 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 					</div>
 				</div>
 				<div class="amenity-content-right">
-					<h2 class="amenity-heading">Everything You <span class="serif-italic">Actually Need</span></h2>
+					<h2 class="amenity-heading">The Stuff <span class="serif-italic">That Matters</span></h2>
 					<div class="amenities-feature-card">
 						<div class="amenities-summary-grid">
-							<p class="amenity-subtext">Hot breakfast every morning. Free parking. A 24-hour shuttle to and from the Jetport. Fast WiFi. The essentials are covered for you to enjoy Portland.</p>
+							<p class="amenity-subtext">Hot breakfast in the morning, free parking, fast WiFi, and the basics handled so you can get on with your trip to Main St or OOB.</p>
 							<div class="amenities-summary-side">
 								<ul class="amenity-highlight-list">
 									<li>Hot breakfast included daily</li>
 									<li>Free on-site parking</li>
 									<li>24-hour airport shuttle</li>
-									<li>Premium high-speed WiFi</li>
+									<li>Fast, reliable WiFi</li>
 								</ul>
-								<a href={experienceHref} class="amenity-detail-link">See all our amenities  →</a>
 							</div>
+								<a href={experienceHref} class="amenity-detail-link">See the full list of our amenities & attractions →</a>
 						</div>
 					</div>
 				</div>
 			</div>
 	</section>
 
-	<section id="location" class="location-map-style" style={`background-image: url('${import.meta.env.BASE_URL}assets/location/map.jpg')`}>
+	<section id="location" class="location-map-style">
 		<div class="container">
 			<div class="section-header section-header-dark location-section-header">
 				<span class="section-kicker">Our Location</span>
@@ -606,25 +596,33 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			<div class="location-map-grid">
 				<div class="location-map-info">
 					<div class="location-hotel-visual">
-						<img src={`${import.meta.env.BASE_URL}assets/location/building.jpg`} alt="Saco Bay Hotel exterior building in South Portland Maine" />
+						<img src={`${import.meta.env.BASE_URL}assets/location/building.jpg`} alt="Saco Bay Hotel exterior building in Saco Maine" />
 					</div>
 					<div class="location-text-content">
 						<h2 class="location-heading">Where to Find Us</h2>
-						<p>We're on John Roberts Road in South Portland — 1.4 miles from Portland International Jetport, about 10 minutes to the Old Port depending on bridge traffic, and 5 minutes to Willard Beach if you want your feet in the ocean. Cracker Barrel and a handful of local spots are within walking distance for dinner. If you're flying in or out of PWM, we're genuinely the most convenient hotel on either side of the bridge.</p>
+						<p>You will find us at 352 North Street in Saco, just a short drive from Old Orchard Beach, Camp Ellis, downtown Saco, and Biddeford. It is an easy spot to use as a base if you want the beach nearby but do not want to be stuck right in the middle of the summer crowd.</p>
 
 						<div class="location-contact-minimal">
-							<p>80 John Roberts Rd, South Portland, ME 04106</p>
-							<p><strong>Phone:</strong> (207) 558-4341</p>
+							<p>352 North St, Saco, ME 04072</p>
+							<p><strong>Phone:</strong> (207) 747-0368</p>
 							<p><strong>Email:</strong> frontdesk@sacobayhotel.com</p>
 						</div>
 
 						<div class="location-ctas-map">
-							<a href="https://www.google.com/maps?client=safari&rls=en&oe=UTF-8&um=1&ie=UTF-8&fb=1&gl=us&sa=X&geocode=KZWazLkVmbJMMbdoIsttNxrP&daddr=80+John+Roberts+Rd,+South+Portland,+ME+04106" target="_blank" class="link-underlined-dark">Open in Maps &rarr;</a>
-							<a href="https://www.choicehotels.com/maine/south-portland/ascend-hotels/me049" class="btn-primary">Book Now</a>
+							<a href="https://www.google.com/maps/search/?api=1&query=352+North+St+Saco+ME" target="_blank" class="link-underlined-dark">Open in Maps &rarr;</a>
+							<a href="https://us2.cloudbeds.com/en/reservation/wOOQW0?currency=usd&adults=2&kids=0" class="btn-primary" data-booking-link>Book Now</a>
 						</div>
 					</div>
 				</div>
-				<div class="location-map-pins"></div>
+				<div class="location-map-embed-card">
+					<iframe
+						title="Google Map showing 352 North St, Saco, Maine"
+						src="https://www.google.com/maps?q=352+North+St+Saco+ME&z=11&output=embed"
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+						allowfullscreen
+					></iframe>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -1299,13 +1297,10 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 	}
 
 	.location-map-style {
-		background-size: cover;
-		background-position: 80% center;
-		background-repeat: no-repeat;
 		position: relative;
 		padding: 6rem 0 8rem;
 		color: var(--text-main);
-		background-color: #fff;
+		background: var(--bg-coastal);
 	}
 
 	.location-map-style .container {
@@ -1316,20 +1311,22 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 	.location-map-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		align-items: flex-start;
+		align-items: stretch;
+		gap: 2.5rem;
 	}
 
 	.location-map-info {
-		max-width: 480px;
+		max-width: 520px;
+		height: 100%;
 		background: rgba(255, 255, 255, 0.92);
-		padding: 3rem;
+		padding: 2.25rem;
 		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
 		backdrop-filter: blur(8px);
 		border: 1px solid rgba(255, 255, 255, 0.6);
 	}
 
 	.location-hotel-visual {
-		margin-bottom: 2.5rem;
+		margin-bottom: 1.75rem;
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 	}
 
@@ -1343,7 +1340,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		font-size: 0.95rem;
 		line-height: 1.7;
 		color: #666;
-		margin-bottom: 2.5rem;
+		margin-bottom: 1.75rem;
 	}
 
 	.location-heading {
@@ -1352,12 +1349,12 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		font-size: 1.8rem;
 		letter-spacing: 0.1em;
 		line-height: 1.3;
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 		color: #333;
 	}
 
 	.location-contact-minimal {
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 		font-size: 0.85rem;
 		line-height: 1.6;
 		color: #555;
@@ -1394,10 +1391,20 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		border-bottom-color: var(--navy-deep);
 	}
 
-	.location-map-pins {
-		position: relative;
-		height: 600px;
+	.location-map-embed-card {
+		height: 100%;
+		background: var(--bg-warm);
+		padding: 0.8rem;
+		box-shadow: 0 18px 40px rgba(16, 42, 67, 0.12);
+		border: 1px solid rgba(16, 42, 67, 0.08);
+	}
+
+	.location-map-embed-card iframe {
+		display: block;
 		width: 100%;
+		height: 100%;
+		min-height: 100%;
+		border: 0;
 	}
 
 	@media (max-width: 1024px) {
@@ -1796,13 +1803,20 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		}
 
 		.location-map-info {
-			padding: 2rem 1.5rem;
+			padding: 1.75rem 1.25rem;
 			max-width: 100%;
+			height: auto;
 		}
 
-		.location-map-pins {
-			display: none;
-			height: 0;
+		.location-map-embed-card {
+			padding: 0.65rem;
+			height: auto;
+		}
+
+		.location-map-embed-card iframe {
+			aspect-ratio: 4 / 3;
+			height: auto;
+			min-height: 0;
 		}
 
 		.location-text-content {

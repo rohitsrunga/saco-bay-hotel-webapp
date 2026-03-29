@@ -1,24 +1,99 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const gallerySlides = [
+	{
+		id: 'exterior',
+		title: 'Out Front',
+		image: `${import.meta.env.BASE_URL}assets/gallery/exterior_property.jpg`,
+		alt: 'Exterior view of Saco Bay Hotel in Saco Maine',
+		caption: 'A look at the property from outside, with easy parking and a simple setup for coming and going.'
+	},
+	{
+		id: 'check-in',
+		title: 'Lobby Check-In',
+		image: `${import.meta.env.BASE_URL}assets/gallery/check_in_area_lobby.jpg`,
+		alt: 'Check-in area and lobby at Saco Bay Hotel',
+		caption: 'The front desk and main lobby area, where your stay starts without much fuss.'
+	},
+	{
+		id: 'lobby-seating',
+		title: 'Lobby Seating',
+		image: `${import.meta.env.BASE_URL}assets/gallery/relax_area_lobby.jpg`,
+		alt: 'Lobby seating area at Saco Bay Hotel',
+		caption: 'A quiet corner in the lobby to sit for a bit, meet up with family, or plan the rest of the day.'
+	},
+	{
+		id: 'breakfast',
+		title: 'Breakfast Area',
+		image: `${import.meta.env.BASE_URL}assets/gallery/breakfast_area.jpg`,
+		alt: 'Breakfast area at Saco Bay Hotel',
+		caption: 'The breakfast room where guests can grab something easy before heading out toward the beach or the road.'
+	},
+	{
+		id: 'king-room',
+		title: 'King Room',
+		image: `${import.meta.env.BASE_URL}assets/gallery/king_bed.jpg`,
+		alt: 'King bed guest room at Saco Bay Hotel',
+		caption: 'A king room with a clean setup and enough space to settle in after a day around Saco or Old Orchard.'
+	},
+	{
+		id: 'two-queen',
+		title: 'Two Queen Room',
+		image: `${import.meta.env.BASE_URL}assets/gallery/2_queen_room.jpg`,
+		alt: 'Two queen room at Saco Bay Hotel',
+		caption: 'A two-queen room that works well for families, friends, or anyone needing a little more sleeping space.'
+	},
+	{
+		id: 'desk-area',
+		title: 'Desk And Work Area',
+		image: `${import.meta.env.BASE_URL}assets/gallery/room_desk_working_area.jpg`,
+		alt: 'Guest room desk and work area at Saco Bay Hotel',
+		caption: 'A room setup with a desk and workspace if you need to answer email before heading back out.'
+	},
+	{
+		id: 'tv-couch',
+		title: 'Room Lounge Area',
+		image: `${import.meta.env.BASE_URL}assets/gallery/room_tv_desk_couch_.jpg`,
+		alt: 'Guest room with television, desk, and couch at Saco Bay Hotel',
+		caption: 'Extra room to sit back, watch a show, or just take a break once you are in for the night.'
+	},
+	{
+		id: 'suite-common',
+		title: 'Suite Living Space',
+		image: `${import.meta.env.BASE_URL}assets/gallery/suite_common_area.jpg`,
+		alt: 'Suite common area at Saco Bay Hotel',
+		caption: 'The suite living area, with more elbow room if you want something beyond a standard room.'
+	},
+	{
+		id: 'bathroom',
+		title: 'Guest Bathroom',
+		image: `${import.meta.env.BASE_URL}assets/gallery/bathroom.jpg`,
+		alt: 'Guest bathroom at Saco Bay Hotel',
+		caption: 'One of the guest bathrooms, set up clean and simple with the basics close at hand.'
+	}
+];
+
 const amenityGroups = [
 	{
 		title: 'The Essentials',
-		description: 'Everything most guests actually need for a smooth stay, whether you are here for a beach weekend, a family trip to Old Orchard, or a longer stretch of Maine coast.',
+		description: 'The basics that make a stay easy, whether you are here for the beach, visiting family, or just getting away for a couple days.',
 		items: [
 			'Hot breakfast included every morning',
+			'Outdoor Pool',
+			'Conference Center & Meeting Rooms',
 			'Complimentary on-site parking',
-			'24-hour wellness room access',
-			'Premium high-speed WiFi',
+			'Fast WiFi',
 			'Refrigerator and microwave',
 			'Keurig coffee makers',
 			'Plush bedding and linens',
-			'Dedicated work surface in select rooms'
+			'Dedicated work surface in all rooms',
+			'Park & Fly'
 		]
 	},
 	{
 		title: 'Around the Area',
-		description: 'Old Orchard Beach is minutes away, and the stretch between Saco, Biddeford, and the coast has more going on than most guests expect.',
+		description: 'You are close to more than just Old Orchard. Saco, Biddeford, Camp Ellis, and the beaches all give you plenty to do without a long drive.',
 		items: [
 			'Old Orchard Beach pier, boardwalk, and Palace Playland',
 			'Funtown Splashtown USA — Maine\'s largest amusement and water park',
@@ -34,12 +109,8 @@ const amenityGroups = [
 
 const faqs = [
 	{
-		question: 'Airport shuttle',
-		answer: 'We run a shuttle 24 hours a day to and from Portland International Jetport. When you land, call the front desk and we will help coordinate pickup.'
-	},
-	{
 		question: 'Breakfast',
-		answer: 'Hot breakfast is included every morning. It is more than a continental setup, with a rotating mix of eggs, proteins, and the usual morning staples.'
+		answer: 'Hot breakfast is included every morning, with the usual staples to get you out the door without having to make your first stop a coffee shop.'
 	},
 	{
 		question: 'Pets',
@@ -51,30 +122,232 @@ const faqs = [
 	},
 	{
 		question: 'Parking',
-		answer: 'Parking is free and on site. No garage fees, no validation, no extra steps.'
+		answer: 'Parking is free and right on site. No garage, no pass to fuss with, no extra charge.'
+	},
+	{
+		question: 'Park & Fly',
+		answer: 'If you are flying out of PWM, this is an easy place to stay the night before so you are not driving half-asleep to the airport.'
 	},
 	{
 		question: 'Getting around',
-		answer: 'Old Orchard Beach is about 5 minutes by car. Downtown Biddeford is 10 minutes. Portland\'s Old Port is roughly 20 minutes north. Rideshare is easy from the hotel, and we\'re happy to point you toward local spots most visitors miss.'
+		answer: 'Old Orchard Beach is a quick drive. Downtown Saco and Biddeford are close by, and Portland is far enough north to be doable without needing to stay there. If you want local food or beach suggestions, just ask.'
 	}
 ];
 ---
 
-<Layout title="Experience & FAQ | Saco Bay Hotel" description="Amenities, guest information, and frequently asked questions for Saco Bay Hotel — your base for Old Orchard Beach, Saco, and the southern Maine coast.">
+<Layout title="Experience & FAQ | Saco Bay Hotel" description="Amenities, local notes, and guest information for staying in Saco near Old Orchard Beach and the southern Maine coast.">
 	<section class="experience-hero bg-warm">
 		<div class="container experience-hero-inner">
 			<span class="eyebrow">Saco Bay Hotel</span>
 			<h1>The Experience</h1>
-			<p>Everything guests usually ask before they book, plus what's worth doing once you get here — from Old Orchard Beach to the Saco River and the coast in between.</p>
+			<p>What you need to know before you book, plus a few good ways to spend your time once you get here.</p>
 		</div>
 	</section>
+
+	<section class="experience-gallery bg-navy">
+		<div class="container">
+			<div class="gallery-intro section-heading section-heading-light">
+				<span class="eyebrow">Part 1</span>
+				<h2>Gallery</h2>
+				<p>A look around our hotel, from the lobby to the guest rooms.</p>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="gallery-carousel-shell gallery-carousel-desktop">
+				<button class="gallery-nav prev" type="button" aria-label="Previous gallery photo">‹</button>
+				<div class="gallery-carousel-viewport">
+					<div class="gallery-carousel-track">
+						{
+							gallerySlides.map((slide) => (
+								<article class="gallery-slide" data-gallery={slide.id}>
+									<div class="gallery-slide-image">
+										<img src={slide.image} alt={slide.alt} />
+									</div>
+									<div class="gallery-slide-caption">
+										<div>
+											<span class="eyebrow">{slide.title}</span>
+											<p>{slide.caption}</p>
+										</div>
+									</div>
+								</article>
+							))
+						}
+					</div>
+				</div>
+				<button class="gallery-nav next" type="button" aria-label="Next gallery photo">›</button>
+			</div>
+			<div class="gallery-carousel-dots" aria-label="Gallery pagination">
+				{
+					gallerySlides.map((slide, index) => (
+						<button
+							type="button"
+							class={`gallery-dot${index === 0 ? ' is-active' : ''}`}
+							data-index={index}
+							aria-label={`Go to ${slide.title}`}
+						></button>
+					))
+				}
+			</div>
+
+			<div class="gallery-mobile-shell">
+				<button class="gallery-mobile-nav prev" type="button" aria-label="Previous gallery photo">‹</button>
+				<div class="gallery-mobile-viewport">
+					<div class="gallery-mobile-stack">
+						{
+							gallerySlides.map((slide) => (
+								<article class="gallery-mobile-card">
+									<div class="gallery-mobile-image">
+										<img src={slide.image} alt={slide.alt} />
+									</div>
+									<div class="gallery-mobile-content">
+										<span class="eyebrow">{slide.title}</span>
+										<p>{slide.caption}</p>
+									</div>
+								</article>
+							))
+						}
+					</div>
+				</div>
+				<button class="gallery-mobile-nav next" type="button" aria-label="Next gallery photo">›</button>
+			</div>
+			<div class="gallery-mobile-dots" aria-label="Mobile gallery pagination">
+				{
+					gallerySlides.map((slide, index) => (
+						<button
+							type="button"
+							class={`gallery-mobile-dot${index === 0 ? ' is-active' : ''}`}
+							data-index={index}
+							aria-label={`Go to ${slide.title}`}
+						></button>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<script>
+		const galleryTrack = document.querySelector('.gallery-carousel-track') as HTMLElement | null;
+		const galleryViewport = document.querySelector('.gallery-carousel-viewport') as HTMLElement | null;
+		const galleryDots = Array.from(document.querySelectorAll('.gallery-dot')) as HTMLButtonElement[];
+		const galleryPrevButton = document.querySelector('.gallery-nav.prev') as HTMLButtonElement | null;
+		const galleryNextButton = document.querySelector('.gallery-nav.next') as HTMLButtonElement | null;
+		const mobileGalleryViewport = document.querySelector('.gallery-mobile-viewport') as HTMLElement | null;
+		const mobileGalleryCards = Array.from(document.querySelectorAll('.gallery-mobile-card')) as HTMLElement[];
+		const mobileGalleryDots = Array.from(document.querySelectorAll('.gallery-mobile-dot')) as HTMLButtonElement[];
+		const mobileGalleryPrevButton = document.querySelector('.gallery-mobile-nav.prev') as HTMLButtonElement | null;
+		const mobileGalleryNextButton = document.querySelector('.gallery-mobile-nav.next') as HTMLButtonElement | null;
+		let activeGallery = 0;
+		let galleryTouchStartX = 0;
+		let galleryTouchStartY = 0;
+
+		function renderGallerySlide(index: number) {
+			if (window.innerWidth <= 1024) {
+				if (mobileGalleryCards.length === 0) return;
+
+				activeGallery = (index + mobileGalleryCards.length) % mobileGalleryCards.length;
+				mobileGalleryCards.forEach((card, cardIndex) => {
+					card.classList.remove('is-active', 'is-before', 'is-after');
+					if (cardIndex === activeGallery) {
+						card.classList.add('is-active');
+					} else if (cardIndex === (activeGallery - 1 + mobileGalleryCards.length) % mobileGalleryCards.length) {
+						card.classList.add('is-before');
+					} else {
+						card.classList.add('is-after');
+					}
+				});
+
+				mobileGalleryDots.forEach((dot, dotIndex) => {
+					dot.classList.toggle('is-active', dotIndex === activeGallery);
+				});
+
+				return;
+			}
+
+			if (!galleryTrack || !galleryViewport) return;
+
+			activeGallery = (index + galleryDots.length) % galleryDots.length;
+			const slideWidth = galleryViewport.clientWidth;
+			galleryTrack.style.transform = `translateX(-${activeGallery * slideWidth}px)`;
+
+			galleryDots.forEach((dot, dotIndex) => {
+				dot.classList.toggle('is-active', dotIndex === activeGallery);
+			});
+		}
+
+		galleryPrevButton?.addEventListener('click', () => {
+			renderGallerySlide(activeGallery - 1);
+		});
+
+		galleryNextButton?.addEventListener('click', () => {
+			renderGallerySlide(activeGallery + 1);
+		});
+
+		galleryDots.forEach((dot) => {
+			dot.addEventListener('click', () => {
+				renderGallerySlide(Number(dot.dataset.index ?? 0));
+			});
+		});
+
+		mobileGalleryPrevButton?.addEventListener('click', () => {
+			renderGallerySlide(activeGallery - 1);
+		});
+
+		mobileGalleryNextButton?.addEventListener('click', () => {
+			renderGallerySlide(activeGallery + 1);
+		});
+
+		mobileGalleryDots.forEach((dot) => {
+			dot.addEventListener('click', () => {
+				renderGallerySlide(Number(dot.dataset.index ?? 0));
+			});
+		});
+
+		mobileGalleryViewport?.addEventListener(
+			'touchstart',
+			(event) => {
+				const touch = event.touches[0];
+				if (!touch) return;
+				galleryTouchStartX = touch.clientX;
+				galleryTouchStartY = touch.clientY;
+			},
+			{ passive: true }
+		);
+
+		mobileGalleryViewport?.addEventListener(
+			'touchend',
+			(event) => {
+				const touch = event.changedTouches[0];
+				if (!touch || window.innerWidth > 1024) return;
+
+				const deltaX = touch.clientX - galleryTouchStartX;
+				const deltaY = touch.clientY - galleryTouchStartY;
+				const swipeThreshold = 40;
+
+				if (Math.abs(deltaX) <= swipeThreshold || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+
+				if (deltaX < 0) {
+					renderGallerySlide(activeGallery + 1);
+				} else {
+					renderGallerySlide(activeGallery - 1);
+				}
+			},
+			{ passive: true }
+		);
+
+		window.addEventListener('resize', () => {
+			renderGallerySlide(activeGallery);
+		});
+
+		renderGallerySlide(0);
+	</script>
 
 	<section class="experience-detail bg-coastal textured">
 		<div class="container">
 			<div class="section-heading">
-				<span class="eyebrow">Part 1</span>
+				<span class="eyebrow">Part 2</span>
 				<h2 class="navy-text">Amenities</h2>
-				<p>Thoughtful essentials for a Maine coast stay — whether you're here for Old Orchard Beach, a family summer trip, or a few quiet days by the water.</p>
+				<p>The useful stuff. Nothing fancy for the sake of it, just the things most people want when they are staying near the coast.</p>
 			</div>
 
 			<div class="amenities-editorial-grid">
@@ -105,9 +378,9 @@ const faqs = [
 	<section class="faq-section bg-warm">
 		<div class="container faq-layout">
 			<div class="section-heading faq-heading">
-				<span class="eyebrow">Part 2</span>
+				<span class="eyebrow">Part 3</span>
 				<h2 class="navy-text">Good to Know</h2>
-				<p>Simple answers before your arrival.</p>
+				<p>A few quick answers before you head this way.</p>
 			</div>
 
 			<div class="faq-list">
@@ -145,6 +418,165 @@ const faqs = [
 		font-size: 1.15rem;
 		line-height: 1.8;
 		color: var(--text-muted);
+	}
+
+	.experience-gallery {
+		padding: 0 0 3rem;
+		position: relative;
+	}
+
+	.gallery-intro {
+		padding-top: 5.5rem;
+		padding-bottom: 1.5rem;
+		position: relative;
+		z-index: 2;
+		margin-bottom: 1.5rem;
+	}
+
+	.gallery-intro .eyebrow,
+	.gallery-intro h2,
+	.gallery-intro p {
+		color: var(--white);
+	}
+
+	.gallery-intro p {
+		max-width: 42rem;
+		color: #94a3b8;
+	}
+
+	.gallery-carousel-shell {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		padding: 0 6rem;
+	}
+
+	.gallery-carousel-viewport {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.gallery-carousel-track {
+		display: flex;
+		flex-wrap: nowrap;
+		width: 100%;
+		transition: transform 0.55s ease;
+		will-change: transform;
+	}
+
+	.gallery-slide {
+		flex: 0 0 100%;
+		min-width: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.gallery-slide-image img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 500px;
+		max-height: 620px;
+		object-fit: cover;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		box-shadow: 0 18px 42px rgba(4, 20, 36, 0.16);
+	}
+
+	.gallery-slide-caption {
+		margin-top: 1.15rem;
+		padding: 1.1rem 0.25rem 0;
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	.gallery-slide-caption .eyebrow,
+	.gallery-mobile-content .eyebrow {
+		color: #a3c4d4;
+		margin-bottom: 0.55rem;
+	}
+
+	.gallery-slide-caption p,
+	.gallery-mobile-content p {
+		font-size: 0.98rem;
+		line-height: 1.7;
+		color: #94a3b8;
+		max-width: 38rem;
+	}
+
+	.gallery-nav {
+		position: absolute;
+		top: 250px;
+		transform: translateY(-50%);
+		width: 2.45rem;
+		height: 2.45rem;
+		border: 1px solid rgba(255, 255, 255, 0.28);
+		background: rgba(255, 255, 255, 0.08);
+		color: var(--white);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.2rem;
+		line-height: 1;
+		cursor: pointer;
+		z-index: 3;
+		backdrop-filter: blur(10px);
+	}
+
+	.gallery-nav.prev {
+		left: 1rem;
+	}
+
+	.gallery-nav.next {
+		right: 1rem;
+	}
+
+	.gallery-carousel-dots {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.7rem;
+		margin-top: 0.75rem;
+	}
+
+	.gallery-dot {
+		width: 0.72rem;
+		height: 0.72rem;
+		border-radius: 999px;
+		border: none;
+		background: rgba(255, 255, 255, 0.28);
+		cursor: pointer;
+		padding: 0;
+	}
+
+	.gallery-dot.is-active {
+		background: var(--white);
+	}
+
+	.gallery-carousel-desktop {
+		display: block;
+	}
+
+	.gallery-mobile-stack {
+		display: none;
+	}
+
+	.gallery-mobile-shell,
+	.gallery-mobile-dots {
+		display: none !important;
+	}
+
+	.gallery-mobile-image img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.gallery-mobile-content {
+		padding: 1rem 0.35rem 0;
 	}
 
 	.section-heading {
@@ -325,6 +757,114 @@ const faqs = [
 
 		.amenity-group-header h3 {
 			font-size: 1.75rem;
+		}
+
+		.gallery-carousel-desktop,
+		.gallery-carousel-dots {
+			display: none;
+		}
+
+		.gallery-mobile-stack {
+			display: block;
+			position: relative;
+			width: 100%;
+		}
+
+		.gallery-mobile-shell {
+			display: block;
+			position: relative;
+			padding: 0 1.75rem;
+		}
+
+		.gallery-mobile-viewport {
+			overflow: hidden;
+			position: relative;
+			min-height: 560px;
+			touch-action: pan-y;
+		}
+
+		.gallery-mobile-dots {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.7rem;
+			margin-top: 1rem;
+		}
+
+		.gallery-mobile-dot {
+			width: 0.72rem;
+			height: 0.72rem;
+			border-radius: 999px;
+			border: none;
+			background: rgba(255, 255, 255, 0.28);
+			cursor: pointer;
+			padding: 0;
+		}
+
+		.gallery-mobile-dot.is-active {
+			background: var(--white);
+		}
+
+		.gallery-mobile-card {
+			position: absolute;
+			inset: 0;
+			opacity: 0;
+			transform: translateX(18px);
+			transition: opacity 0.35s ease, transform 0.4s ease;
+			pointer-events: none;
+		}
+
+		.gallery-mobile-card.is-active {
+			opacity: 1;
+			transform: translateX(0);
+			position: relative;
+			pointer-events: auto;
+			z-index: 2;
+		}
+
+		.gallery-mobile-card.is-before {
+			opacity: 0;
+			transform: translateX(-18px);
+			z-index: 1;
+		}
+
+		.gallery-mobile-card.is-after {
+			opacity: 0;
+			transform: translateX(18px);
+			z-index: 1;
+		}
+
+		.gallery-mobile-image img {
+			min-height: 330px;
+			max-height: 380px;
+			border: 1px solid rgba(255, 255, 255, 0.08);
+			box-shadow: 0 16px 36px rgba(4, 20, 36, 0.16);
+		}
+
+		.gallery-mobile-nav {
+			display: inline-flex;
+			position: absolute;
+			top: 165px;
+			align-items: center;
+			justify-content: center;
+			width: 2.5rem;
+			height: 2.5rem;
+			border: 1px solid rgba(255, 255, 255, 0.35);
+			background: rgba(4, 20, 36, 0.34);
+			color: var(--white);
+			font-size: 1.3rem;
+			line-height: 1;
+			padding: 0;
+			cursor: pointer;
+			z-index: 3;
+		}
+
+		.gallery-mobile-nav.prev {
+			left: 0;
+		}
+
+		.gallery-mobile-nav.next {
+			right: 0;
 		}
 
 		.faq-section {
