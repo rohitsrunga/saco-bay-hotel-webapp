@@ -1,0 +1,334 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const amenityGroups = [
+	{
+		title: 'The Essentials',
+		description: 'Everything most guests actually need for a smooth stay, whether you are here for a beach weekend, a family trip to Old Orchard, or a longer stretch of Maine coast.',
+		items: [
+			'Hot breakfast included every morning',
+			'Complimentary on-site parking',
+			'24-hour wellness room access',
+			'Premium high-speed WiFi',
+			'Refrigerator and microwave',
+			'Keurig coffee makers',
+			'Plush bedding and linens',
+			'Dedicated work surface in select rooms'
+		]
+	},
+	{
+		title: 'Around the Area',
+		description: 'Old Orchard Beach is minutes away, and the stretch between Saco, Biddeford, and the coast has more going on than most guests expect.',
+		items: [
+			'Old Orchard Beach pier, boardwalk, and Palace Playland',
+			'Funtown Splashtown USA — Maine\'s largest amusement and water park',
+			'Ferry Beach State Park for swimming and nature trails',
+			'Saco River for kayaking and canoe launches',
+			'Camp Ellis beach and the Saco Bay jetty walk',
+			'East Point Sanctuary in Biddeford Pool for birding and coastal views',
+			'Scarborough Marsh — the largest salt marsh in Maine',
+			'Downtown Biddeford\'s restaurant and arts scene, 10 minutes away'
+		]
+	}
+];
+
+const faqs = [
+	{
+		question: 'Airport shuttle',
+		answer: 'We run a shuttle 24 hours a day to and from Portland International Jetport. When you land, call the front desk and we will help coordinate pickup.'
+	},
+	{
+		question: 'Breakfast',
+		answer: 'Hot breakfast is included every morning. It is more than a continental setup, with a rotating mix of eggs, proteins, and the usual morning staples.'
+	},
+	{
+		question: 'Pets',
+		answer: 'We do not allow pets, with the exception of ADA service animals.'
+	},
+	{
+		question: 'Check-in / Check-out',
+		answer: 'Standard check-in is at 3pm and check-out is at 11am.'
+	},
+	{
+		question: 'Parking',
+		answer: 'Parking is free and on site. No garage fees, no validation, no extra steps.'
+	},
+	{
+		question: 'Getting around',
+		answer: 'Old Orchard Beach is about 5 minutes by car. Downtown Biddeford is 10 minutes. Portland\'s Old Port is roughly 20 minutes north. Rideshare is easy from the hotel, and we\'re happy to point you toward local spots most visitors miss.'
+	}
+];
+---
+
+<Layout title="Experience & FAQ | Saco Bay Hotel" description="Amenities, guest information, and frequently asked questions for Saco Bay Hotel — your base for Old Orchard Beach, Saco, and the southern Maine coast.">
+	<section class="experience-hero bg-warm">
+		<div class="container experience-hero-inner">
+			<span class="eyebrow">Saco Bay Hotel</span>
+			<h1>The Experience</h1>
+			<p>Everything guests usually ask before they book, plus what's worth doing once you get here — from Old Orchard Beach to the Saco River and the coast in between.</p>
+		</div>
+	</section>
+
+	<section class="experience-detail bg-coastal textured">
+		<div class="container">
+			<div class="section-heading">
+				<span class="eyebrow">Part 1</span>
+				<h2 class="navy-text">Amenities</h2>
+				<p>Thoughtful essentials for a Maine coast stay — whether you're here for Old Orchard Beach, a family summer trip, or a few quiet days by the water.</p>
+			</div>
+
+			<div class="amenities-editorial-grid">
+				{
+					amenityGroups.map((group) => (
+						<article class="amenity-group">
+							<div class="amenity-group-header">
+								<h3>{group.title}</h3>
+								<p>{group.description}</p>
+							</div>
+							{group.highlight && (
+								<div class="amenity-highlight">
+									<span class="sans-caps">Highlighted</span>
+									<h4>{group.highlight}</h4>
+									<p>Stay before your flight, leave your car here while you travel, and use our 24-hour shuttle to get to PWM without the usual airport scramble.</p>
+								</div>
+							)}
+							<ul>
+								{group.items.map((item) => <li>{item}</li>)}
+							</ul>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="faq-section bg-warm">
+		<div class="container faq-layout">
+			<div class="section-heading faq-heading">
+				<span class="eyebrow">Part 2</span>
+				<h2 class="navy-text">Good to Know</h2>
+				<p>Simple answers before your arrival.</p>
+			</div>
+
+			<div class="faq-list">
+				{
+					faqs.map((faq, index) => (
+						<details class="faq-item" open={index === 0}>
+							<summary>{faq.question}</summary>
+							<p>{faq.answer}</p>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.experience-hero {
+		padding: 11rem 0 5rem;
+	}
+
+	.experience-hero-inner {
+		max-width: 860px;
+	}
+
+	.experience-hero h1 {
+		font-size: clamp(3.8rem, 9vw, 6.5rem);
+		line-height: 0.95;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+	}
+
+	.experience-hero p {
+		max-width: 620px;
+		font-size: 1.15rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+	}
+
+	.section-heading {
+		max-width: 720px;
+		margin-bottom: 4rem;
+		position: relative;
+		z-index: 2;
+	}
+
+	.section-heading h2 {
+		font-size: 3.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.section-heading p {
+		font-size: 1.05rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+	}
+
+	.amenities-editorial-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 2rem;
+		position: relative;
+		z-index: 2;
+	}
+
+	.amenity-group {
+		background: rgba(255, 255, 255, 0.72);
+		padding: 2rem;
+		border: 1px solid rgba(16, 42, 67, 0.08);
+		box-shadow: 0 18px 45px rgba(16, 42, 67, 0.08);
+		backdrop-filter: blur(10px);
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.amenity-group-header h3 {
+		font-size: 2rem;
+		color: var(--navy-deep);
+		margin-bottom: 0.75rem;
+	}
+
+	.amenity-group-header p,
+	.amenity-highlight p {
+		color: var(--text-muted);
+		line-height: 1.75;
+	}
+
+	.amenity-highlight {
+		padding: 1.25rem 1.35rem;
+		background: rgba(16, 42, 67, 0.06);
+		border-left: 3px solid var(--accent);
+	}
+
+	.amenity-highlight h4 {
+		font-size: 1.5rem;
+		color: var(--navy-deep);
+		margin: 0.35rem 0 0.5rem;
+	}
+
+	.amenity-group ul {
+		list-style: none;
+		display: grid;
+		gap: 0.8rem;
+	}
+
+	.amenity-group li {
+		padding-left: 1.25rem;
+		position: relative;
+		color: var(--navy-deep);
+		font-weight: 600;
+	}
+
+	.amenity-group li::before {
+		content: "—";
+		position: absolute;
+		left: 0;
+		color: var(--accent);
+	}
+
+	.faq-section {
+		padding: 6rem 0 7rem;
+	}
+
+	.faq-layout {
+		display: grid;
+		grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.faq-heading {
+		margin-bottom: 0;
+	}
+
+	.faq-list {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.faq-item {
+		background: var(--white);
+		border: 1px solid rgba(16, 42, 67, 0.08);
+		padding: 1.4rem 1.5rem;
+		box-shadow: 0 10px 30px rgba(16, 42, 67, 0.05);
+	}
+
+	.faq-item summary {
+		list-style: none;
+		cursor: pointer;
+		font-family: var(--font-sans);
+		font-size: 0.92rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--navy-deep);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-item summary::after {
+		content: "+";
+		font-size: 1.3rem;
+		font-weight: 400;
+		color: var(--accent);
+	}
+
+	.faq-item[open] summary::after {
+		content: "−";
+	}
+
+	.faq-item p {
+		padding-top: 1rem;
+		color: var(--text-muted);
+		line-height: 1.8;
+		max-width: 50rem;
+	}
+
+	@media (max-width: 900px) {
+		.amenities-editorial-grid,
+		.faq-layout {
+			grid-template-columns: 1fr;
+		}
+
+		.section-heading h2 {
+			font-size: 2.7rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.experience-hero {
+			padding: 9rem 0 4rem;
+		}
+
+		.experience-hero h1 {
+			font-size: 3.4rem;
+		}
+
+		.experience-hero p,
+		.section-heading p,
+		.amenity-group-header p,
+		.amenity-highlight p,
+		.faq-item p {
+			font-size: 1rem;
+		}
+
+		.amenity-group {
+			padding: 1.5rem;
+		}
+
+		.amenity-group-header h3 {
+			font-size: 1.75rem;
+		}
+
+		.faq-section {
+			padding-top: 4.5rem;
+		}
+	}
+</style>

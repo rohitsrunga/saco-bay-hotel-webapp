@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+}
+
+:root {
+  --bg-mist: #ede8de;      /* cream — body background */
+  --bg-coastal: #c8d5d2;   /* sea mist — coastal sections */
+  --bg-warm: #f5f0ea;      /* light warm sand — hero/warm sections */
+  --navy-deep: #1a3a44;    /* deep ocean — headings & dark text */
+  --navy-muted: #2a5562;   /* coastal teal-navy */
+  --text-main: #1a3a44;
+  --text-light: #ede8de;
+  --text-muted: #5a7e88;
+  --accent: #6aada3;       /* muted ocean teal */
+  --white: #ffffff;
+  --cream-muted: #d9ccba;  /* warm sand — footer background */
+  --border-blue: rgba(106, 173, 163, 0.15);
+  --border-light: rgba(26, 58, 68, 0.1);
+
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Cormorant Garamond", system-ui, sans-serif;
+  --header-height: 100px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-mist);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background Utilities for 'More Maine' */
+.bg-navy { background-color: var(--navy-deep); color: var(--white); }
+.bg-slate { background-color: var(--navy-muted); color: var(--white); }
+.bg-mist { background-color: var(--bg-mist); }
+.bg-coastal { background-color: var(--bg-coastal); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: inherit;
+  line-height: 1.15;
+}
+
+.bg-navy h2, .bg-slate h2 { color: var(--white); }
+
+.sans-caps {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s ease;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 3rem;
+  background-color: var(--accent);
+  color: var(--white) !important;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  box-shadow: 0 4px 15px rgba(106, 173, 163, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #4a8a82;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(106, 173, 163, 0.4);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  width: 100%;
+}
+
+section {
+  padding: 6rem 0; /* Reduced from 10rem to be more efficient */
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .container { padding: 0 2rem; }
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.bg-navy .eyebrow, .bg-slate .eyebrow { color: #a3c4d4; }
+
+/* Character & Texture Restoration */
+.textured {
+  position: relative;
+}
+
+.textured::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.section-divider {
+  width: 40px;
+  height: 1px;
+  background-color: var(--accent);
+  margin: 2rem 0;
+}
+
+
+
+
+
+
