@@ -15,7 +15,7 @@ const testimonials = [
 	{
 		quote: 'This felt like a much easier way to do southern Maine. We grabbed breakfast, spent the day down by the water, got dinner in Biddeford, and lounged in our room. Straightforward stay, friendly staff, and a good spot if you know the area.',
 		author: 'Jen L.',
-		source: 'Choice Privileges'
+		source: 'Google Review'
 	}
 ];
 
@@ -275,6 +275,41 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			return window.innerWidth <= 768;
 		}
 
+		function syncTestimonialViewportHeight() {
+			if (!testimonialViewport || testimonialCards.length === 0) return;
+
+			if (!isMobileCarousel()) {
+				testimonialViewport.style.height = '';
+				return;
+			}
+
+			const previousStyles = testimonialCards.map((card) => card.getAttribute('style'));
+
+			testimonialViewport.style.height = '';
+			testimonialCards.forEach((card) => {
+				card.style.position = 'relative';
+				card.style.inset = 'auto';
+				card.style.opacity = '1';
+				card.style.transform = 'none';
+				card.style.pointerEvents = 'none';
+				card.style.visibility = 'hidden';
+				card.style.height = 'auto';
+			});
+
+			const tallestCardHeight = Math.max(...testimonialCards.map((card) => card.offsetHeight));
+
+			testimonialCards.forEach((card, index) => {
+				const previousStyle = previousStyles[index];
+				if (previousStyle) {
+					card.setAttribute('style', previousStyle);
+				} else {
+					card.removeAttribute('style');
+				}
+			});
+
+			testimonialViewport.style.height = `${tallestCardHeight}px`;
+		}
+
 		function renderTestimonials(index: number) {
 			if (!testimonialTrack || !testimonialViewport || testimonialCards.length === 0) return;
 
@@ -329,10 +364,12 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		});
 
 		window.addEventListener('resize', () => {
+			syncTestimonialViewportHeight();
 			renderTestimonials(activeSlide);
 			startAutoplay();
 		});
 
+		syncTestimonialViewportHeight();
 		renderTestimonials(0);
 		startAutoplay();
 	</script>
@@ -900,6 +937,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		font-style: italic;
 		line-height: 1.45;
 		margin-bottom: 0.8rem;
+		flex: 1;
 	}
 
 	.testimonial-author {
