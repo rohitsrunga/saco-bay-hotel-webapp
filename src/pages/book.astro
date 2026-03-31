@@ -15,12 +15,6 @@ import Layout from '../layouts/Layout.astro';
 		background: var(--white);
 	}
 
-	.book-page cb-immersive-experience {
-		display: block;
-		width: 100%;
-		font-family: Inter, system-ui, sans-serif;
-		line-height: normal;
-	}
 </style>
 
 <style is:global>
@@ -32,17 +26,12 @@ import Layout from '../layouts/Layout.astro';
 		overflow-x: clip;
 	}
 
-	/* Prevent global reset from stripping spacing inside Cloudbeds widget */
+	/* Fully isolate Cloudbeds widget from all our custom CSS */
+	cb-immersive-experience,
 	cb-immersive-experience *,
 	cb-immersive-experience *::before,
 	cb-immersive-experience *::after {
-		margin: revert;
-		padding: revert;
-		box-sizing: revert;
-		line-height: revert;
-		font-family: revert;
-		font-weight: revert;
-		color: revert;
+		all: revert;
 	}
 
 	body:has(.book-page) #main-header .header-container {
