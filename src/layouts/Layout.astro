@@ -75,7 +75,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 								<span class="hamburger-line"></span>
 								<span class="hamburger-line"></span>
 							</button>
-							<cb-book-now-button property-code="wOOQW0" class-name="btn-book" label="Book Now"></cb-book-now-button>
+							<a href="/book" class="btn-book">Book Now</a>
 						</div>
 					</nav>
 				</div>
@@ -119,7 +119,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 						<div class="footer-nav-col">
 							<h4>Stay</h4>
 							<a href={roomsHref}>Rooms</a>
-							<cb-book-now-button property-code="wOOQW0" class-name="footer-reservations-btn" label="Reservations"></cb-book-now-button>
+							<a href="/book" class="footer-reservations-btn">Reservations</a>
 						</div>
 					</nav>
 				</div>
@@ -341,10 +341,6 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 
 			#main-header.scrolled .main-nav a:hover {
 				color: var(--accent);
-			}
-
-			cb-book-now-button {
-				display: contents;
 			}
 
 			.btn-book {
