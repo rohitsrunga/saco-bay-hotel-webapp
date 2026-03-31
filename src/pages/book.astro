@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Book Your Stay | Saco Bay Hotel" description="Book your stay at Saco Bay Hotel in Saco, Maine, near Old Orchard Beach and the southern Maine coast.">
+<Layout title="Book Your Stay | Saco Bay Hotel" description="Book your stay at Saco Bay Hotel in Saco, Maine, near Old Orchard Beach and the southern Maine coast." minimalHeader={true}>
 	<div class="book-page">
 		<cb-immersive-experience property-code="wOOQW0" mode="standard"></cb-immersive-experience>
 	</div>
@@ -10,7 +10,28 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	.book-page {
-		padding-top: 0;
+		padding-top: var(--header-height);
 		min-height: 100vh;
+	}
+</style>
+
+<style is:global>
+	body:has(.book-page) #main-header .header-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	body:has(.book-page) #main-header .header-center {
+		display: none;
+	}
+
+	@media (max-width: 768px) {
+		body:has(.book-page) #main-header.scrolled .header-left,
+		body:has(.book-page) #main-header.scrolled .header-right {
+			position: relative;
+			top: auto;
+			transform: none;
+		}
 	}
 </style>

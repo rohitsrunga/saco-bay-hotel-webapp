@@ -9,19 +9,19 @@ html, body {
 }
 
 :root {
-  --bg-mist: #ede8de;      /* cream — body background */
-  --bg-coastal: #c8d5d2;   /* sea mist — coastal sections */
-  --bg-warm: #f5f0ea;      /* light warm sand — hero/warm sections */
-  --navy-deep: #1a3a44;    /* deep ocean — headings & dark text */
-  --navy-muted: #2a5562;   /* coastal teal-navy */
-  --text-main: #1a3a44;
-  --text-light: #ede8de;
-  --text-muted: #5a7e88;
-  --accent: #6aada3;       /* muted ocean teal */
+  --bg-mist: #EDE5DB;      /* warm sandy — body background */
+  --bg-coastal: #D4DFEC;   /* pale ocean blue — coastal sections */
+  --bg-warm: #F5EEE8;      /* light warm sand — hero/warm sections */
+  --navy-deep: #1E2D4B;    /* deep navy — headings & dark text */
+  --navy-muted: #263452;   /* slate navy */
+  --text-main: #1E2D4B;
+  --text-light: #EDE5DB;
+  --text-muted: #4E6080;
+  --accent: #1E2D4B;       /* dark navy — buttons & accents */
   --white: #ffffff;
-  --cream-muted: #d9ccba;  /* warm sand — footer background */
-  --border-blue: rgba(106, 173, 163, 0.15);
-  --border-light: rgba(26, 58, 68, 0.1);
+  --cream-muted: #C8B8AD;  /* deeper sandy — footer background */
+  --border-blue: rgba(30, 45, 75, 0.15);
+  --border-light: rgba(30, 45, 75, 0.1);
 
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Cormorant Garamond", system-ui, sans-serif;
@@ -80,13 +80,13 @@ a {
   border: none;
   cursor: pointer;
   border-radius: 0;
-  box-shadow: 0 4px 15px rgba(106, 173, 163, 0.3);
+  box-shadow: 0 4px 15px rgba(30, 45, 75, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: #4a8a82;
+  background-color: #141E33;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(106, 173, 163, 0.4);
+  box-shadow: 0 10px 30px rgba(30, 45, 75, 0.4);
 }
 
 .container {
@@ -116,7 +116,7 @@ section {
   margin-bottom: 2rem;
 }
 
-.bg-navy .eyebrow, .bg-slate .eyebrow { color: #a3c4d4; }
+.bg-navy .eyebrow, .bg-slate .eyebrow { color: #7A9DC4; }
 
 /* Character & Texture Restoration */
 .textured {

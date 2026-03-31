@@ -2,11 +2,12 @@
 interface Props {
 	title: string;
 	description?: string;
+	minimalHeader?: boolean;
 }
 
 import '../styles/global.css';
 
-const { title, description = "Saco Bay Hotel in Saco, Maine, near Old Orchard Beach and the southern Maine coast." } = Astro.props;
+const { title, description = "Saco Bay Hotel in Saco, Maine, near Old Orchard Beach and the southern Maine coast.", minimalHeader = false } = Astro.props;
 const normalizePath = (value: string) => {
 	if (!value || value === '/') return '';
 	return value.endsWith('/') ? value.slice(0, -1) : value;
@@ -47,14 +48,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 					<div class="header-left">
 						{!isHome && (
 							<a href={homeBookingHref} class="home-badge-link" aria-label="Return to homepage booking widget">
-								<svg class="home-badge-logo" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<rect x="18" y="18" width="204" height="204" stroke="currentColor" stroke-width="1.75" />
-									<text x="62" y="124" font-family="Cormorant Garamond, serif" font-size="92" fill="currentColor" font-weight="500">S</text>
-									<text x="128" y="124" font-family="Cormorant Garamond, serif" font-size="92" fill="currentColor" font-weight="400" opacity="0.92">B</text>
-									<line x1="88" y1="146" x2="152" y2="146" stroke="currentColor" stroke-width="1.2" opacity="0.6" />
-									<text x="120" y="166" text-anchor="middle" font-family="Cinzel, serif" font-size="11" fill="currentColor" letter-spacing="0.14em">SACO BAY</text>
-									<text x="120" y="183" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" fill="currentColor" letter-spacing="0.3em" font-weight="700" opacity="0.78">HOTEL</text>
-								</svg>
+								<img src={`${baseUrl}assets/SB.png`} class="home-badge-logo" alt="Saco Bay Hotel" />
 							</a>
 						)}
 						<nav class="main-nav left-nav">
@@ -75,7 +69,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 								<span class="hamburger-line"></span>
 								<span class="hamburger-line"></span>
 							</button>
-							<a href="/book" class="btn-book">Book Now</a>
+							{!minimalHeader && <a href="/book" class="btn-book">Book Now</a>}
 						</div>
 					</nav>
 				</div>
@@ -360,7 +354,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 			#main-header.scrolled .btn-book {
 				background: var(--navy-muted);
 				border-color: var(--navy-muted);
-				box-shadow: 0 10px 25px rgba(42, 85, 98, 0.35);
+				box-shadow: 0 10px 25px rgba(38, 52, 82, 0.35);
 			}
 
 			.btn-book:hover {
