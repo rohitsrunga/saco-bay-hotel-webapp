@@ -26,6 +26,17 @@ import Layout from '../layouts/Layout.astro';
 		display: none;
 	}
 
+	body:has(.book-page) #main-header.nav-hidden .header-left,
+	body:has(.book-page) #main-header.nav-hidden .header-right {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	body:has(.book-page) #main-header .header-left,
+	body:has(.book-page) #main-header .header-right {
+		transition: opacity 0.4s ease;
+	}
+
 	@media (max-width: 768px) {
 		body:has(.book-page) #main-header.scrolled .header-left,
 		body:has(.book-page) #main-header.scrolled .header-right {
@@ -35,3 +46,11 @@ import Layout from '../layouts/Layout.astro';
 		}
 	}
 </style>
+
+<script>
+	const header = document.getElementById('main-header');
+
+	window.addEventListener('scroll', () => {
+		header?.classList.toggle('nav-hidden', window.scrollY > 40);
+	}, { passive: true });
+</script>
