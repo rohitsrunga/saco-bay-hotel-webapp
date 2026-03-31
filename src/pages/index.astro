@@ -139,7 +139,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 							</div>
 						</div>
 
-						<button id="main-book-btn" class="btn-primary booking-submit" data-be-url="https://us2.cloudbeds.com/reservation/wOOQW0">
+						<button id="main-book-btn" class="btn-primary booking-submit">
 							BOOK YOUR STAY
 						</button>
 					</div>
@@ -197,63 +197,60 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		}
 
 		const checkinInput = document.getElementById('checkin-date') as HTMLInputElement | null;
-		const checkoutInput = document.getElementById('checkout-date') as HTMLInputElement | null;
-		const adultsSelect = document.getElementById('adults-count') as HTMLSelectElement | null;
-		const roomsSelect = document.getElementById('rooms-count') as HTMLSelectElement | null;
-		const mainBookBtn = document.getElementById('main-book-btn');
+	const checkoutInput = document.getElementById('checkout-date') as HTMLInputElement | null;
+	const adultsSelect = document.getElementById('adults-count') as HTMLSelectElement | null;
+	const roomsSelect = document.getElementById('rooms-count') as HTMLSelectElement | null;
+	const mainBookBtn = document.getElementById('main-book-btn');
 
-		const getLocalDateStr = (date: Date) => {
-			const offset = date.getTimezoneOffset();
-			const localDate = new Date(date.getTime() - offset * 60 * 1000);
-			return localDate.toISOString().split('T')[0];
-		};
+	const getLocalDateStr = (date: Date) => {
+		const offset = date.getTimezoneOffset();
+		const localDate = new Date(date.getTime() - offset * 60 * 1000);
+		return localDate.toISOString().split('T')[0];
+	};
 
-		const today = new Date();
-		const tomorrow = new Date();
-		tomorrow.setDate(tomorrow.getDate() + 1);
+	const today = new Date();
+	const tomorrow = new Date();
+	tomorrow.setDate(tomorrow.getDate() + 1);
 
-		if (checkinInput && checkoutInput) {
-			checkinInput.value = getLocalDateStr(today);
-			checkoutInput.value = getLocalDateStr(tomorrow);
-			updateDateDisplay();
+	if (checkinInput && checkoutInput) {
+		checkinInput.value = getLocalDateStr(today);
+		checkoutInput.value = getLocalDateStr(tomorrow);
+		updateDateDisplay();
+	}
+
+	function updateDateDisplay() {
+		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+		if (checkinInput?.value) {
+			const d = new Date(`${checkinInput.value}T00:00:00`);
+			const checkinDay = document.getElementById('checkin-day');
+			const checkinMonth = document.getElementById('checkin-month');
+
+			if (checkinDay) checkinDay.textContent = d.getDate().toString();
+			if (checkinMonth) checkinMonth.textContent = months[d.getMonth()];
 		}
 
-		function updateDateDisplay() {
-			const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+		if (checkoutInput?.value) {
+			const d = new Date(`${checkoutInput.value}T00:00:00`);
+			const checkoutDay = document.getElementById('checkout-day');
+			const checkoutMonth = document.getElementById('checkout-month');
 
-			if (checkinInput?.value) {
-				const d = new Date(`${checkinInput.value}T00:00:00`);
-				const checkinDay = document.getElementById('checkin-day');
-				const checkinMonth = document.getElementById('checkin-month');
-
-				if (checkinDay) checkinDay.textContent = d.getDate().toString();
-				if (checkinMonth) checkinMonth.textContent = months[d.getMonth()];
-			}
-
-			if (checkoutInput?.value) {
-				const d = new Date(`${checkoutInput.value}T00:00:00`);
-				const checkoutDay = document.getElementById('checkout-day');
-				const checkoutMonth = document.getElementById('checkout-month');
-
-				if (checkoutDay) checkoutDay.textContent = d.getDate().toString();
-				if (checkoutMonth) checkoutMonth.textContent = months[d.getMonth()];
-			}
+			if (checkoutDay) checkoutDay.textContent = d.getDate().toString();
+			if (checkoutMonth) checkoutMonth.textContent = months[d.getMonth()];
 		}
+	}
 
-		[checkinInput, checkoutInput].forEach((el) => el?.addEventListener('change', updateDateDisplay));
+	[checkinInput, checkoutInput].forEach((el) => el?.addEventListener('change', updateDateDisplay));
 
-		function updateBookingUrl() {
-			const checkin = checkinInput?.value ?? '';
-			const checkout = checkoutInput?.value ?? '';
-			const adults = adultsSelect?.value ?? '2';
-			const url = `https://us2.cloudbeds.com/reservation/wOOQW0?currency=usd&checkin=${checkin}&checkout=${checkout}&adults=${adults}&kids=0`;
-			mainBookBtn?.setAttribute('data-be-url', url);
-		}
+	mainBookBtn?.addEventListener('click', () => {
+		const checkin = checkinInput?.value ?? '';
+		const checkout = checkoutInput?.value ?? '';
+		const adults = adultsSelect?.value ?? '2';
+		const rooms = roomsSelect?.value ?? '1';
+		window.location.href = `/book?checkin=${checkin}&checkout=${checkout}&adults=${adults}&rooms=${rooms}&currency=usd`;
+	});
 
-		[checkinInput, checkoutInput, adultsSelect].forEach((el) => el?.addEventListener('change', updateBookingUrl));
-		updateBookingUrl();
-
-		const testimonialTrack = document.querySelector('.testimonials-track') as HTMLElement | null;
+	const testimonialTrack = document.querySelector('.testimonials-track') as HTMLElement | null;
 		const testimonialViewport = document.querySelector('.testimonial-viewport') as HTMLElement | null;
 		const testimonialCards = Array.from(document.querySelectorAll('.testimonial-card')) as HTMLElement[];
 		const testimonialDots = Array.from(document.querySelectorAll('.testimonial-dot')) as HTMLButtonElement[];
@@ -378,7 +375,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 					<h2 class="experience-heading"><span class="serif-italic">Your Home Base</span></h2>
 					<p>We are in Saco, close to Old Orchard Beach, Camp Ellis, Ferry Beach, and downtown Biddeford. If you know the area, you know that means you can get to just about everything without making a whole day out of the drive.</p>
 					<p>This is a good spot for beach weekends, family trips, and a few days on the coast when you want a clean room, an easy place to park, and no nonsense.</p>
-					<button class="btn-primary" data-be-url="https://us2.cloudbeds.com/reservation/wOOQW0">Book Now</button>
+					<cb-book-now-button property-code="wOOQW0" class-name="btn-primary" label="Book Now"></cb-book-now-button>
 				</div>
 			</div>
 		</div>
@@ -638,7 +635,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 
 						<div class="location-ctas-map">
 							<a href="https://www.google.com/maps/search/?api=1&query=352+North+St+Saco+ME" target="_blank" class="link-underlined-dark">Open in Maps &rarr;</a>
-							<button class="btn-primary" data-be-url="https://us2.cloudbeds.com/reservation/wOOQW0">Book Now</button>
+							<cb-book-now-button property-code="wOOQW0" class-name="btn-primary" label="Book Now"></cb-book-now-button>
 						</div>
 					</div>
 				</div>
