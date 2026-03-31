@@ -139,7 +139,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 							</div>
 						</div>
 
-						<button id="main-book-btn" class="btn-primary booking-submit">
+						<button id="main-book-btn" class="btn-primary booking-submit" data-be-url="https://us2.cloudbeds.com/reservation/wOOQW0">
 							BOOK YOUR STAY
 						</button>
 					</div>
@@ -242,25 +242,16 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 
 		[checkinInput, checkoutInput].forEach((el) => el?.addEventListener('change', updateDateDisplay));
 
-		function getBookingUrl() {
+		function updateBookingUrl() {
 			const checkin = checkinInput?.value ?? '';
 			const checkout = checkoutInput?.value ?? '';
 			const adults = adultsSelect?.value ?? '2';
-
-			return `https://us2.cloudbeds.com/en/reservation/wOOQW0?currency=usd&checkin=${checkin}&checkout=${checkout}&adults=${adults}&kids=0`;
+			const url = `https://us2.cloudbeds.com/reservation/wOOQW0?currency=usd&checkin=${checkin}&checkout=${checkout}&adults=${adults}&kids=0`;
+			mainBookBtn?.setAttribute('data-be-url', url);
 		}
 
-		mainBookBtn?.addEventListener('click', () => {
-			window.open(getBookingUrl(), '_blank');
-		});
-
-		document.querySelectorAll('.btn-primary:not(#main-book-btn)').forEach((btn) => {
-			btn.addEventListener('click', (e) => {
-				if (!(btn instanceof HTMLAnchorElement) && !(btn instanceof HTMLButtonElement)) return;
-				e.preventDefault();
-				window.open(getBookingUrl(), '_blank');
-			});
-		});
+		[checkinInput, checkoutInput, adultsSelect].forEach((el) => el?.addEventListener('change', updateBookingUrl));
+		updateBookingUrl();
 
 		const testimonialTrack = document.querySelector('.testimonials-track') as HTMLElement | null;
 		const testimonialViewport = document.querySelector('.testimonial-viewport') as HTMLElement | null;
@@ -387,7 +378,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 					<h2 class="experience-heading"><span class="serif-italic">Your Home Base</span></h2>
 					<p>We are in Saco, close to Old Orchard Beach, Camp Ellis, Ferry Beach, and downtown Biddeford. If you know the area, you know that means you can get to just about everything without making a whole day out of the drive.</p>
 					<p>This is a good spot for beach weekends, family trips, and a few days on the coast when you want a clean room, an easy place to park, and no nonsense.</p>
-					<a href="https://us2.cloudbeds.com/en/reservation/wOOQW0?currency=usd&adults=2&kids=0" class="btn-primary" data-booking-link>Book Now</a>
+					<button class="btn-primary" data-be-url="https://us2.cloudbeds.com/reservation/wOOQW0">Book Now</button>
 				</div>
 			</div>
 		</div>
@@ -647,7 +638,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 
 						<div class="location-ctas-map">
 							<a href="https://www.google.com/maps/search/?api=1&query=352+North+St+Saco+ME" target="_blank" class="link-underlined-dark">Open in Maps &rarr;</a>
-							<a href="https://us2.cloudbeds.com/en/reservation/wOOQW0?currency=usd&adults=2&kids=0" class="btn-primary" data-booking-link>Book Now</a>
+							<button class="btn-primary" data-be-url="https://us2.cloudbeds.com/reservation/wOOQW0">Book Now</button>
 						</div>
 					</div>
 				</div>

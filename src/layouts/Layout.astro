@@ -21,8 +21,7 @@ const roomsHref = `${baseUrl}rooms`;
 const experienceHref = `${baseUrl}experience`;
 const homeBookingHref = `${baseUrl}#home`;
 const locationHref = isHome ? '#location' : `${baseUrl}#location`;
-const bookingBaseHref = 'https://us2.cloudbeds.com/en/reservation/wOOQW0';
-const bookingFallbackHref = `${bookingBaseHref}?currency=usd&adults=2&kids=0`;
+
 ---
 
 <!doctype html>
@@ -40,6 +39,7 @@ const bookingFallbackHref = `${bookingBaseHref}?currency=usd&adults=2&kids=0`;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		<script src="https://us2.cloudbeds.com/widget/load/wOOQW0/immersive" defer></script>
 	</head>
 	<body>
 		<header id="main-header" class={isHome ? "" : "scrolled"}>
@@ -75,9 +75,9 @@ const bookingFallbackHref = `${bookingBaseHref}?currency=usd&adults=2&kids=0`;
 								<span class="hamburger-line"></span>
 								<span class="hamburger-line"></span>
 							</button>
-							<a href={bookingFallbackHref} class="btn-book" data-booking-link>
+							<button class="btn-book" data-be-url="https://us2.cloudbeds.com/reservation/wOOQW0">
 								Book Now
-							</a>
+							</button>
 						</div>
 					</nav>
 				</div>
@@ -121,7 +121,7 @@ const bookingFallbackHref = `${bookingBaseHref}?currency=usd&adults=2&kids=0`;
 						<div class="footer-nav-col">
 							<h4>Stay</h4>
 							<a href={roomsHref}>Rooms</a>
-							<a href={bookingFallbackHref} data-booking-link>Reservations</a>
+							<button class="footer-reservations-btn" data-be-url="https://us2.cloudbeds.com/reservation/wOOQW0">Reservations</button>
 						</div>
 					</nav>
 				</div>
@@ -131,27 +131,6 @@ const bookingFallbackHref = `${bookingBaseHref}?currency=usd&adults=2&kids=0`;
 			</div>
 		</footer>
 
-		<script>
-			const bookingBaseHref = 'https://us2.cloudbeds.com/en/reservation/wOOQW0';
-
-			function formatBookingDate(date: Date) {
-				const offset = date.getTimezoneOffset();
-				const localDate = new Date(date.getTime() - offset * 60 * 1000);
-				return localDate.toISOString().split('T')[0] ?? '';
-			}
-
-			const defaultCheckin = new Date();
-			const defaultCheckout = new Date();
-			defaultCheckout.setDate(defaultCheckout.getDate() + 1);
-
-			const defaultBookingUrl = `${bookingBaseHref}?currency=usd&checkin=${formatBookingDate(defaultCheckin)}&checkout=${formatBookingDate(defaultCheckout)}&adults=2&kids=0`;
-
-			document.querySelectorAll('[data-booking-link]').forEach((link) => {
-				if (link instanceof HTMLAnchorElement) {
-					link.href = defaultBookingUrl;
-				}
-			});
-		</script>
 
 		<style is:global>
 			html {
@@ -376,6 +355,8 @@ const bookingFallbackHref = `${bookingBaseHref}?currency=usd&adults=2&kids=0`;
 				letter-spacing: 0.15rem;
 				font-size: 0.65rem;
 				transition: all 0.4s ease;
+				cursor: pointer;
+				font-family: inherit;
 			}
 
 			#main-header.scrolled .btn-book {
@@ -443,6 +424,24 @@ const bookingFallbackHref = `${bookingBaseHref}?currency=usd&adults=2&kids=0`;
 			}
 
 			.footer-nav-col a:hover {
+				color: var(--accent);
+			}
+
+			.footer-reservations-btn {
+				display: block;
+				margin-bottom: 1.2rem;
+				font-size: 0.85rem;
+				color: var(--text-main);
+				font-weight: 500;
+				background: none;
+				border: none;
+				padding: 0;
+				cursor: pointer;
+				font-family: inherit;
+				text-align: left;
+			}
+
+			.footer-reservations-btn:hover {
 				color: var(--accent);
 			}
 
