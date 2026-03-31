@@ -12,10 +12,26 @@ import Layout from '../layouts/Layout.astro';
 	.book-page {
 		padding-top: var(--header-height);
 		min-height: 100vh;
+		background: var(--white);
+	}
+
+	.book-page cb-immersive-experience {
+		display: block;
+		width: 100%;
+		font-family: Inter, system-ui, sans-serif;
+		line-height: 1.2;
 	}
 </style>
 
 <style is:global>
+	body:has(.book-page) {
+		background: var(--white);
+	}
+
+	body:has(.book-page) main {
+		overflow-x: clip;
+	}
+
 	body:has(.book-page) #main-header .header-container {
 		display: flex;
 		justify-content: space-between;
