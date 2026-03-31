@@ -32,6 +32,19 @@ import Layout from '../layouts/Layout.astro';
 		overflow-x: clip;
 	}
 
+	/* Prevent global reset from stripping spacing inside Cloudbeds widget */
+	cb-immersive-experience *,
+	cb-immersive-experience *::before,
+	cb-immersive-experience *::after {
+		margin: revert;
+		padding: revert;
+		box-sizing: revert;
+		line-height: revert;
+		font-family: revert;
+		font-weight: revert;
+		color: revert;
+	}
+
 	body:has(.book-page) #main-header .header-container {
 		display: flex;
 		justify-content: space-between;
