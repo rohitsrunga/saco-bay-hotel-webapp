@@ -7,27 +7,27 @@ const rooms = [
 		title: 'Deluxe King',
 		image: `${import.meta.env.BASE_URL}assets/rooms/king.webp`,
 		alt: 'Deluxe King room at Saco Bay Hotel Saco Maine',
-		specs: ['2 Guests', '1 King Bed', '350 SQFT'],
+		specs: ['2 Guests', '1 King Bed'],
 		description:
 			'Our largest room, with a king bed, a desk, and enough room to spread out a bit. A good choice if you are staying more than a night or just do not like a cramped room.',
 		highlights: ['Dedicated desk', 'Mini fridge & microwave', 'Keurig coffee maker', 'Fast WiFi']
 	},
 	{
 		eyebrow: 'Straightforward Stay',
-		title: 'Deluxe Queen',
+		title: 'Deluxe Double Queen',
 		image: `${import.meta.env.BASE_URL}assets/rooms/queen.webp`,
-		alt: 'Deluxe Queen room at Saco Bay Hotel Saco Maine',
-		specs: ['2 Guests', '1 Queen Bed', '280 SQFT'],
+		alt: 'Deluxe Double Queen room at Saco Bay Hotel Saco Maine',
+		specs: ['2–4 Guests', '2 Queen Beds'],
 		description:
-			'A queen room that keeps things simple. It has the same basic amenities as the larger rooms, just in a layout that works well for a quick stay.',
-		highlights: ['Queen bed', 'Simple, efficient layout', 'Fast WiFi', 'Keurig, fridge & microwave']
+			'A double queen room that keeps things simple. It has the same basic amenities as the larger rooms, just in a layout that works well for a quick stay or a small group.',
+		highlights: ['Two queen beds', 'Simple, efficient layout', 'Fast WiFi', 'Keurig, fridge & microwave']
 	},
 	{
 		eyebrow: 'Most Room',
 		title: 'Suite King',
 		image: `${import.meta.env.BASE_URL}assets/rooms/suite.webp`,
 		alt: 'Suite King room at Saco Bay Hotel Maine',
-		specs: ['2 Guests', '1 King Bed', 'Suite'],
+		specs: ['2–4 Guests', '1 King Bed', 'Suite'],
 		description:
 			'The Suite King gives you the most room to work with. If you want a little breathing room after a long beach day or a long drive up the coast, this is the one.',
 		highlights: ['King bed', 'Full suite layout', 'Fast WiFi', 'Mini fridge & microwave']
@@ -100,6 +100,14 @@ const rooms = [
 		font-size: 1.15rem;
 		line-height: 1.8;
 		color: var(--text-muted);
+	}
+
+	.rooms-overview {
+		padding: 0 0 3rem;
+	}
+
+	.rooms-overview > .container {
+		padding-top: 5.5rem;
 	}
 
 	.section-heading {

@@ -44,6 +44,13 @@ import Layout from '../layouts/Layout.astro';
 		display: none;
 	}
 
+	/* On scroll, fully remove the header visually and from pointer events */
+	body:has(.book-page) #main-header.hide-home-badge {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+
 	@media (max-width: 768px) {
 		body:has(.book-page) #main-header.scrolled .header-left,
 		body:has(.book-page) #main-header.scrolled .header-right {

@@ -46,11 +46,9 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 		<header id="main-header" class={isHome ? "" : "scrolled"}>
 				<div class="header-container">
 					<div class="header-left">
-						{!isHome && (
-							<a href={homeBookingHref} class="home-badge-link" aria-label="Return to homepage booking widget">
-								<img src={`${baseUrl}assets/SB.png`} class="home-badge-logo" alt="Saco Bay Hotel" />
-							</a>
-						)}
+						<a href={homeHref} class="nav-brand-link">
+							<span class="nav-brand-text">Saco Bay Hotel</span>
+						</a>
 						<nav class="main-nav left-nav">
 							<a href={roomsHref}>Rooms</a>
 							<a href={experienceHref}>Experience</a>
@@ -68,6 +66,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 							<button id="menu-toggle" class="menu-trigger" aria-label="Toggle Menu">
 								<span class="hamburger-line"></span>
 								<span class="hamburger-line"></span>
+								<span class="hamburger-line"></span>
 							</button>
 							{!minimalHeader && <a href="/book" class="btn-book">Book Now</a>}
 						</div>
@@ -83,6 +82,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 					<a href={roomsHref} class="menu-link">Rooms</a>
 					<a href={experienceHref} class="menu-link">Experience</a>
 					<a href={locationHref} class="menu-link">Location</a>
+					<a href="/book" class="menu-link menu-link-book">Book Now</a>
 				</div>
 				<div class="menu-dropdown-footer">
 					<p>352 North St, Saco, ME 04072</p>
@@ -153,33 +153,40 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				position: relative;
 			}
 
-			.home-badge-link {
+			.nav-brand-link {
 				display: inline-flex;
 				align-items: center;
-				justify-content: center;
-				color: var(--navy-deep);
-				width: 148px;
-				height: 54px;
-				margin-right: 2rem;
-				transform: translateY(0);
-			}
-
-			.home-badge-logo {
-				width: 54px;
-				height: 54px;
-				opacity: 0.92;
-			}
-
-			.home-badge-link:hover {
-				transform: translateY(0);
-				opacity: 0.9;
-			}
-
-			#main-header.hide-home-badge .home-badge-link {
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
 				opacity: 0;
 				visibility: hidden;
-				transform: translateY(-8px);
 				pointer-events: none;
+				transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+			}
+
+			#main-header.scrolled .nav-brand-link {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: auto;
+			}
+
+			#main-header.hide-home-badge .nav-brand-link {
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+			}
+
+			.nav-brand-text {
+				font-family: 'Cormorant Garamond', serif;
+				font-size: 1.4rem;
+				font-weight: 500;
+				letter-spacing: 0.14rem;
+				text-transform: uppercase;
+				line-height: 1;
+				white-space: nowrap;
+				color: var(--navy-muted);
 			}
 
 				/* Logo Styles */
@@ -219,7 +226,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				border: none;
 				cursor: pointer;
 				flex-direction: column;
-				gap: 6px;
+				gap: 5px;
 				width: 25px;
 				padding: 0;
 				z-index: 1100;
@@ -242,13 +249,18 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				background-color: var(--accent);
 			}
 
-			body.menu-open .hamburger-line:first-child {
-				transform: translateY(4px) rotate(45deg);
+			body.menu-open .hamburger-line:nth-child(1) {
+				transform: translateY(8px) rotate(45deg);
 				background-color: var(--navy-deep) !important;
 			}
 
-			body.menu-open .hamburger-line:last-child {
-				transform: translateY(-4px) rotate(-45deg);
+			body.menu-open .hamburger-line:nth-child(2) {
+				opacity: 0;
+				transform: scaleX(0);
+			}
+
+			body.menu-open .hamburger-line:nth-child(3) {
+				transform: translateY(-8px) rotate(-45deg);
 				background-color: var(--navy-deep) !important;
 			}
 
@@ -296,6 +308,11 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				padding-left: 10px;
 			}
 
+			.menu-link-book {
+				color: var(--accent);
+		font-weight: 700;
+			}
+
 			.menu-dropdown-footer {
 				font-size: 0.75rem;
 				text-transform: uppercase;
@@ -325,9 +342,9 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 
 			.main-nav a {
 				text-transform: uppercase;
-				font-size: 0.65rem;
+				font-size: 0.8rem;
 				letter-spacing: 0.2rem;
-				font-weight: 700;
+				font-weight: 500;
 				color: var(--white);
 				transition: all 0.3s ease;
 				white-space: nowrap;
@@ -345,7 +362,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				font-weight: 800;
 				text-transform: uppercase;
 				letter-spacing: 0.15rem;
-				font-size: 0.65rem;
+				font-size: 0.8rem;
 				transition: all 0.4s ease;
 				cursor: pointer;
 				font-family: inherit;
@@ -372,9 +389,13 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 			/* Footer */
 			footer {
 				background-color: var(--bg-warm);
-				padding: 5rem 0 5rem;
+				padding: 0 0 5rem;
 				color: var(--text-main);
 				border-top: 1px solid var(--border-light);
+			}
+
+			.footer-content {
+				padding-top: 5.5rem;
 			}
 
 			.footer-top {
@@ -439,6 +460,8 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 
 			.footer-bottom {
 				border-top: 1px solid var(--border-light);
+				margin-top: 3rem;
+				padding-top: 2rem;
 				font-size: 0.75rem;
 				color: var(--navy-muted);
 				text-transform: uppercase;
@@ -463,6 +486,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					min-height: 2.5rem;
 				}
 
 				.header-left {
@@ -477,25 +501,21 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 						display: flex;
 						align-items: center;
 						left: 0;
-						top: 0;
-						transform: none;
+						top: 50%;
+						transform: translateY(-50%);
 					}
 
 					.header-left .left-nav {
 						display: none;
 					}
 
-					.home-badge-link {
-						width: 56px;
-						height: 56px;
+					.nav-brand-link {
 						margin-right: 0;
-						transform: none;
-						justify-content: flex-start;
 					}
 
-					.home-badge-logo {
-						width: 56px;
-						height: 56px;
+					.nav-brand-text {
+						font-size: 1rem;
+						letter-spacing: 0.08rem;
 					}
 
 				.header-center {
@@ -505,9 +525,10 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 
 					.header-right {
 						position: absolute;
-						right: 0rem;
-						top: 0rem;
-						display: none;
+						right: 0;
+						top: 50%;
+						transform: translateY(-50%);
+						display: flex;
 				}
 
 				#main-header.scrolled .header-right {
@@ -518,9 +539,17 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 					display: none;
 				}
 
+				.menu-trigger {
+					display: flex;
+				}
+
+				#main-header:not(.scrolled) .btn-book {
+					display: none;
+				}
+
 					.logo-text {
-						font-size: 1.2rem;
-						letter-spacing: 0.1rem;
+						font-size: 2.2rem;
+						letter-spacing: 0.14rem;
 					}
 
 				#main-header.scrolled .logo-full {
@@ -558,7 +587,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 						header?.classList.toggle('scrolled', shouldScroll);
 					}
 
-					header?.classList.toggle('hide-home-badge', !isHome && shouldScroll);
+					header?.classList.toggle('hide-home-badge', shouldScroll);
 				};
 
 				// Scroll Logic
@@ -572,7 +601,8 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				syncHeaderState();
 
 			// Menu Toggle Logic
-			menuToggle?.addEventListener('click', () => {
+			menuToggle?.addEventListener('click', (e) => {
+				e.stopPropagation();
 				document.body.classList.toggle('menu-open');
 			});
 
@@ -581,6 +611,15 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				link.addEventListener('click', () => {
 					document.body.classList.remove('menu-open');
 				});
+			});
+
+			// Close menu when clicking outside
+			document.addEventListener('click', (e) => {
+				if (!document.body.classList.contains('menu-open')) return;
+				const menu = document.getElementById('full-menu');
+				if (menu && !menu.contains(e.target as Node)) {
+					document.body.classList.remove('menu-open');
+				}
 			});
 		</script>
 	</body>

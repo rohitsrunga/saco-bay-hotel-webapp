@@ -1,21 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const testimonials = [
+const offers = [
 	{
-		quote: 'We wanted to be close to OOB without all the noise. Was an easy drive to the beach in the morning, quiet at night, and plenty of space in the room to shower off the sand, and relax.',
-		author: 'Karen D.',
-		source: 'Google Review'
+		discount: '25% OFF',
+		title: 'Easter Escape Deal 🐰🌸',
+		detail: 'Stay 2 nights · Apr 3 – Apr 5'
 	},
 	{
-		quote: 'Stayed here for a long weekend and used it as our base for Saco, Biddeford, and Old Orchard. Loved chatting with the staff, and room was clean, spacious, and comfortable.',
-		author: 'Juan L.',
-		source: 'TripAdvisor'
+		discount: '15% OFF',
+		title: 'Stay 2+ Nights',
+		detail: 'Book any stay of two nights or more'
 	},
 	{
-		quote: 'This felt like a much easier way to do southern Maine. We grabbed breakfast, spent the day down by the water, got dinner in Biddeford, and lounged in our room. Straightforward stay, friendly staff, and a good spot if you know the area.',
-		author: 'Jen L.',
-		source: 'Google Review'
+		discount: '10% OFF',
+		title: 'AAA / AARP / Gov. Employee',
+		detail: 'Show your card or ID at check-in'
 	}
 ];
 
@@ -88,7 +88,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 							/>
 						</div>
 						<div class="slogan-divider-line"></div>
-						<h1 class="hero-h1">Stay in Saco.<br>Head to the beach.</h1>
+						<h1 class="hero-h1">Stay in Saco<br>Play in Old Orchard Beach</h1>
 					</div>
 				</div>
 
@@ -146,20 +146,23 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 				</div>
 			</div>
 
-				<div class="testimonials-carousel" aria-label="Guest testimonials">
+				<div class="testimonials-carousel" aria-label="Offers and promotions">
 					<div class="testimonials-header">
-						<span class="eyebrow hero-eyebrow">What our guests say</span>
+						<span class="eyebrow hero-eyebrow">Current Offers &amp; Promotions</span>
 					</div>
 					<div class="testimonial-carousel-shell">
-						<button class="testimonial-nav prev" type="button" aria-label="Previous testimonial">‹</button>
+						<button class="testimonial-nav prev" type="button" aria-label="Previous offer">‹</button>
 						<div class="testimonial-viewport">
 							<div class="testimonials-track">
 								{
-									testimonials.map((testimonial) => (
+									offers.map((offer) => (
 										<article class="testimonial-card">
-											<div class="testimonial-stars" aria-label="Five stars">★★★★★</div>
-											<p>&ldquo;{testimonial.quote}&rdquo;</p>
-											<span class="testimonial-author">{testimonial.author}, {testimonial.source}</span>
+											<div class="offer-discount">{offer.discount}</div>
+											<div class="offer-body">
+												<span class="offer-title">{offer.title}</span>
+												<p class="offer-detail">{offer.detail}</p>
+											</div>
+											<a href={`${import.meta.env.BASE_URL}book`} class="offer-cta">Book Now →</a>
 										</article>
 									))
 								}
@@ -169,12 +172,12 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 					</div>
 					<div class="testimonial-dots" aria-label="Testimonial pagination">
 						{
-							testimonials.map((_, index) => (
+							offers.map((_, index) => (
 								<button
 									type="button"
 									class={`testimonial-dot${index === 0 ? ' is-active' : ''}`}
 									data-index={index}
-									aria-label={`Go to testimonial ${index + 1}`}
+									aria-label={`Go to offer ${index + 1}`}
 								></button>
 							))
 						}
@@ -330,7 +333,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		function startAutoplay() {
 			window.clearInterval(autoplayId);
 			if (!isMobileCarousel()) return;
-			autoplayId = window.setInterval(() => renderTestimonials(activeSlide + 1), 3000);
+			autoplayId = window.setInterval(() => renderTestimonials(activeSlide + 1), 4000);
 		}
 
 		prevButton?.addEventListener('click', () => {
@@ -611,6 +614,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 					</div>
 				</div>
 			</div>
+		</div>
 	</section>
 
 	<section id="location" class="location-map-style">
@@ -729,6 +733,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 	.main-logo {
 		width: 100%;
 		height: 100%;
+		object-fit: contain;
 	}
 
 	.hero-slogan-box {
@@ -741,11 +746,12 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		font-family: inherit;
 		font-size: 1.15rem;
 		text-transform: uppercase;
-		letter-spacing: 0.5rem;
+		letter-spacing: 0.35rem;
 		color: var(--white);
 		margin: 0 0 0.5rem 0;
 		font-weight: 400;
 		line-height: 1.6;
+		white-space: nowrap;
 	}
 
 		.slogan-divider-line {
@@ -877,7 +883,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 	}
 
 	.hero-eyebrow {
-		color: #7A9DC4;
+		color: var(--white);
 		margin-bottom: 0;
 	}
 
@@ -912,29 +918,54 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		backdrop-filter: blur(10px);
 	}
 
-	.testimonial-stars {
-		font-size: 0.72rem;
-		letter-spacing: 0.22em;
-		color: var(--accent);
-		margin-bottom: 0.9rem;
+	.offer-discount {
+		font-family: var(--font-sans);
+		font-size: 1.55rem;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		color: var(--navy-deep);
+		line-height: 1;
+		margin-bottom: 0.65rem;
 	}
 
-	.testimonial-card p {
-		font-family: var(--font-serif);
-		font-size: 0.92rem;
-		font-style: italic;
-		line-height: 1.45;
-		margin-bottom: 0.8rem;
+	.offer-body {
 		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		margin-bottom: 0.8rem;
 	}
 
-	.testimonial-author {
+	.offer-title {
+		font-family: var(--font-sans);
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--navy-deep);
+	}
+
+	.offer-detail {
+		font-size: 0.78rem;
+		color: var(--text-muted);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	.offer-cta {
 		font-family: var(--font-sans);
 		font-size: 0.62rem;
 		font-weight: 800;
-		letter-spacing: 0.16em;
+		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: var(--text-muted);
+		color: var(--navy-deep);
+		border-bottom: 1px solid rgba(30, 45, 75, 0.25);
+		padding-bottom: 0.2rem;
+		align-self: flex-start;
+	}
+
+	.offer-cta:hover {
+		border-bottom-color: var(--navy-deep);
 	}
 
 	.testimonial-nav,
@@ -988,6 +1019,23 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 	.section-header-light .section-kicker,
 	.section-header-light .section-title {
 		color: var(--white);
+	}
+
+	.experience {
+		padding: 0 0 3rem;
+	}
+
+	.experience > .container {
+		padding-top: 5.5rem;
+	}
+
+	.amenities-magazine {
+		padding: 0 0 3rem;
+		overflow: hidden;
+	}
+
+	.amenities-magazine > .container {
+		padding-top: 5.5rem;
 	}
 
 	.experience-block {
@@ -1324,9 +1372,13 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 
 	.location-map-style {
 		position: relative;
-		padding: 6rem 0 8rem;
+		padding: 0 0 3rem;
 		color: var(--text-main);
 		background: var(--bg-coastal);
+	}
+
+	.location-map-style > .container {
+		padding-top: 5.5rem;
 	}
 
 	.location-map-style .container {
@@ -1658,8 +1710,9 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		}
 
 		.hero-h1 {
-			letter-spacing: 0.3rem;
-			font-size: 1rem;
+			letter-spacing: 0.15rem;
+			font-size: 0.85rem;
+			white-space: nowrap;
 		}
 
 		.booking-widget-container {
