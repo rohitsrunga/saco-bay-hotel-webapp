@@ -35,12 +35,61 @@ const rooms = [
 ];
 ---
 
-<Layout title="Rooms | Saco Bay Hotel" description="Take a look at the room options at Saco Bay Hotel in Saco, Maine, close to Old Orchard Beach and the southern Maine coast.">
+<Layout title="Rooms & Suites | Saco Bay Hotel — Saco, Maine" description="Choose from Deluxe King, Double Queen, or Suite King rooms at Saco Bay Hotel. Modern comfort near Old Orchard Beach and the Maine coast.">
+	<script type="application/ld+json" set:html={JSON.stringify([
+		{
+			"@context": "https://schema.org",
+			"@type": "HotelRoom",
+			"name": "Deluxe King",
+			"description": "Spacious king room with a dedicated desk, mini fridge, microwave, and Keurig at Saco Bay Hotel in Saco, Maine — minutes from Old Orchard Beach.",
+			"occupancy": { "@type": "QuantitativeValue", "maxValue": 2 },
+			"bed": { "@type": "BedDetails", "typeOfBed": "King", "numberOfBeds": 1 },
+			"amenityFeature": [
+				{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Mini Fridge", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Microwave", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Keurig Coffee Maker", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Dedicated Desk", "value": true }
+			],
+			"image": "https://sacobayhotel.com/assets/rooms/king.webp"
+		},
+		{
+			"@context": "https://schema.org",
+			"@type": "HotelRoom",
+			"name": "Deluxe Double Queen",
+			"description": "Double queen room with two beds — great for families or groups visiting Old Orchard Beach, Maine.",
+			"occupancy": { "@type": "QuantitativeValue", "maxValue": 4 },
+			"bed": { "@type": "BedDetails", "typeOfBed": "Queen", "numberOfBeds": 2 },
+			"amenityFeature": [
+				{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Mini Fridge", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Microwave", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Keurig Coffee Maker", "value": true }
+			],
+			"image": "https://sacobayhotel.com/assets/rooms/queen.webp"
+		},
+		{
+			"@context": "https://schema.org",
+			"@type": "HotelRoom",
+			"name": "Suite King",
+			"description": "Full suite with a king bed and separate living area at Saco Bay Hotel in Saco, Maine.",
+			"occupancy": { "@type": "QuantitativeValue", "maxValue": 4 },
+			"bed": { "@type": "BedDetails", "typeOfBed": "King", "numberOfBeds": 1 },
+			"amenityFeature": [
+				{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Separate Living Area", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Mini Fridge", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Microwave", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Keurig Coffee Maker", "value": true }
+			],
+			"image": "https://sacobayhotel.com/assets/rooms/suite.webp"
+		}
+	])} />
 	<section class="rooms-hero bg-warm">
 		<div class="container rooms-hero-inner">
 			<span class="eyebrow">Saco Bay Hotel</span>
 			<h1>Our Rooms</h1>
-			<p>Three room types, all set up for an easy stay near the beach, downtown Saco, and the rest of the southern Maine coast.</p>
+			<p>Three room types, all set up for an easy stay near the beach, downtown Saco, and the rest of the southern Maine coast. Saco Bay Hotel is minutes from Old Orchard Beach, Funtown Splashtown USA, and the southern Maine coast — a practical home base whether you are here for the beach or just passing through.</p>
 		</div>
 	</section>
 
@@ -57,7 +106,7 @@ const rooms = [
 					rooms.map((room, index) => (
 						<article class={`room-feature${index % 2 === 1 ? ' reverse' : ''}`}>
 							<div class="room-feature-image">
-								<img src={room.image} alt={room.alt} />
+								<img src={room.image} alt={room.alt} loading="lazy" decoding="async" width="4240" height="2832" />
 							</div>
 							<div class="room-feature-content">
 								<span class="sans-caps">{room.eyebrow}</span>

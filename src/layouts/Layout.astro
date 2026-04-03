@@ -17,6 +17,14 @@ const baseUrl = import.meta.env.BASE_URL;
 const basePath = normalizePath(baseUrl);
 const pathname = normalizePath(Astro.url.pathname);
 const isHome = pathname === basePath || pathname === `${basePath}/index.html`;
+
+const breadcrumbMap: Record<string, string> = {
+	[`${basePath}/rooms`]: 'Rooms',
+	[`${basePath}/experience`]: 'Experience',
+	[`${basePath}/book`]: 'Book',
+};
+const breadcrumbName = !isHome ? breadcrumbMap[pathname] : undefined;
+
 const homeHref = baseUrl;
 const roomsHref = `${baseUrl}rooms`;
 const experienceHref = `${baseUrl}experience`;
@@ -37,6 +45,72 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 		<meta name="description" content={description} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
+		<meta property="og:url" content={`https://sacobayhotel.com${Astro.url.pathname}`} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Saco Bay Hotel" />
+		<meta property="og:image" content="https://sacobayhotel.com/assets/gallery/exterior_property.webp" />
+		<meta property="og:image:width" content="4240" />
+		<meta property="og:image:height" content="2832" />
+		<meta property="og:image:alt" content="Saco Bay Hotel exterior — Saco, Maine" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="https://sacobayhotel.com/assets/gallery/exterior_property.webp" />
+		<link rel="canonical" href={`https://sacobayhotel.com${Astro.url.pathname}`} />
+		{isHome && <script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Hotel",
+			"name": "Saco Bay Hotel",
+			"url": "https://sacobayhotel.com",
+			"telephone": "+12077470368",
+			"email": "frontdesk@sacobayhotel.com",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "352 North St",
+				"addressLocality": "Saco",
+				"addressRegion": "ME",
+				"postalCode": "04072",
+				"addressCountry": "US"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "43.5009",
+				"longitude": "-70.4428"
+			},
+			"priceRange": "$$",
+			"checkinTime": "15:00",
+			"checkoutTime": "11:00",
+			"petsAllowed": false,
+			"amenityFeature": [
+				{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Hot Breakfast Included", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Outdoor Pool", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Microwave", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Refrigerator", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Conference Center", "value": true },
+				{ "@type": "LocationFeatureSpecification", "name": "Park & Fly", "value": true }
+			],
+			"image": [
+				"https://sacobayhotel.com/assets/gallery/exterior_property.webp",
+				"https://sacobayhotel.com/assets/location/building.webp",
+				"https://sacobayhotel.com/assets/rooms/king.webp",
+				"https://sacobayhotel.com/assets/rooms/queen.webp",
+				"https://sacobayhotel.com/assets/rooms/suite.webp"
+			],
+			"description": "Saco Bay Hotel is a hotel in Saco, Maine, located minutes from Old Orchard Beach, Palace Playland, Funtown Splashtown USA, and the southern Maine coast. Hot breakfast included daily.",
+			"sameAs": []
+		})} />}
+		{breadcrumbName && <script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sacobayhotel.com/" },
+				{ "@type": "ListItem", "position": 2, "name": breadcrumbName, "item": `https://sacobayhotel.com${pathname}` }
+			]
+		})} />}
+		<slot name="head" />
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,8 +175,11 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				<div class="footer-top">
 					<div class="footer-brand">
 						<h3 class="logo-text footer-logo" style="color: var(--navy-deep);">Saco Bay Hotel</h3>
-						<p class="address">352 North St, Saco, ME 04072</p>
-						<p class="phone">(207) 747-0368</p>
+						<address>
+							<p class="address">352 North St, Saco, ME 04072</p>
+							<p class="phone"><a href="tel:+12077470368">(207) 747-0368</a></p>
+							<p class="email"><a href="mailto:frontdesk@sacobayhotel.com">frontdesk@sacobayhotel.com</a></p>
+						</address>
 					</div>
 					<nav class="footer-nav">
 						<div class="footer-nav-col">

@@ -95,14 +95,16 @@ const amenityGroups = [
 		title: 'Around the Area',
 		description: 'You are close to more than just Old Orchard. Saco, Biddeford, Camp Ellis, and the beaches all give you plenty to do without a long drive.',
 		items: [
-			'Old Orchard Beach pier, boardwalk, and Palace Playland',
-			'Funtown Splashtown USA — Maine\'s largest amusement and water park',
-			'Ferry Beach State Park for swimming and nature trails',
-			'Saco River for kayaking and canoe launches',
-			'Camp Ellis beach and the Saco Bay jetty walk',
-			'East Point Sanctuary in Biddeford Pool for birding and coastal views',
-			'Scarborough Marsh — the largest salt marsh in Maine',
-			'Downtown Biddeford\'s restaurant and arts scene, 10 minutes away'
+			'Old Orchard Beach pier, boardwalk, and Palace Playland — 3 mi, 7 min',
+			'Funtown Splashtown USA — Maine\'s largest amusement and water park — 1.5 mi, 5 min',
+			'Ferry Beach State Park for swimming and nature trails — 2 mi, 6 min',
+			'Saco River for kayaking and canoe launches — 3 mi, 7 min',
+			'Camp Ellis beach and the Saco Bay jetty walk — 4 mi, 9 min',
+			'East Point Sanctuary in Biddeford Pool for birding and coastal views — 8 mi, 15 min',
+			'Scarborough Marsh — the largest salt marsh in Maine — 7 mi, 12 min',
+			'Downtown Biddeford\'s restaurant and arts scene — 4 mi, 10 min',
+			'Portland Head Light — 22 mi, 30 min',
+			'Portland Old Port — 20 mi, 28 min'
 		]
 	}
 ];
@@ -135,7 +137,48 @@ const faqs = [
 ];
 ---
 
-<Layout title="Experience & FAQ | Saco Bay Hotel" description="Amenities, local notes, and guest information for staying in Saco near Old Orchard Beach and the southern Maine coast.">
+<Layout title="Amenities & Local Attractions | Saco Bay Hotel" description="Explore Saco Bay Hotel's amenities and the best things to do near Old Orchard Beach, Maine — beaches, amusement parks, trails, and dining.">
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{
+				"@type": "Question",
+				"name": "Does Saco Bay Hotel include breakfast?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Yes. Hot breakfast is included every morning, with the usual staples to get you out the door without having to make your first stop a coffee shop." }
+			},
+			{
+				"@type": "Question",
+				"name": "Are pets allowed at Saco Bay Hotel?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Saco Bay Hotel does not allow pets, with the exception of ADA service animals." }
+			},
+			{
+				"@type": "Question",
+				"name": "What time is check-in and check-out at Saco Bay Hotel?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Standard check-in is at 3:00 PM and check-out is at 11:00 AM." }
+			},
+			{
+				"@type": "Question",
+				"name": "Is parking free at Saco Bay Hotel?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Yes. Parking is free and right on site. No garage, no pass to fuss with, no extra charge." }
+			},
+			{
+				"@type": "Question",
+				"name": "Does Saco Bay Hotel offer Park and Fly?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Yes. Saco Bay Hotel offers Park & Fly. If you are flying out of Portland International Jetport (PWM), it is an easy place to stay the night before so you are not driving half-asleep to the airport." }
+			},
+			{
+				"@type": "Question",
+				"name": "How far is Saco Bay Hotel from Old Orchard Beach?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Old Orchard Beach is about 3 miles away — a quick 7-minute drive from Saco Bay Hotel." }
+			},
+			{
+				"@type": "Question",
+				"name": "How far is Saco Bay Hotel from Portland, Maine?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Portland, Maine is approximately 20 miles north — about a 28-minute drive from Saco Bay Hotel." }
+			}
+		]
+	})} />
 	<section class="experience-hero bg-warm">
 		<div class="container experience-hero-inner">
 			<span class="eyebrow">Saco Bay Hotel</span>
@@ -162,7 +205,7 @@ const faqs = [
 							gallerySlides.map((slide) => (
 								<article class="gallery-slide" data-gallery={slide.id}>
 									<div class="gallery-slide-image">
-										<img src={slide.image} alt={slide.alt} />
+										<img src={slide.image} alt={slide.alt} loading="lazy" decoding="async" width="4240" height="2832" />
 									</div>
 									<div class="gallery-slide-caption">
 										<div>
@@ -198,7 +241,7 @@ const faqs = [
 							gallerySlides.map((slide, index) => (
 								<article class={`gallery-mobile-card${index === 0 ? ' is-active' : ''}`}>
 									<div class="gallery-mobile-image">
-										<img src={slide.image} alt={slide.alt} />
+										<img src={slide.image} alt={slide.alt} loading="lazy" decoding="async" width="4240" height="2832" />
 									</div>
 									<div class="gallery-mobile-content">
 										<span class="eyebrow">{slide.title}</span>
