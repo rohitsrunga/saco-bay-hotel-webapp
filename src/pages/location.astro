@@ -1,0 +1,736 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const nearby = [
+	{ name: 'Old Orchard Beach Pier & Boardwalk', distance: '3 mi', time: '7 min', category: 'Beach' },
+	{ name: 'Palace Playland Amusement Park', distance: '3 mi', time: '7 min', category: 'Family' },
+	{ name: 'Funtown Splashtown USA', distance: '1.5 mi', time: '5 min', category: 'Family' },
+	{ name: 'Aquaboggan Water Park', distance: '1 mi', time: '4 min', category: 'Family' },
+	{ name: 'Ferry Beach State Park', distance: '2 mi', time: '6 min', category: 'Nature' },
+	{ name: 'Camp Ellis Beach', distance: '4 mi', time: '9 min', category: 'Beach' },
+	{ name: 'Scarborough Beach State Park', distance: '8 mi', time: '15 min', category: 'Beach' },
+	{ name: 'Scarborough Marsh', distance: '7 mi', time: '12 min', category: 'Nature' },
+	{ name: 'East Point Sanctuary (Biddeford Pool)', distance: '8 mi', time: '15 min', category: 'Nature' },
+	{ name: 'Downtown Biddeford', distance: '4 mi', time: '10 min', category: 'Dining' },
+	{ name: 'University of New England', distance: '4 mi', time: '8 min', category: 'Campus' },
+	{ name: 'Portland International Jetport (PWM)', distance: '18 mi', time: '25 min', category: 'Transport' },
+	{ name: 'Portland Old Port', distance: '20 mi', time: '28 min', category: 'City' },
+	{ name: 'Portland Head Light', distance: '22 mi', time: '30 min', category: 'Landmark' },
+	{ name: 'Kennebunkport', distance: '20 mi', time: '28 min', category: 'Town' },
+];
+
+const categoryColors: Record<string, string> = {
+	Beach: '#2E6DA4',
+	Family: '#1E2D4B',
+	Nature: '#3A6B47',
+	Dining: '#7A4E2D',
+	Campus: '#4E3D7A',
+	Transport: '#5A6B7A',
+	City: '#2D4B6B',
+	Landmark: '#6B4B2D',
+	Town: '#4B6B4B',
+};
+---
+
+<Layout
+	title="Location & Getting Here | Saco Bay Hotel — Saco, Maine"
+	description="Saco Bay Hotel is located at 352 North St in Saco, Maine — minutes from Old Orchard Beach, Palace Playland, Funtown Splashtown, and I-95 Exit 36."
+>
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sacobayhotel.com/" },
+			{ "@type": "ListItem", "position": 2, "name": "Location", "item": "https://sacobayhotel.com/location" }
+		]
+	})} />
+
+	<section class="location-hero bg-warm">
+		<div class="container location-hero-inner">
+			<span class="eyebrow">Saco Bay Hotel</span>
+			<h1>Where to Find Us</h1>
+			<p>We are at 352 North Street in Saco, Maine — right off I-95 Exit 36, minutes from Old Orchard Beach and everything the southern Maine coast has to offer.</p>
+			<div class="hero-ctas">
+				<a href="https://www.google.com/maps/search/?api=1&query=352+North+St+Saco+ME" target="_blank" rel="noopener" class="btn-primary">Open in Maps</a>
+				<a href="/book" class="btn-outline">Book Your Stay</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="address-strip bg-navy">
+		<div class="container address-strip-inner">
+			<div class="address-item">
+				<span class="address-label">Address</span>
+				<span class="address-value">352 North St, Saco, ME 04072</span>
+			</div>
+			<div class="address-divider"></div>
+			<div class="address-item">
+				<span class="address-label">Phone</span>
+				<a href="tel:+12077470368" class="address-value">(207) 747-0368</a>
+			</div>
+			<div class="address-divider"></div>
+			<div class="address-item">
+				<span class="address-label">From I-95</span>
+				<span class="address-value">Maine Turnpike Exit 36 (Saco)</span>
+			</div>
+			<div class="address-divider"></div>
+			<div class="address-item">
+				<span class="address-label">From Boston</span>
+				<span class="address-value">~95 miles · 1 hr 45 min</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="map-section bg-mist">
+		<div class="container">
+			<div class="map-grid">
+				<div class="map-embed-wrap">
+					<iframe
+						title="Google Map showing Saco Bay Hotel at 352 North St, Saco, Maine"
+						src="https://www.google.com/maps?q=352+North+St+Saco+ME&z=14&output=embed"
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+						allowfullscreen
+						width="100%"
+						height="480"
+					></iframe>
+				</div>
+				<div class="map-info">
+					<span class="eyebrow">Getting Here</span>
+					<h2 class="navy-text">Directions from I-95</h2>
+					<div class="directions-steps">
+						<div class="direction-step">
+							<span class="step-num">1</span>
+							<p>Take <strong>I-95 North</strong> (Maine Turnpike) toward Portland, Maine.</p>
+						</div>
+						<div class="direction-step">
+							<span class="step-num">2</span>
+							<p>Take <strong>Exit 36</strong> (Saco / Old Orchard Beach). Toll booth accepts cash and E-ZPass.</p>
+						</div>
+						<div class="direction-step">
+							<span class="step-num">3</span>
+							<p>Turn left onto <strong>North Street</strong>. Saco Bay Hotel is approximately 0.5 miles on your left.</p>
+						</div>
+					</div>
+					<div class="drive-times">
+						<div class="drive-from">
+							<span class="drive-city">Boston, MA</span>
+							<span class="drive-detail">~95 mi · 1 hr 45 min</span>
+						</div>
+						<div class="drive-from">
+							<span class="drive-city">Manchester, NH</span>
+							<span class="drive-detail">~65 mi · 1 hr 10 min</span>
+						</div>
+						<div class="drive-from">
+							<span class="drive-city">Portland, ME</span>
+							<span class="drive-detail">~20 mi · 28 min</span>
+						</div>
+						<div class="drive-from">
+							<span class="drive-city">Portsmouth, NH</span>
+							<span class="drive-detail">~42 mi · 50 min</span>
+						</div>
+					</div>
+					<p class="parking-note">Free on-site parking for all guests. No pass required.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="nearby-section bg-coastal textured">
+		<div class="container">
+			<div class="section-heading">
+				<span class="eyebrow">Everything Within Reach</span>
+				<h2 class="navy-text">What's Nearby</h2>
+				<p>From Old Orchard Beach to Portland, you can get to just about everything southern Maine has to offer without a long drive. Distances from Saco Bay Hotel.</p>
+			</div>
+
+			<div class="nearby-grid">
+				{nearby.map((place) => (
+					<div class="nearby-card">
+						<div class="nearby-card-top">
+							<span class="nearby-category" style={`background: ${categoryColors[place.category] ?? '#1E2D4B'}22; color: ${categoryColors[place.category] ?? '#1E2D4B'}`}>{place.category}</span>
+						</div>
+						<p class="nearby-name">{place.name}</p>
+						<div class="nearby-meta">
+							<span class="nearby-dist">{place.distance}</span>
+							<span class="nearby-sep">·</span>
+							<span class="nearby-time">{place.time}</span>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<p class="distance-note">Drive times are approximate and based on normal traffic conditions. Summer weekends on Route 1 and the OOB area can add 10–20 minutes. Plan accordingly on Friday afternoons in July and August.</p>
+		</div>
+	</section>
+
+	<section class="property-section bg-warm">
+		<div class="container property-grid">
+			<div class="property-images">
+				<div class="property-img-main">
+					<img
+						src={`${import.meta.env.BASE_URL}assets/location/building.webp`}
+						alt="Saco Bay Hotel exterior at 352 North St, Saco Maine"
+						loading="lazy"
+						decoding="async"
+						width="4240"
+						height="2832"
+					/>
+				</div>
+				<div class="property-img-row">
+					<img
+						src={`${import.meta.env.BASE_URL}assets/amenities/exterior.webp`}
+						alt="Saco Bay Hotel property exterior view"
+						loading="lazy"
+						decoding="async"
+						width="4240"
+						height="2832"
+					/>
+					<img
+						src={`${import.meta.env.BASE_URL}assets/amenities/lobby.webp`}
+						alt="Saco Bay Hotel lobby and front entrance"
+						loading="lazy"
+						decoding="async"
+						width="4240"
+						height="2832"
+					/>
+				</div>
+			</div>
+			<div class="property-content">
+				<span class="eyebrow">The Property</span>
+				<h2 class="navy-text">A Good Base for Southern Maine</h2>
+				<p>We are not on the beach — and that is part of the point. You are close enough to walk or drive to Old Orchard Beach in minutes, but you are not in the middle of the summer crowd when you are trying to sleep.</p>
+				<p>Free parking on site. Hot breakfast in the morning. A quiet spot to come back to after a day at Palace Playland or a long drive up from Boston.</p>
+				<div class="property-facts">
+					<div class="fact">
+						<span class="fact-label">Check-In</span>
+						<span class="fact-value">3:00 PM</span>
+					</div>
+					<div class="fact">
+						<span class="fact-label">Check-Out</span>
+						<span class="fact-value">11:00 AM</span>
+					</div>
+					<div class="fact">
+						<span class="fact-label">Parking</span>
+						<span class="fact-value">Free, On-Site</span>
+					</div>
+					<div class="fact">
+						<span class="fact-label">Breakfast</span>
+						<span class="fact-value">Included Daily</span>
+					</div>
+				</div>
+				<a href="/book" class="btn-primary">Check Availability</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="area-context bg-navy">
+		<div class="container area-context-inner">
+			<div class="area-context-heading">
+				<span class="eyebrow">Why Saco</span>
+				<h2>A Few Miles Makes a Difference</h2>
+				<p>Old Orchard Beach is one of New England's most popular summer destinations — which means the strip can get crowded in July and August. Staying in Saco gives you everything within reach while keeping you a few minutes away from the thick of it.</p>
+			</div>
+			<div class="area-links">
+				<div class="area-link-card">
+					<h3>Old Orchard Beach</h3>
+					<p>Seven miles of sand, a working pier, Palace Playland, and the Atlantic. The most visited beach in Maine.</p>
+					<a href="/things-to-do" class="text-link-light">See what's there →</a>
+				</div>
+				<div class="area-link-card">
+					<h3>Portland</h3>
+					<p>Twenty miles north — the Old Port, the waterfront, James Beard-nominated restaurants, and Portland Head Light. Easy day trip.</p>
+					<a href="https://www.visitportland.com" target="_blank" rel="noopener" class="text-link-light">Visit Portland →</a>
+				</div>
+				<div class="area-link-card">
+					<h3>Kennebunkport</h3>
+					<p>Thirty minutes south on I-95. The classic Maine coastal village — good for a morning drive, a lobster roll, and a walk around Dock Square.</p>
+					<a href="https://www.visitthekennebunks.com" target="_blank" rel="noopener" class="text-link-light">Visit the Kennebunks →</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.location-hero {
+		padding: 11rem 0 5rem;
+	}
+
+	.location-hero-inner {
+		max-width: 760px;
+	}
+
+	.location-hero h1 {
+		font-size: clamp(3.8rem, 9vw, 6.5rem);
+		line-height: 0.95;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+	}
+
+	.location-hero p {
+		font-size: 1.15rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		max-width: 560px;
+		margin-bottom: 2.5rem;
+	}
+
+	.hero-ctas {
+		display: flex;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	.btn-outline {
+		display: inline-flex;
+		align-items: center;
+		padding: 1.2rem 3rem;
+		border: 1px solid var(--navy-deep);
+		color: var(--navy-deep);
+		font-family: var(--font-sans);
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-size: 0.75rem;
+		font-weight: 800;
+		transition: all 0.3s ease;
+	}
+
+	.btn-outline:hover {
+		background: var(--navy-deep);
+		color: var(--white);
+	}
+
+	/* Address Strip */
+	.address-strip {
+		padding: 2.5rem 0;
+	}
+
+	.address-strip-inner {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.address-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+
+	.address-label {
+		font-size: 0.6rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: #7A9DC4;
+		font-weight: 700;
+	}
+
+	.address-value {
+		font-size: 0.9rem;
+		color: var(--white);
+		font-weight: 500;
+	}
+
+	a.address-value:hover {
+		color: #7A9DC4;
+	}
+
+	.address-divider {
+		width: 1px;
+		height: 2rem;
+		background: rgba(255, 255, 255, 0.15);
+		flex-shrink: 0;
+	}
+
+	/* Map Section */
+	.map-section {
+		padding: 0;
+	}
+
+	.map-grid {
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: 0;
+		min-height: 480px;
+	}
+
+	.map-embed-wrap {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.map-embed-wrap iframe {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 480px;
+		border: none;
+	}
+
+	.map-info {
+		padding: 5rem 4rem;
+		background: var(--bg-mist);
+	}
+
+	.map-info h2 {
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.directions-steps {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.direction-step {
+		display: flex;
+		gap: 1.25rem;
+		align-items: flex-start;
+	}
+
+	.step-num {
+		flex-shrink: 0;
+		width: 1.75rem;
+		height: 1.75rem;
+		background: var(--navy-deep);
+		color: var(--white);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.75rem;
+		font-weight: 700;
+		margin-top: 0.1rem;
+	}
+
+	.direction-step p {
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--text-muted);
+	}
+
+	.drive-times {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+		padding: 1.5rem;
+		background: rgba(30, 45, 75, 0.05);
+		border-left: 3px solid var(--navy-deep);
+	}
+
+	.drive-from {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+
+	.drive-city {
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--navy-deep);
+	}
+
+	.drive-detail {
+		font-size: 0.85rem;
+		color: var(--text-muted);
+	}
+
+	.parking-note {
+		font-size: 0.85rem;
+		color: var(--text-muted);
+		font-style: italic;
+	}
+
+	/* Nearby Grid */
+	.nearby-section {
+		padding: 6rem 0;
+	}
+
+	.section-heading {
+		max-width: 720px;
+		margin-bottom: 3.5rem;
+	}
+
+	.section-heading h2 {
+		font-size: 3.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.section-heading p {
+		font-size: 1.05rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+	}
+
+	.nearby-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	.nearby-card {
+		background: rgba(255, 255, 255, 0.72);
+		border: 1px solid rgba(30, 45, 75, 0.08);
+		box-shadow: 0 8px 24px rgba(30, 45, 75, 0.07);
+		backdrop-filter: blur(10px);
+		padding: 1.25rem 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.nearby-card-top {
+		display: flex;
+		align-items: center;
+	}
+
+	.nearby-category {
+		font-size: 0.58rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		padding: 0.2rem 0.6rem;
+		border-radius: 2px;
+	}
+
+	.nearby-name {
+		font-size: 0.92rem;
+		font-weight: 600;
+		color: var(--navy-deep);
+		line-height: 1.4;
+	}
+
+	.nearby-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.78rem;
+		color: var(--text-muted);
+	}
+
+	.nearby-dist {
+		font-weight: 700;
+	}
+
+	.nearby-sep {
+		opacity: 0.5;
+	}
+
+	.distance-note {
+		font-size: 0.82rem;
+		color: var(--text-muted);
+		font-style: italic;
+		max-width: 680px;
+	}
+
+	/* Property Section */
+	.property-section {
+		padding: 6rem 0;
+	}
+
+	.property-grid {
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: 5rem;
+		align-items: center;
+	}
+
+	.property-images {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.property-img-main img {
+		width: 100%;
+		height: 340px;
+		object-fit: cover;
+		display: block;
+	}
+
+	.property-img-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.75rem;
+	}
+
+	.property-img-row img {
+		width: 100%;
+		height: 180px;
+		object-fit: cover;
+		display: block;
+	}
+
+	.property-content h2 {
+		font-size: 2.8rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.property-content p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		margin-bottom: 1.25rem;
+	}
+
+	.property-facts {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background: rgba(30, 45, 75, 0.04);
+		border-left: 3px solid var(--navy-deep);
+	}
+
+	.fact {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+
+	.fact-label {
+		font-size: 0.6rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: var(--text-muted);
+		font-weight: 700;
+	}
+
+	.fact-value {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--navy-deep);
+	}
+
+	/* Area Context */
+	.area-context {
+		padding: 6rem 0;
+	}
+
+	.area-context-heading {
+		max-width: 680px;
+		margin-bottom: 3.5rem;
+	}
+
+	.area-context-heading h2 {
+		font-size: 3rem;
+		color: var(--white);
+		margin-bottom: 1rem;
+	}
+
+	.area-context-heading p {
+		font-size: 1.05rem;
+		line-height: 1.8;
+		color: #6A85A8;
+	}
+
+	.area-links {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.area-link-card {
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 2rem;
+	}
+
+	.area-link-card h3 {
+		font-size: 1.6rem;
+		color: var(--white);
+		margin-bottom: 0.75rem;
+	}
+
+	.area-link-card p {
+		font-size: 0.92rem;
+		line-height: 1.75;
+		color: #6A85A8;
+		margin-bottom: 1.25rem;
+	}
+
+	.text-link-light {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-weight: 700;
+		color: #7A9DC4;
+		transition: color 0.3s ease;
+	}
+
+	.text-link-light:hover {
+		color: var(--white);
+	}
+
+	.navy-text { color: var(--navy-deep); }
+
+	@media (max-width: 1024px) {
+		.map-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.map-info {
+			padding: 3rem 2rem;
+		}
+
+		.property-grid {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.area-links {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.location-hero {
+			padding: 9rem 0 4rem;
+		}
+
+		.location-hero h1 {
+			font-size: 3.4rem;
+		}
+
+		.address-strip-inner {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1.5rem;
+		}
+
+		.address-divider {
+			display: none;
+		}
+
+		.section-heading h2 {
+			font-size: 2.7rem;
+		}
+
+		.drive-times {
+			grid-template-columns: 1fr;
+		}
+
+		.nearby-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.property-img-row {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 540px) {
+		.nearby-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

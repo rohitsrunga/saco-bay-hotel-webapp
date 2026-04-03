@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+	{
+		slug: 'old-orchard-beach-summer-2026',
+		title: 'Old Orchard Beach Summer 2026: Events, Festivals & What\'s New',
+		date: 'April 2026',
+		category: 'Seasonal Guide',
+		excerpt: 'Your complete guide to summer 2026 at Old Orchard Beach — concerts on the pier, July 4th fireworks, Palace Playland opening weekend, and what to expect from Maine\'s most popular beach.',
+	},
+	{
+		slug: 'july-4th-old-orchard-beach',
+		title: 'July 4th at Old Orchard Beach: What to Expect',
+		date: 'April 2026',
+		category: 'Seasonal Guide',
+		excerpt: 'Fireworks over the Atlantic, a packed boardwalk, and the best lobster roll you\'ll have all summer. Here\'s how to do July 4th at Old Orchard Beach right.',
+	},
+	{
+		slug: 'things-to-do-old-orchard-beach',
+		title: 'The Ultimate Guide to Old Orchard Beach, Maine',
+		date: 'April 2026',
+		category: 'Destination Guide',
+		excerpt: 'Seven miles of beach, a 475-foot wooden pier, and one of the last traditional amusement parks on the New England coast. Everything you need to know before your first — or tenth — visit.',
+	},
+	{
+		slug: 'palace-playland-guide',
+		title: 'Palace Playland: Everything You Need to Know',
+		date: 'April 2026',
+		category: 'Attraction Guide',
+		excerpt: 'The only traditional oceanfront amusement park left on the New England coast. Here\'s what to ride, what to skip, and how to get the most out of a visit to Palace Playland.',
+	},
+	{
+		slug: 'funtown-splashtown-guide',
+		title: 'Funtown Splashtown USA: Tips, Best Rides & How to Plan Your Day',
+		date: 'April 2026',
+		category: 'Attraction Guide',
+		excerpt: 'Maine\'s largest amusement and water park combo is less than 2 miles from Saco Bay Hotel. A complete guide to Excalibur, the water park, and how to make the most of a full day.',
+	},
+	{
+		slug: 'ferry-beach-state-park',
+		title: 'Ferry Beach State Park: Maine\'s Quiet Beach Near Saco',
+		date: 'April 2026',
+		category: 'Nature Guide',
+		excerpt: 'Two miles from Saco Bay Hotel, Ferry Beach is one of Maine\'s most underrated state parks — a wide sandy beach, rare tupelo trees, and a lot fewer people than Old Orchard.',
+	},
+	{
+		slug: 'boston-to-old-orchard-beach',
+		title: 'Boston to Old Orchard Beach by Car: The Complete Guide',
+		date: 'April 2026',
+		category: 'Travel Guide',
+		excerpt: 'About 95 miles up I-95. Tips on traffic, tolls, parking, and why Saco makes a better base than staying right in Old Orchard Beach.',
+	},
+	{
+		slug: 'things-to-do-saco-maine-outdoors',
+		title: 'Outdoor Things to Do Near Saco, Maine',
+		date: 'April 2026',
+		category: 'Activity Guide',
+		excerpt: 'Beyond the boardwalk: salt marshes, river paddles, birding sanctuaries, and coastal trails within 15 miles of Saco Bay Hotel.',
+	},
+];
+---
+
+<Layout
+	title="Local Guide & Blog | Saco Bay Hotel"
+	description="Tips, guides, and local knowledge for visitors to Old Orchard Beach and southern Maine — from the team at Saco Bay Hotel in Saco, ME."
+>
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sacobayhotel.com/" },
+			{ "@type": "ListItem", "position": 2, "name": "Local Guide", "item": "https://sacobayhotel.com/blog" }
+		]
+	})} />
+
+	<section class="blog-hero bg-warm">
+		<div class="container blog-hero-inner">
+			<span class="eyebrow">Saco Bay Hotel</span>
+			<h1>Local Guide</h1>
+			<p>Everything you need to know about Old Orchard Beach and southern Maine — from the pier to the trails to the best lobster roll within ten miles.</p>
+		</div>
+	</section>
+
+	<section class="blog-list bg-mist textured">
+		<div class="container">
+			<div class="posts-grid">
+				{posts.map((post) => (
+					<article class="post-card">
+						<div class="post-meta">
+							<span class="post-category">{post.category}</span>
+							<span class="post-date">{post.date}</span>
+						</div>
+						<h2 class="post-title">
+							<a href={`/blog/${post.slug}`}>{post.title}</a>
+						</h2>
+						<p class="post-excerpt">{post.excerpt}</p>
+						<a href={`/blog/${post.slug}`} class="post-read-more">Read More →</a>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.blog-hero {
+		padding: 11rem 0 5rem;
+	}
+
+	.blog-hero-inner {
+		max-width: 760px;
+	}
+
+	.blog-hero h1 {
+		font-size: clamp(3.8rem, 9vw, 6.5rem);
+		line-height: 0.95;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+	}
+
+	.blog-hero p {
+		font-size: 1.15rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		max-width: 560px;
+	}
+
+	.blog-list {
+		padding: 5rem 0 7rem;
+	}
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.post-card {
+		background: rgba(255, 255, 255, 0.72);
+		border: 1px solid rgba(30, 45, 75, 0.08);
+		box-shadow: 0 12px 32px rgba(30, 45, 75, 0.07);
+		backdrop-filter: blur(10px);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.9rem;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.post-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 20px 45px rgba(30, 45, 75, 0.12);
+	}
+
+	.post-meta {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.post-category {
+		font-size: 0.6rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		color: var(--accent);
+	}
+
+	.post-date {
+		font-size: 0.7rem;
+		color: var(--text-muted);
+	}
+
+	.post-title {
+		font-size: 1.45rem;
+		line-height: 1.25;
+		color: var(--navy-deep);
+	}
+
+	.post-title a {
+		color: inherit;
+		transition: color 0.3s ease;
+	}
+
+	.post-title a:hover {
+		color: #2E6DA4;
+	}
+
+	.post-excerpt {
+		font-size: 0.92rem;
+		line-height: 1.75;
+		color: var(--text-muted);
+		flex-grow: 1;
+	}
+
+	.post-read-more {
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.16em;
+		font-weight: 700;
+		color: var(--accent);
+		margin-top: 0.5rem;
+		transition: opacity 0.3s ease;
+	}
+
+	.post-read-more:hover {
+		opacity: 0.7;
+	}
+
+	@media (max-width: 1024px) {
+		.blog-hero {
+			padding: 9rem 0 4rem;
+		}
+
+		.blog-hero h1 {
+			font-size: 3.4rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.posts-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

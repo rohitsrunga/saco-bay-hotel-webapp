@@ -1,0 +1,504 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+	{
+		id: 'beach',
+		eyebrow: 'Sand & Water',
+		title: 'Beaches',
+		bg: 'bg-coastal',
+		items: [
+			{
+				name: 'Old Orchard Beach',
+				distance: '3 mi · 7 min',
+				description: 'Seven miles of wide sandy beach on the Gulf of Maine — the busiest and most famous beach on the Maine coast. The boardwalk runs parallel to the shore, lined with seafood shacks, arcades, and the 475-foot wooden pier that stretches into the Atlantic. Water temperatures peak in July and August, reaching the low-to-mid 60s°F.',
+				link: 'https://www.oldorchardbeachmaine.com',
+				linkText: 'oldorchardbeachmaine.com',
+				note: 'Parking lots fill early on summer weekends. Arrive before 9 AM or after 4 PM.',
+			},
+			{
+				name: 'Ferry Beach State Park',
+				distance: '2 mi · 6 min',
+				description: 'A quieter alternative to Old Orchard. Ferry Beach is a Maine state park with a broad sandy beach, a shaded picnic area, and a nature trail through a rare stand of tupelo trees — one of the northernmost tupelo groves in New England. Lifeguards are on duty during summer season. Day-use fee applies.',
+				link: 'https://www.maine.gov/cgi-bin/online/doc/parksearch/details.pl?park_id=8',
+				linkText: 'maine.gov — Ferry Beach',
+				note: 'Dogs are allowed on-leash in the park. The tupelo trail is worth the extra 20 minutes.',
+			},
+			{
+				name: 'Camp Ellis Beach',
+				distance: '4 mi · 9 min',
+				description: 'A low-key residential beach at the mouth of the Saco River, with a long granite jetty you can walk out on for views of the bay. Smaller and less crowded than OOB. Good for fishing off the jetty or watching boats come in and out of the river mouth.',
+				link: null,
+				linkText: null,
+				note: 'Limited parking — street parking only. Better for a walk than a full beach day.',
+			},
+			{
+				name: 'Scarborough Beach State Park',
+				distance: '8 mi · 15 min',
+				description: 'One of Maine\'s most popular state parks — a wide, well-maintained ocean beach with lifeguards, restrooms, and a snack bar. More family-oriented and slightly less chaotic than Old Orchard. The parking lot can fill by mid-morning on weekends.',
+				link: 'https://www.maine.gov/cgi-bin/online/doc/parksearch/details.pl?park_id=28',
+				linkText: 'maine.gov — Scarborough Beach',
+				note: 'Day-use fee for out-of-state vehicles. Maine residents free.',
+			},
+		]
+	},
+	{
+		id: 'family',
+		eyebrow: 'Rides & Waterparks',
+		title: 'Amusement Parks',
+		bg: 'bg-warm',
+		items: [
+			{
+				name: 'Palace Playland',
+				distance: '3 mi · 7 min',
+				description: 'The only remaining traditional oceanfront amusement park on the entire New England coast. Palace Playland sits right on the Old Orchard Beach boardwalk and has been operating since 1902. It features over 25 rides including the Giant Ferris Wheel, the Galaxi steel roller coaster, a log flume, go-karts, and a full arcade. Pay-per-ride or unlimited wristband options available. Open Memorial Day weekend through Labor Day.',
+				link: 'https://www.palaceplayland.com',
+				linkText: 'palaceplayland.com',
+				note: 'Wristbands are better value if you plan to ride more than 4–5 rides. Buy online to save on price.',
+			},
+			{
+				name: 'Funtown Splashtown USA',
+				distance: '1.5 mi · 5 min',
+				description: 'Maine\'s largest amusement and water park — two parks combined. The amusement side features Excalibur, a classic wooden roller coaster, plus the Astrosphere (enclosed spinning ride), Thunder Falls log flume, and Dragon\'s Descent freefall tower. The Splashtown water park next door adds wave pools, tube slides, and a lazy river. One of the closest major theme parks to Saco Bay Hotel.',
+				link: 'https://www.funtownsplashtown.com',
+				linkText: 'funtownsplashtown.com',
+				note: 'Combo tickets for both parks offer the best value. Arrive early — lines for the wooden coaster get long by noon.',
+			},
+			{
+				name: 'Aquaboggan Water Park',
+				distance: '1 mi · 4 min',
+				description: 'A classic New England water park on Route 1 in Saco, open since 1982. Slides, a wave pool, and go-karts in a no-frills, family-friendly format. Smaller and more relaxed than Splashtown — a good option for younger kids or a shorter half-day visit.',
+				link: 'https://www.aquaboggan.com',
+				linkText: 'aquaboggan.com',
+				note: 'Open late June through Labor Day. Admission is pay-per-ride or daily pass.',
+			},
+		]
+	},
+	{
+		id: 'nature',
+		eyebrow: 'Trails & Wildlife',
+		title: 'Nature & Outdoors',
+		bg: 'bg-coastal',
+		items: [
+			{
+				name: 'Scarborough Marsh',
+				distance: '7 mi · 12 min',
+				description: 'The largest salt marsh in Maine — over 3,000 acres of tidal marsh, mudflats, and upland habitat managed by Maine Audubon. The marsh is a critical stopover for migratory shorebirds and a nesting ground for dozens of species. Canoe and kayak rentals are available at the Maine Audubon nature center. The Marsh Trail is a short flat walk through the edge of the marsh.',
+				link: 'https://www.maineaudubon.org/visit/scarborough-marsh/',
+				linkText: 'Maine Audubon — Scarborough Marsh',
+				note: 'Canoe rentals available mid-June through Labor Day. No reservations — first come, first served.',
+			},
+			{
+				name: 'East Point Sanctuary (Biddeford Pool)',
+				distance: '8 mi · 15 min',
+				description: 'A Maine Audubon wildlife sanctuary at the tip of Biddeford Pool — one of the best birdwatching spots on the southern Maine coast. The short trail loops around the point with views of Wood Island Lighthouse across the mouth of the Saco River. During spring and fall migration, the point can have exceptional shorebird and warbler concentrations.',
+				link: 'https://www.maineaudubon.org/visit/east-point-sanctuary/',
+				linkText: 'Maine Audubon — East Point',
+				note: 'Free and open year-round. Best birding in early morning during May and August–September.',
+			},
+			{
+				name: 'Saco River Canoe & Kayak',
+				distance: '3 mi · 7 min',
+				description: 'The Saco River is one of the best canoe and kayak rivers in New England — wide, mostly flat, and passing through forests and farmland with minimal boat traffic in the upper sections. Multiple outfitters operate day trips and multi-day trips with shuttle service. The river runs from the White Mountains of New Hampshire all the way to Saco Bay.',
+				link: 'https://www.sacoriveroutdoors.com',
+				linkText: 'Saco River Outdoors',
+				note: 'Book ahead on summer weekends. Day trips from Limington to Saco are the most popular run.',
+			},
+			{
+				name: 'Rachel Carson National Wildlife Refuge',
+				distance: '12 mi · 20 min',
+				description: 'A coastal refuge spanning 50 miles of Maine coastline, protecting salt marshes, estuaries, and upland habitat. The headquarters trail near Wells is a 1-mile loop through salt marsh and forest — accessible, scenic, and free. Good for birding and quiet walks away from the beach crowds.',
+				link: 'https://www.fws.gov/refuge/rachel-carson',
+				linkText: 'USFWS — Rachel Carson Refuge',
+				note: 'Free admission. The Carson Trail (headquarters unit, Wells ME) is the most accessible trailhead.',
+			},
+		]
+	},
+	{
+		id: 'daytrips',
+		eyebrow: 'Worth the Drive',
+		title: 'Day Trips',
+		bg: 'bg-warm',
+		items: [
+			{
+				name: 'Portland',
+				distance: '20 mi · 28 min',
+				description: 'Maine\'s largest city punches well above its size. The Old Port district has some of the best restaurants in New England — James Beard Award nominees and winners have made Portland a serious food destination. The waterfront, the Commercial Street lobster shacks, the Portland Head Light, and the Art Museum are all worth a morning or afternoon. Catch a ferry to the Calendar Islands from the Casco Bay Lines terminal.',
+				link: 'https://www.visitportland.com',
+				linkText: 'visitportland.com',
+				note: 'Portland Head Light is in Cape Elizabeth, 10 minutes from downtown Portland. Do not skip it.',
+			},
+			{
+				name: 'Kennebunkport',
+				distance: '20 mi · 28 min',
+				description: 'The classic Maine coastal village — Dock Square with its galleries and shops, the Colony Beach, and the rocky shoreline of Ocean Avenue. The Kennebunks are quieter and more upscale than OOB, with excellent restaurants and a slower pace. Good for a morning drive south — the drive itself along Route 9 through the salt marshes is scenic.',
+				link: 'https://www.visitthekennebunks.com',
+				linkText: 'visitthekennebunks.com',
+				note: 'Summer parking in Kennebunkport is limited. Arrive early or take the trolley from a satellite lot.',
+			},
+			{
+				name: 'Portland Head Light',
+				distance: '22 mi · 30 min',
+				description: 'One of the most photographed lighthouses in the United States — commissioned by George Washington in 1791, it sits at the entrance to Portland Harbor on a dramatic rocky headland. Fort Williams Park surrounds it and is free to enter. The views of Casco Bay from the point are among the best on the Maine coast.',
+				link: 'https://www.portlandheadlight.com',
+				linkText: 'portlandheadlight.com',
+				note: 'The museum inside the lighthouse keeper\'s quarters is worth visiting. Small admission fee.',
+			},
+			{
+				name: 'Ogunquit',
+				distance: '18 mi · 25 min',
+				description: 'Ogunquit\'s Perkins Cove and the Marginal Way coastal footpath make it one of the most scenic short detours in southern Maine. The Marginal Way is a 1.25-mile path cut into the rocky cliffs above the ocean, with views of the open Atlantic on one side and beach houses on the other. Perkins Cove has good lobster shacks and galleries.',
+				link: 'https://www.ogunquit.org',
+				linkText: 'ogunquit.org',
+				note: 'The Marginal Way is a 1.25-mile footpath — flat, paved, and accessible. Free.',
+			},
+		]
+	},
+	{
+		id: 'dining',
+		eyebrow: 'Where to Eat',
+		title: 'Dining Nearby',
+		bg: 'bg-mist',
+		items: [
+			{
+				name: 'Downtown Biddeford',
+				distance: '4 mi · 10 min',
+				description: 'Biddeford has had a genuine restaurant renaissance over the past decade. The former mill town now has some of the most interesting independent restaurants on the southern Maine coast — from the Palace Diner (a classic pre-WWII diner car, James Beard semifinalist) to Roustabout (wood-fired New American). Worth a dinner reservation.',
+				link: 'https://www.biddefordmaine.org',
+				linkText: 'biddefordmaine.org',
+				note: 'Make reservations for Palace Diner — it is tiny and fills up fast.',
+			},
+			{
+				name: 'Old Orchard Beach Pier',
+				distance: '3 mi · 7 min',
+				description: 'The 475-foot pier at Old Orchard Beach has been the social center of the town since the 1800s. Today it is lined with seafood restaurants, pizza, and the famous OOB pier fries — a tradition for anyone who has been coming to this beach since childhood. The views from the end of the pier at sunset are worth the walk.',
+				link: 'https://www.oldorchardbeachmaine.com/pier',
+				linkText: 'OOB Pier',
+				note: 'Pier fries with vinegar are the thing to order. Every first-timer should have them.',
+			},
+			{
+				name: 'Camp Ellis (Saco)',
+				distance: '4 mi · 9 min',
+				description: 'A small cluster of seafood restaurants and fish markets at the mouth of the Saco River — the kind of place where you eat lobster at a picnic table while watching lobster boats come in. Simpler and less touristy than the OOB boardwalk.',
+				link: null,
+				linkText: null,
+				note: 'Best for a casual lunch. Very few tables — arrive early or be patient.',
+			},
+		]
+	},
+];
+---
+
+<Layout
+	title="Things to Do Near Old Orchard Beach | Saco Bay Hotel"
+	description="The best beaches, amusement parks, nature trails, day trips, and dining near Saco Bay Hotel — your guide to Old Orchard Beach and southern Maine."
+>
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sacobayhotel.com/" },
+			{ "@type": "ListItem", "position": 2, "name": "Things to Do", "item": "https://sacobayhotel.com/things-to-do" }
+		]
+	})} />
+
+	<section class="ttd-hero bg-warm">
+		<div class="container ttd-hero-inner">
+			<span class="eyebrow">Southern Maine</span>
+			<h1>Things to Do</h1>
+			<p>From Old Orchard Beach to Portland, the southern Maine coast has more going on than most people expect. Here is what is worth your time, with honest notes on each.</p>
+		</div>
+	</section>
+
+	<nav class="category-nav bg-navy" aria-label="Activity categories">
+		<div class="container category-nav-inner">
+			<a href="#beach" class="cat-link">Beaches</a>
+			<a href="#family" class="cat-link">Amusement Parks</a>
+			<a href="#nature" class="cat-link">Nature</a>
+			<a href="#daytrips" class="cat-link">Day Trips</a>
+			<a href="#dining" class="cat-link">Dining</a>
+		</div>
+	</nav>
+
+	{categories.map((cat) => (
+		<section id={cat.id} class={`ttd-section ${cat.bg} textured`}>
+			<div class="container">
+				<div class="cat-heading">
+					<span class="eyebrow">{cat.eyebrow}</span>
+					<h2 class="navy-text">{cat.title}</h2>
+				</div>
+				<div class="ttd-grid">
+					{cat.items.map((item) => (
+						<article class="ttd-card">
+							<div class="ttd-card-header">
+								<h3>{item.name}</h3>
+								<span class="ttd-distance">{item.distance}</span>
+							</div>
+							<p class="ttd-desc">{item.description}</p>
+							{item.note && (
+								<p class="ttd-note">
+									<span class="ttd-note-label">Tip:</span> {item.note}
+								</p>
+							)}
+							{item.link && (
+								<a href={item.link} target="_blank" rel="noopener" class="ttd-ext-link">
+									{item.linkText} ↗
+								</a>
+							)}
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+	))}
+
+	<section class="ttd-cta bg-navy">
+		<div class="container ttd-cta-inner">
+			<div class="ttd-cta-text">
+				<span class="eyebrow">Ready to Go</span>
+				<h2>Book Your Home Base</h2>
+				<p>Saco Bay Hotel is a short drive from all of it — check availability and lock in your stay before the summer fills up.</p>
+			</div>
+			<div class="ttd-cta-actions">
+				<a href="/book" class="btn-primary">Check Availability</a>
+				<a href="/rooms" class="ttd-rooms-link">See Our Rooms →</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.ttd-hero {
+		padding: 11rem 0 5rem;
+	}
+
+	.ttd-hero-inner {
+		max-width: 760px;
+	}
+
+	.ttd-hero h1 {
+		font-size: clamp(3.8rem, 9vw, 6.5rem);
+		line-height: 0.95;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+	}
+
+	.ttd-hero p {
+		font-size: 1.15rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		max-width: 560px;
+	}
+
+	/* Category Nav */
+	.category-nav {
+		padding: 0;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
+	.category-nav-inner {
+		display: flex;
+		gap: 0;
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	.category-nav-inner::-webkit-scrollbar {
+		display: none;
+	}
+
+	.cat-link {
+		flex-shrink: 0;
+		padding: 1rem 1.75rem;
+		font-size: 0.68rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-weight: 700;
+		color: #7A9DC4;
+		transition: all 0.3s ease;
+		border-bottom: 2px solid transparent;
+		white-space: nowrap;
+	}
+
+	.cat-link:hover {
+		color: var(--white);
+		border-bottom-color: var(--white);
+	}
+
+	/* Section Layout */
+	.ttd-section {
+		padding: 5rem 0;
+	}
+
+	.cat-heading {
+		margin-bottom: 3rem;
+	}
+
+	.cat-heading h2 {
+		font-size: 3rem;
+	}
+
+	.navy-text { color: var(--navy-deep); }
+
+	.ttd-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.ttd-card {
+		background: rgba(255, 255, 255, 0.72);
+		border: 1px solid rgba(30, 45, 75, 0.08);
+		box-shadow: 0 12px 32px rgba(30, 45, 75, 0.07);
+		backdrop-filter: blur(10px);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.ttd-card-header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.ttd-card-header h3 {
+		font-size: 1.5rem;
+		color: var(--navy-deep);
+		line-height: 1.2;
+	}
+
+	.ttd-distance {
+		flex-shrink: 0;
+		font-size: 0.68rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--text-muted);
+		padding: 0.25rem 0.6rem;
+		border: 1px solid rgba(30, 45, 75, 0.15);
+		white-space: nowrap;
+		margin-top: 0.25rem;
+	}
+
+	.ttd-desc {
+		font-size: 0.95rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+	}
+
+	.ttd-note {
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--text-muted);
+		padding: 0.75rem 1rem;
+		background: rgba(30, 45, 75, 0.04);
+		border-left: 2px solid var(--accent);
+	}
+
+	.ttd-note-label {
+		font-weight: 700;
+		color: var(--navy-deep);
+		text-transform: uppercase;
+		font-size: 0.65rem;
+		letter-spacing: 0.12em;
+		margin-right: 0.4rem;
+	}
+
+	.ttd-ext-link {
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-weight: 700;
+		color: var(--accent);
+		margin-top: auto;
+		transition: opacity 0.3s ease;
+	}
+
+	.ttd-ext-link:hover {
+		opacity: 0.7;
+	}
+
+	/* CTA Section */
+	.ttd-cta {
+		padding: 6rem 0;
+	}
+
+	.ttd-cta-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 4rem;
+		flex-wrap: wrap;
+	}
+
+	.ttd-cta-text {
+		max-width: 540px;
+	}
+
+	.ttd-cta-text h2 {
+		font-size: 3rem;
+		color: var(--white);
+		margin-bottom: 1rem;
+	}
+
+	.ttd-cta-text p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: #6A85A8;
+	}
+
+	.ttd-cta-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		align-items: flex-start;
+	}
+
+	.ttd-rooms-link {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-weight: 700;
+		color: #7A9DC4;
+		transition: color 0.3s ease;
+	}
+
+	.ttd-rooms-link:hover {
+		color: var(--white);
+	}
+
+	@media (max-width: 1024px) {
+		.ttd-hero {
+			padding: 9rem 0 4rem;
+		}
+
+		.cat-heading h2,
+		.ttd-cta-text h2 {
+			font-size: 2.5rem;
+		}
+
+		.ttd-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.ttd-cta-inner {
+			flex-direction: column;
+			gap: 2.5rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.ttd-hero h1 {
+			font-size: 3.4rem;
+		}
+
+		.ttd-card {
+			padding: 1.5rem;
+		}
+	}
+</style>

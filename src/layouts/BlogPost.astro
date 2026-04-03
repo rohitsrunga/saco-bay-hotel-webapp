@@ -1,0 +1,322 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	date: string;
+	category: string;
+	slug: string;
+}
+
+const { title, description, date, category, slug } = Astro.props;
+---
+
+<Layout title={`${title} | Saco Bay Hotel`} description={description}>
+	<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": title,
+		"description": description,
+		"datePublished": date,
+		"author": {
+			"@type": "Organization",
+			"name": "Saco Bay Hotel",
+			"url": "https://sacobayhotel.com"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Saco Bay Hotel",
+			"url": "https://sacobayhotel.com"
+		},
+		"url": `https://sacobayhotel.com/blog/${slug}`,
+		"mainEntityOfPage": `https://sacobayhotel.com/blog/${slug}`
+	})} />
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sacobayhotel.com/" },
+			{ "@type": "ListItem", "position": 2, "name": "Local Guide", "item": "https://sacobayhotel.com/blog" },
+			{ "@type": "ListItem", "position": 3, "name": title, "item": `https://sacobayhotel.com/blog/${slug}` }
+		]
+	})} />
+
+	<article class="blog-post">
+		<header class="post-header bg-warm">
+			<div class="container post-header-inner">
+				<div class="post-breadcrumb">
+					<a href="/">Home</a>
+					<span>→</span>
+					<a href="/blog">Local Guide</a>
+					<span>→</span>
+					<span>{category}</span>
+				</div>
+				<span class="eyebrow">{category}</span>
+				<h1>{title}</h1>
+				<p class="post-deck">{description}</p>
+				<div class="post-meta-bar">
+					<span class="post-by">Saco Bay Hotel · Saco, Maine</span>
+					<span class="post-date-pub">{date}</span>
+				</div>
+			</div>
+		</header>
+
+		<div class="post-body bg-mist">
+			<div class="container post-body-inner">
+				<div class="post-content">
+					<slot />
+				</div>
+				<aside class="post-sidebar">
+					<div class="sidebar-card">
+						<span class="eyebrow">Book Your Stay</span>
+						<h3>Saco Bay Hotel</h3>
+						<p>352 North St, Saco, ME<br />Minutes from Old Orchard Beach.</p>
+						<ul class="sidebar-amenities">
+							<li>Hot breakfast included</li>
+							<li>Free on-site parking</li>
+							<li>Fast WiFi</li>
+							<li>Outdoor pool</li>
+						</ul>
+						<a href="/book" class="btn-primary">Check Availability</a>
+					</div>
+					<div class="sidebar-links">
+						<h4>More to Explore</h4>
+						<a href="/things-to-do">Things to Do Near OOB</a>
+						<a href="/location">Getting Here</a>
+						<a href="/rooms">Our Rooms</a>
+						<a href="/experience">Amenities & FAQ</a>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</article>
+</Layout>
+
+<style is:global>
+	.post-content h2 {
+		font-size: 2rem;
+		color: var(--navy-deep);
+		margin: 2.5rem 0 1rem;
+	}
+
+	.post-content h3 {
+		font-size: 1.5rem;
+		color: var(--navy-deep);
+		margin: 2rem 0 0.75rem;
+	}
+
+	.post-content p {
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--text-muted);
+		margin-bottom: 1.25rem;
+	}
+
+	.post-content ul, .post-content ol {
+		margin: 0 0 1.5rem 1.5rem;
+	}
+
+	.post-content li {
+		font-size: 0.97rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		margin-bottom: 0.4rem;
+	}
+
+	.post-content a {
+		color: #2E6DA4;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.post-content a:hover {
+		color: var(--navy-deep);
+	}
+
+	.post-content strong {
+		color: var(--navy-deep);
+		font-weight: 700;
+	}
+
+	.post-content .tip-box {
+		background: rgba(30, 45, 75, 0.05);
+		border-left: 3px solid var(--navy-deep);
+		padding: 1.25rem 1.5rem;
+		margin: 2rem 0;
+	}
+
+	.post-content .tip-box p {
+		margin-bottom: 0;
+	}
+
+	.post-content .tip-box strong {
+		display: block;
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		margin-bottom: 0.5rem;
+		color: var(--navy-deep);
+	}
+</style>
+
+<style>
+	/* Header */
+	.post-header {
+		padding: 10rem 0 4rem;
+	}
+
+	.post-header-inner {
+		max-width: 860px;
+	}
+
+	.post-breadcrumb {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-size: 0.7rem;
+		color: var(--text-muted);
+		margin-bottom: 1.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.post-breadcrumb a:hover {
+		color: var(--navy-deep);
+	}
+
+	.post-header h1 {
+		font-size: clamp(2.2rem, 5vw, 3.8rem);
+		line-height: 1.05;
+		color: var(--navy-deep);
+		margin-bottom: 1.25rem;
+	}
+
+	.post-deck {
+		font-size: 1.1rem;
+		line-height: 1.75;
+		color: var(--text-muted);
+		max-width: 680px;
+		margin-bottom: 2rem;
+	}
+
+	.post-meta-bar {
+		display: flex;
+		gap: 2rem;
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		color: var(--text-muted);
+	}
+
+	/* Body */
+	.post-body {
+		padding: 4rem 0 6rem;
+	}
+
+	.post-body-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 300px;
+		gap: 5rem;
+		align-items: start;
+	}
+
+	/* Sidebar */
+	.sidebar-card {
+		background: rgba(255, 255, 255, 0.85);
+		border: 1px solid rgba(30, 45, 75, 0.1);
+		box-shadow: 0 12px 32px rgba(30, 45, 75, 0.07);
+		padding: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.sidebar-card h3 {
+		font-size: 1.4rem;
+		color: var(--navy-deep);
+		margin-bottom: 0.5rem;
+	}
+
+	.sidebar-card p {
+		font-size: 0.85rem;
+		line-height: 1.7;
+		color: var(--text-muted);
+		margin-bottom: 1.25rem;
+	}
+
+	.sidebar-amenities {
+		list-style: none;
+		margin-bottom: 1.5rem;
+	}
+
+	.sidebar-amenities li {
+		font-size: 0.82rem;
+		color: var(--navy-deep);
+		font-weight: 600;
+		padding: 0.35rem 0;
+		border-bottom: 1px solid rgba(30, 45, 75, 0.07);
+		padding-left: 1rem;
+		position: relative;
+	}
+
+	.sidebar-amenities li::before {
+		content: "—";
+		position: absolute;
+		left: 0;
+		color: var(--accent);
+	}
+
+	.sidebar-card .btn-primary {
+		width: 100%;
+		padding: 0.9rem 1.5rem;
+	}
+
+	.sidebar-links {
+		background: rgba(255, 255, 255, 0.6);
+		border: 1px solid rgba(30, 45, 75, 0.08);
+		padding: 1.5rem;
+	}
+
+	.sidebar-links h4 {
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: var(--text-muted);
+		margin-bottom: 1rem;
+	}
+
+	.sidebar-links a {
+		display: block;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--navy-deep);
+		padding: 0.5rem 0;
+		border-bottom: 1px solid rgba(30, 45, 75, 0.07);
+		transition: color 0.3s ease;
+	}
+
+	.sidebar-links a:hover {
+		color: #2E6DA4;
+	}
+
+	@media (max-width: 1024px) {
+		.post-body-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.post-sidebar {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.post-header {
+			padding: 8rem 0 3rem;
+		}
+
+		.post-sidebar {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
