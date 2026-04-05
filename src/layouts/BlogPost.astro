@@ -1,5 +1,10 @@
 ---
 import Layout from './Layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import exteriorImg from '../assets/amenities/exterior.jpg';
+import foodImg from '../assets/amenities/food.jpg';
+import breakfastAreaImg from '../assets/gallery/breakfast_area.jpg';
 
 interface Props {
 	title: string;
@@ -7,9 +12,10 @@ interface Props {
 	date: string;
 	category: string;
 	slug: string;
+	heroImage?: ImageMetadata;
 }
 
-const { title, description, date, category, slug } = Astro.props;
+const { title, description, date, category, slug, heroImage } = Astro.props;
 ---
 
 <Layout title={`${title} | Saco Bay Hotel`} description={description}>
@@ -47,9 +53,9 @@ const { title, description, date, category, slug } = Astro.props;
 			<div class="container post-header-inner">
 				<div class="post-breadcrumb">
 					<a href="/">Home</a>
-					<span>→</span>
+					<span>›</span>
 					<a href="/blog">Local Guide</a>
-					<span>→</span>
+					<span>›</span>
 					<span>{category}</span>
 				</div>
 				<span class="eyebrow">{category}</span>
@@ -62,12 +68,27 @@ const { title, description, date, category, slug } = Astro.props;
 			</div>
 		</header>
 
+		{heroImage && (
+			<div class="post-hero-img">
+				<Image src={heroImage} alt={title} loading="eager" width={1600} height={700} />
+			</div>
+		)}
+
 		<div class="post-body bg-mist">
 			<div class="container post-body-inner">
 				<div class="post-content">
 					<slot />
 				</div>
 				<aside class="post-sidebar">
+					<figure class="sidebar-hotel-photo">
+						<Image
+							src={exteriorImg}
+							alt="Saco Bay Hotel in Saco, Maine"
+							loading="lazy"
+							width={800}
+							height={534}
+						/>
+					</figure>
 					<div class="sidebar-card">
 						<span class="eyebrow">Book Your Stay</span>
 						<h3>Saco Bay Hotel</h3>
@@ -86,6 +107,26 @@ const { title, description, date, category, slug } = Astro.props;
 						<a href="/location">Getting Here</a>
 						<a href="/rooms">Our Rooms</a>
 						<a href="/experience">Amenities & FAQ</a>
+					</div>
+					<div class="sidebar-photo-pair">
+						<figure>
+							<Image
+								src={foodImg}
+								alt="Hot breakfast at Saco Bay Hotel"
+								loading="lazy"
+								width={400}
+								height={300}
+							/>
+						</figure>
+						<figure>
+							<Image
+								src={breakfastAreaImg}
+								alt="Breakfast area at Saco Bay Hotel"
+								loading="lazy"
+								width={400}
+								height={300}
+							/>
+						</figure>
 					</div>
 				</aside>
 			</div>
@@ -137,6 +178,26 @@ const { title, description, date, category, slug } = Astro.props;
 	.post-content strong {
 		color: var(--navy-deep);
 		font-weight: 700;
+	}
+
+	.post-content figure {
+		margin: 2rem 0;
+		overflow: hidden;
+	}
+
+	.post-content figure img {
+		display: block;
+		width: 100%;
+		height: 340px;
+		object-fit: cover;
+		box-shadow: 0 8px 28px rgba(30, 45, 75, 0.12);
+	}
+
+	.post-content figcaption {
+		font-size: 0.78rem;
+		color: var(--text-muted);
+		padding: 0.5rem 0 0;
+		font-style: italic;
 	}
 
 	.post-content .tip-box {
@@ -209,6 +270,21 @@ const { title, description, date, category, slug } = Astro.props;
 		color: var(--text-muted);
 	}
 
+	/* Hero image */
+	.post-hero-img {
+		width: 100%;
+		overflow: hidden;
+		max-height: 500px;
+		line-height: 0;
+	}
+
+	.post-hero-img img {
+		width: 100%;
+		height: 500px;
+		object-fit: cover;
+		display: block;
+	}
+
 	/* Body */
 	.post-body {
 		padding: 4rem 0 6rem;
@@ -221,10 +297,46 @@ const { title, description, date, category, slug } = Astro.props;
 		align-items: start;
 	}
 
+	/* Sidebar hotel photo */
+	.sidebar-hotel-photo {
+		margin: 0 0 0;
+		overflow: hidden;
+		line-height: 0;
+	}
+
+	.sidebar-hotel-photo img {
+		display: block;
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+	}
+
+	/* Sidebar photo pair */
+	.sidebar-photo-pair {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	.sidebar-photo-pair figure {
+		margin: 0;
+		overflow: hidden;
+		line-height: 0;
+	}
+
+	.sidebar-photo-pair img {
+		display: block;
+		width: 100%;
+		height: 110px;
+		object-fit: cover;
+	}
+
 	/* Sidebar */
 	.sidebar-card {
 		background: rgba(255, 255, 255, 0.85);
 		border: 1px solid rgba(30, 45, 75, 0.1);
+		border-top: none;
 		box-shadow: 0 12px 32px rgba(30, 45, 75, 0.07);
 		padding: 2rem;
 		margin-bottom: 2rem;
@@ -308,11 +420,20 @@ const { title, description, date, category, slug } = Astro.props;
 			grid-template-columns: 1fr 1fr;
 			gap: 1.5rem;
 		}
+
+		.sidebar-hotel-photo,
+		.sidebar-photo-pair {
+			display: none;
+		}
 	}
 
 	@media (max-width: 768px) {
 		.post-header {
 			padding: 8rem 0 3rem;
+		}
+
+		.post-hero-img img {
+			height: 280px;
 		}
 
 		.post-sidebar {

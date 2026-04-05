@@ -1,126 +1,99 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
+import heroImg from '../../assets/oob/oob-pier-2.jpg';
+import oobPierImg from '../../assets/oob/oob-pier-2.jpg';
+import lobsterRollImg from '../../assets/travel/lobster-roll.jpg';
 ---
 
 <BlogPost
 	title="The Ultimate Guide to Old Orchard Beach, Maine"
-	description="Seven miles of beach, a 475-foot wooden pier, and one of the last traditional amusement parks on the New England coast. Everything you need to know before your first — or tenth — visit."
+	description="Seven miles of beach, a 500-foot wooden pier, and the last traditional beachfront amusement park in New England. Everything to know before your first or tenth visit."
 	date="April 2026"
 	category="Destination Guide"
 	slug="things-to-do-old-orchard-beach"
+	heroImage={heroImg}
 >
-	<p>Old Orchard Beach sits at the southern end of Saco Bay, about 15 miles south of Portland. It's part Coney Island, part classic New England, with a genuinely working-class summer energy — loud, fun, and unapologetically built for having a good time. Here's what to do, where to eat, and how to understand the place before you arrive.</p>
+	<p>Old Orchard Beach is about 15 miles south of Portland. Part Coney Island, part classic New England, with a genuine working-class summer energy that has not changed much in 50 years. It is loud, fun, and built for having a good time. Here is what to do, where to eat, and how to understand the place before you arrive.</p>
 
 	<h2>The Beach</h2>
 
-	<p>The continuous sandy beach stretches <strong>seven miles</strong> from Pine Point in Scarborough to Camp Ellis in Saco — the longest continuous sandy beach in Maine. Old Orchard is wide, flat, and gently sloping, positioned in a sheltered cove on Saco Bay. Wave action is typically gentle, making it excellent for families with small children.</p>
+	<p>The continuous sandy beach runs <strong>seven miles</strong> from Pine Point in Scarborough down to Camp Ellis in Saco. It is the longest continuous sandy beach in Maine. Old Orchard is wide, flat, and gently sloping, sitting in a sheltered cove on Saco Bay. Wave action stays gentle, which is why it works so well for families with small children.</p>
 
-	<p>The sand is white and fine, notably cleaner and more abundant than rockier Maine beaches to the north. This is a social beach: volleyball, frisbee, sandcastles, people-watching. Don't come here for solitude — come here for the full summer experience.</p>
+	<p>This is a social beach. Volleyball, frisbee, sandcastles, people-watching. Do not come here for solitude. Come here because it is August and you want to be at the beach.</p>
 
-	<p><strong>Water temperatures:</strong></p>
-	<ul>
-		<li>June: 55–60°F — cold, but people brave it</li>
-		<li>July: 60–65°F — cool but swimmable; most people go in</li>
-		<li>August: peaks around 64–68°F — the most comfortable swimming</li>
-		<li>September: often still 60–65°F, sometimes better than July</li>
-	</ul>
+	<p>Water by month: June runs 55 to 60 degrees, cold. July is 60 to 65, cool but swimmable. August peaks around 64 to 68 degrees, the most comfortable. September holds the warmth better than you'd think, often still 60 to 65.</p>
+
+	<figure>
+		<Image src={oobPierImg} alt="Old Orchard Beach pier extending over the Atlantic" loading="lazy" width={1600} height={900} />
+		<figcaption>The pier at Old Orchard Beach, rebuilt in 1980, extends 500 feet over the Atlantic.</figcaption>
+	</figure>
 
 	<h2>The Pier</h2>
 
-	<p>The Pier is the centerpiece of Old Orchard Beach. The current structure is 500 feet long, extending directly over the Atlantic from the foot of Old Orchard Street. It was first built in 1898 — the original version stretched nearly 1,825 feet with three pavilions and a casino at the end. Frank Sinatra, Louis Armstrong, and Benny Goodman all played the Pier Casino Ballroom in its heyday. The Blizzard of 1978 destroyed most of what remained; the current pier was rebuilt and reopened in 1980.</p>
+	<p>The Pier is 500 feet long, extending straight out over the Atlantic from the foot of Old Orchard Street. It first opened in 1898. The original was nearly 1,825 feet with three pavilions and a casino at the end. Frank Sinatra, Louis Armstrong, and Benny Goodman all played the Pier Casino Ballroom in its heyday. The Blizzard of 1978 destroyed most of what was left. The current pier was rebuilt and reopened in 1980.</p>
 
-	<p>Today the pier has souvenir shops, food vendors, and restaurants. At the far end: a nightclub with a Sunset Deck and Atlantic views. <strong>Reader's Digest named it one of the Top 5 Beach Boardwalks in the US in 2021.</strong></p>
+	<p>Today: souvenir shops, food vendors, restaurants. At the far end, a nightclub with a Sunset Deck and a view of the Atlantic. <strong>Reader's Digest named it one of the top five Beach Boardwalks in the country in 2021.</strong></p>
 
-	<p><strong>On the pier:</strong></p>
-	<ul>
-		<li><strong>Pier French Fries</strong> — open since 1932; the mandatory OOB food stop</li>
-		<li><strong>Bill's Pizza</strong> — operating since 1949</li>
-		<li><strong>Hooligan's Landing</strong> — seafood restaurant at the pier entrance</li>
-		<li><strong>Top of the Pier Nightclub</strong> — with a Sunset Deck and ocean views</li>
-	</ul>
+	<p>On the pier: <strong>Pier French Fries</strong> (open since 1932), <strong>Bill's Pizza</strong> (since 1949), <strong>Hooligan's Landing</strong> for seafood, and <strong>Top of the Pier Nightclub</strong> at the far end.</p>
 
 	<h2>Palace Playland</h2>
 
-	<p>New England's only remaining beachfront amusement park has operated on the same 5-acre site since 1902. More than 28 rides plus Maine's largest arcade — 24,000 square feet with over 200 games. Free to enter; pay per ride or buy a day pass.</p>
+	<p>New England's only remaining beachfront amusement park has run on the same five acres since 1902. More than 28 rides plus Maine's largest arcade, 24,000 square feet with over 200 games. Free to enter. Pay per ride or buy a day pass.</p>
 
-	<p><strong>Rides worth knowing:</strong></p>
-	<ul>
-		<li><strong>Electra Wheel (Giant Ferris Wheel)</strong> — over 70 feet tall; views of the Atlantic and the full 7-mile beach at sunset</li>
-		<li><strong>Adrenalin</strong> — the park's roller coaster</li>
-		<li><strong>Speedy Coaster</strong> — new for 2026, with smooth twists and hills</li>
-		<li><strong>Wind Surfer</strong> — three-person hang glider lifting 30 feet in the air</li>
-		<li><strong>Nitro Speed</strong> — spins and orbits cars around a central hub with lights and music</li>
-		<li><strong>Drop Zone</strong> — tower drop</li>
-		<li><strong>Wave Swinger, The Pirate, Bumper Cars, Carousel</strong></li>
-	</ul>
-
-	<p>Season runs late May through Labor Day. Weekday hours: Noon–close. Weekend hours: 11 AM–close. One-day pass: approximately $50 for adults/riders 48"+. Visit palaceplayland.com for current pricing.</p>
+	<p>The <strong>Electra Wheel</strong> stands over 70 feet tall. Views of the full seven-mile beach and the Atlantic at the top. The <strong>Speedy Coaster</strong> is new for 2026. The <strong>Wind Surfer</strong> lifts three-person hang gliders 30 feet in the air. The <strong>Drop Zone, Wave Swinger, and The Pirate</strong> round out the thrill rides. Weekday hours: Noon to close. Weekends: 11 AM to close. Roughly $50 for a full-day pass for adults. See our <a href="/blog/palace-playland-guide">Palace Playland guide</a> for more detail.</p>
 
 	<h2>The Boardwalk Strip</h2>
 
-	<p>Old Orchard Street and the beachfront strip form the classic seaside carnival experience: arcades, ring toss, fried dough, cotton candy, saltwater taffy, mini golf. This is the heartbeat of OOB in summer. The strip runs at full capacity July through Labor Day weekend.</p>
+	<p>Old Orchard Street and the beachfront strip: arcades, ring toss, fried dough, cotton candy, saltwater taffy, mini golf. Classic American beach carnival. It runs at full capacity from July through Labor Day weekend.</p>
 
-	<p>A few shopping spots worth noting: <strong>Beachology</strong> for locally made gifts and apparel; <strong>Dickinson's Candy</strong> for handmade chocolates; <strong>Maine Country Woods</strong> for artisan wooden crafts.</p>
+	<p>For shopping: <strong>Beachology</strong> has locally made gifts and apparel. <strong>Dickinson's Candy</strong> does handmade chocolates. <strong>Maine Country Woods</strong> sells artisan wooden crafts if you need something to bring home.</p>
 
-	<h2>Dining in OOB</h2>
+	<h2>Eating</h2>
 
-	<h3>For a casual beachside meal</h3>
-	<ul>
-		<li><strong>Pier French Fries</strong> — thick-cut fries, fried dough, and hot dogs at the pier since 1932</li>
-		<li><strong>JJ's Eatery</strong> — the best breakfast spot near the pier</li>
-		<li><strong>Jake's Eatery Too</strong> — corned beef hash, housemade pancakes, Irish Benny</li>
-	</ul>
+	<figure>
+		<Image src={lobsterRollImg} alt="Maine lobster roll" loading="lazy" width={1200} height={800} />
+		<figcaption>A Maine lobster roll. Half the reason people make the drive.</figcaption>
+	</figure>
 
-	<h3>For a lobster roll</h3>
-	<ul>
-		<li><strong>Johnny Shucks Maine Lobster</strong> — well-reviewed for freshness</li>
-		<li><strong>Bell Buoy</strong> — hot buttered lobster roll</li>
-		<li><strong>Big Daddy's Bar & Grill</strong> — lobster sandwich on crescent roll</li>
-	</ul>
+	<p>For a quick beachside meal: <strong>Pier French Fries</strong> is the mandatory stop. <strong>JJ's Eatery</strong> is the best breakfast near the pier. <strong>Jake's Eatery Too</strong> does corned beef hash and housemade pancakes.</p>
 
-	<h3>For a proper dinner</h3>
-	<ul>
-		<li><strong>Joseph's By the Sea</strong> — OOB's fine dining standard for 50+ years, with rooftop and dining room ocean views; worth booking ahead in July</li>
-		<li><strong>Pirates Patio & Galley</strong> — tables set in the sand; cocktails and American grill</li>
-		<li><strong>Surf 6 Oceanfront Grille & Bar</strong> — beachfront dining with live entertainment</li>
-	</ul>
+	<p>For lobster: <strong>Johnny Shucks Maine Lobster</strong> for freshness. <strong>Bell Buoy</strong> for a hot buttered roll. <strong>Big Daddy's Bar and Grill</strong> has a lobster sandwich on a crescent roll.</p>
+
+	<p>For a real dinner: <strong>Joseph's By the Sea</strong> has been the fine dining option in OOB for over 50 years. Rooftop and dining room views of the ocean. Worth booking ahead in July. <strong>Pirates Patio and Galley</strong> sets tables in the sand. <strong>Surf 6 Oceanfront</strong> does beachfront dining with live music.</p>
 
 	<h2>Nightlife</h2>
-	<ul>
-		<li><strong>Top of the Pier Nightclub</strong> — the iconic OOB night-out spot, with a Sunset Deck</li>
-		<li><strong>GFB Scottish Pub</strong> (32 Old Orchard St) — the only brewpub in OOB; craft beers and pub fare daily from 5 PM</li>
-		<li><strong>Myst Oceanside Restaurant & Lounge</strong> — open May–September until 1 AM Fri/Sat; frozen cocktails and live music</li>
-		<li><strong>Water's Edge Tiki Bar</strong> — tropical cocktails and a laid-back vibe</li>
-	</ul>
+
+	<p><strong>Top of the Pier Nightclub</strong> is the OOB night-out spot, with the Sunset Deck at the end of the pier. <strong>GFB Scottish Pub</strong> at 32 Old Orchard St is the only brewpub in town, open nightly from 5 PM. <strong>Myst Oceanside</strong> runs until 1 AM on weekends with frozen cocktails and live music. <strong>Water's Edge Tiki Bar</strong> for something more laid-back.</p>
 
 	<h2>Weekly Events</h2>
 
-	<p><strong>Thursday Night Fireworks:</strong> Professional fireworks launch from the beach near the Pier every Thursday night from late June through late August at approximately 9:45 PM. Free to watch from anywhere on the main beach.</p>
+	<p><strong>Thursday Night Fireworks</strong> launch from the beach near the Pier every Thursday, late June through late August, at about 9:45 PM. Free. Watch from anywhere on the main beach.</p>
 
-	<p><strong>Rock the Park Concerts:</strong> Free outdoor concerts at The Ballpark, 7 Ballpark Way. Gates open 5 PM; music 6–8 PM. All summer long on select evenings.</p>
+	<p><strong>Rock the Park Concerts</strong> at The Ballpark, 7 Ballpark Way. Free outdoor shows on select summer evenings. Gates open at 5, music from 6 to 8.</p>
 
 	<h2>When to Visit</h2>
 
-	<p><strong>Peak season (July–August):</strong> Full energy, all rides open, weekly fireworks, every restaurant operating. Also: highest prices, biggest crowds, most difficult parking.</p>
+	<p><strong>July and August:</strong> Peak season. Everything open, fireworks weekly, every restaurant at full operation. Highest prices and biggest crowds.</p>
 
-	<p><strong>September:</strong> The underrated option. Water is often warmer than July. Crowds thin dramatically after Labor Day. Most restaurants stay open. Hotel rates drop. The Car Show (mid-September) is a bonus. If you care more about a comfortable beach experience than peak-season intensity, September is the answer.</p>
+	<p><strong>September:</strong> The smart pick. Water is often warmer than July. Crowds drop hard after Labor Day. Most restaurants stay open. Hotel rates come down. The Car Show in mid-September is a bonus. If you want the beach experience without peak-season intensity, September is worth serious consideration.</p>
 
-	<p><strong>Memorial Day weekend and early June:</strong> Most things open, smaller crowds, lower prices. A few businesses not yet at full operation.</p>
+	<p><strong>Memorial Day and early June:</strong> Most things open, smaller crowds, lower prices. A few places not yet at full operation.</p>
 
-	<h2>The French-Canadian Connection</h2>
+	<h2>The Quebec Connection</h2>
 
-	<p>An estimated 30–40% of OOB's summer visitors are Canadian, primarily from Quebec. This goes back to 1853, when the Grand Trunk Railroad connected Montreal to the region. OOB is geographically the closest Atlantic beach to both Quebec City and Montreal. Bilingual signage and French-speaking staff are common throughout downtown; the Canadian flag flies outside many properties. It's a cultural fact of the place worth knowing before you arrive.</p>
+	<p>Between 30 and 40 percent of summer visitors are Canadian, nearly all from Quebec. This goes back to 1853 when the Grand Trunk Railroad connected Montreal to this part of Maine. OOB is the closest Atlantic beach to both Quebec City and Montreal. Bilingual signs and French-speaking staff are common throughout downtown. The Canadian flag flies outside many properties. It is a core part of the town's identity.</p>
 
-	<h2>Day Trips from OOB</h2>
+	<h2>Day Trips</h2>
 
-	<p><strong>Portland (20 minutes north):</strong> The Old Port district has cobblestone streets, excellent restaurants, and craft breweries. Portland Head Light at Cape Elizabeth — Maine's oldest lighthouse, commissioned by George Washington in 1791 — is 20 minutes from OOB and one of the most photographed spots in New England.</p>
+	<p><strong>Portland, 20 minutes north.</strong> The Old Port has cobblestone streets, good restaurants, and craft breweries. Portland Head Light at Cape Elizabeth, Maine's oldest lighthouse, commissioned by George Washington in 1791, is one of the most photographed spots on the East Coast.</p>
 
-	<p><strong>Kennebunkport (25–30 minutes south):</strong> Upscale coastal village known for Dock Square boutiques, Goose Rocks Beach, and whale watching tours to Jeffrey's Ledge offshore.</p>
+	<p><strong>Kennebunkport, 25 to 30 minutes south.</strong> Upscale coastal village with Dock Square boutiques, Goose Rocks Beach, and whale watching trips to Jeffrey's Ledge.</p>
 
-	<p><strong>Biddeford (10 minutes from Saco Bay Hotel):</strong> One of New England's most surprising food scenes — James Beard-nominated chefs, a 1927 Pollard dining car turned acclaimed restaurant (Palace Diner), and a fully revitalized downtown that Food & Wine Magazine named one of the next great food cities. A short drive from the hotel for a very different dinner experience.</p>
+	<p><strong>Biddeford, 10 minutes from the hotel.</strong> Food and Wine Magazine named it one of the next great food cities. James Beard-nominated chefs, a 1927 Pollard dining car (Palace Diner), and a revitalized downtown. A short drive for a dinner that has nothing to do with fried dough.</p>
 
 	<div class="tip-box">
 		<strong>Base Yourself in Saco</strong>
-		<p>Saco Bay Hotel is two miles from the OOB pier — close enough to be at the beach in five minutes, far enough to avoid the resort-town crowds and pricing. You get the full Old Orchard experience with the option to retreat when you've had enough of the noise. Most of our guests split their days between the beach, Funtown Splashtown USA (1.5 miles away), and dinner in Biddeford.</p>
+		<p>We are two miles from the OOB pier. Close enough to be there in five minutes. Far enough to step back from resort-town prices and noise. Most of our guests split their days between the beach, Funtown Splashtown (1.5 miles from us), and dinner in Biddeford. It works well.</p>
 	</div>
 </BlogPost>

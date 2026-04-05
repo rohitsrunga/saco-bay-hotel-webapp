@@ -28,8 +28,10 @@ const breadcrumbName = !isHome ? breadcrumbMap[pathname] : undefined;
 const homeHref = baseUrl;
 const roomsHref = `${baseUrl}rooms`;
 const experienceHref = `${baseUrl}experience`;
+const thingsToDoHref = `${baseUrl}things-to-do`;
+const blogHref = `${baseUrl}blog`;
 const homeBookingHref = `${baseUrl}#home`;
-const locationHref = isHome ? '#location' : `${baseUrl}#location`;
+const locationHref = isHome ? '#location' : `${baseUrl}location`;
 
 ---
 
@@ -126,6 +128,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 						<nav class="main-nav left-nav">
 							<a href={roomsHref}>Rooms</a>
 							<a href={experienceHref}>Experience</a>
+							<a href={thingsToDoHref}>Things To Do</a>
 						</nav>
 					</div>
 				<div class="header-center">
@@ -135,6 +138,7 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 				</div>
 				<div class="header-right">
 					<nav class="main-nav right-nav">
+						<a href={blogHref}>Local Guide</a>
 						<a href={locationHref}>Location</a>
 						<div class="header-actions">
 							<button id="menu-toggle" class="menu-trigger" aria-label="Toggle Menu">
@@ -155,6 +159,8 @@ const locationHref = isHome ? '#location' : `${baseUrl}#location`;
 					<a href={homeHref} class="menu-link">Home</a>
 					<a href={roomsHref} class="menu-link">Rooms</a>
 					<a href={experienceHref} class="menu-link">Experience</a>
+					<a href={thingsToDoHref} class="menu-link">Things To Do</a>
+					<a href={blogHref} class="menu-link">Local Guide</a>
 					<a href={locationHref} class="menu-link">Location</a>
 					<a href="/book" class="menu-link menu-link-book">Book Now</a>
 				</div>

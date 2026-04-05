@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import buildingImg from '../assets/location/building.jpg';
+import exteriorImg from '../assets/amenities/exterior.jpg';
+import lobbyImg from '../assets/amenities/lobby.jpg';
 
 const nearby = [
 	{ name: 'Old Orchard Beach Pier & Boardwalk', distance: '3 mi', time: '7 min', category: 'Beach' },
@@ -168,31 +172,28 @@ const categoryColors: Record<string, string> = {
 		<div class="container property-grid">
 			<div class="property-images">
 				<div class="property-img-main">
-					<img
-						src={`${import.meta.env.BASE_URL}assets/location/building.webp`}
+					<Image
+						src={buildingImg}
 						alt="Saco Bay Hotel exterior at 352 North St, Saco Maine"
 						loading="lazy"
-						decoding="async"
-						width="4240"
-						height="2832"
+						width={1200}
+						height={800}
 					/>
 				</div>
 				<div class="property-img-row">
-					<img
-						src={`${import.meta.env.BASE_URL}assets/amenities/exterior.webp`}
+					<Image
+						src={exteriorImg}
 						alt="Saco Bay Hotel property exterior view"
 						loading="lazy"
-						decoding="async"
-						width="4240"
-						height="2832"
+						width={600}
+						height={400}
 					/>
-					<img
-						src={`${import.meta.env.BASE_URL}assets/amenities/lobby.webp`}
+					<Image
+						src={lobbyImg}
 						alt="Saco Bay Hotel lobby and front entrance"
 						loading="lazy"
-						decoding="async"
-						width="4240"
-						height="2832"
+						width={600}
+						height={400}
 					/>
 				</div>
 			</div>

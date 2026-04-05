@@ -1,106 +1,109 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
+import heroImg from '../../assets/attractions/palace-playland-ferris.jpg';
+import ferrisImg from '../../assets/attractions/palace-playland-ferris.jpg';
 ---
 
 <BlogPost
 	title="Palace Playland: Everything You Need to Know"
-	description="The only traditional oceanfront amusement park left on the New England coast. Here's what to ride, what to skip, and how to get the most out of a visit to Palace Playland."
+	description="The only traditional oceanfront amusement park left on the New England coast. What to ride, what to skip, and how to make the most of a visit."
 	date="April 2026"
 	category="Attraction Guide"
 	slug="palace-playland-guide"
+	heroImage={heroImg}
 >
-	<p>Palace Playland has been running on the same five acres of Old Orchard Beach sand since 1902. That makes it one of the oldest continuously operating amusement parks in the country — and it holds a distinction no other park in New England can claim: it's the only remaining traditional amusement park located directly on an ocean beach. You walk off the beach, you're at the gate. You walk off the ride, you're back at the sand.</p>
+	<p>Palace Playland has been running on the same five acres of Old Orchard Beach sand since 1902. It is one of the oldest continuously operating amusement parks in the country and it holds a distinction no other park in New England can claim: it is the only traditional amusement park located directly on an ocean beach. You walk off the sand, you are at the gate.</p>
 
-	<p>Saco Bay Hotel is about 7 miles from Palace Playland — roughly a 10-minute drive.</p>
+	<p>We are about seven miles from Palace Playland, roughly a 10-minute drive.</p>
 
 	<h2>What's Here</h2>
 
-	<p>More than 28 rides spread across 5 beachfront acres, plus <strong>Maine's largest arcade</strong> — a 24,000-square-foot facility with over 200 games, including vintage machines from the 1950s alongside modern video games. Admission to the grounds is free; you pay per ride or buy a day pass.</p>
+	<p>More than 28 rides across five beachfront acres, plus <strong>Maine's largest arcade</strong>, a 24,000-square-foot building with over 200 games including vintage machines from the 1950s alongside modern video games. Admission to the grounds is free. You pay per ride or buy a day pass.</p>
+
+	<figure>
+		<Image src={ferrisImg} alt="The Electra Wheel ferris wheel at Palace Playland, Old Orchard Beach" loading="lazy" width={1600} height={900} />
+		<figcaption>The Electra Wheel stands over 70 feet above Old Orchard Beach.</figcaption>
+	</figure>
 
 	<h2>The Rides</h2>
 
-	<h3>The Ferris Wheel: The One You Shouldn't Skip</h3>
+	<h3>The Ferris Wheel</h3>
 
-	<p>The <strong>Electra Wheel</strong> stands over 70 feet tall. At the top, you get a clear view of the entire 7-mile Saco Bay beach to the north and south, the Atlantic stretching to the horizon, and the pier below. At sunset, it's one of the best views in southern Maine. The wheel was rebuilt in 2010–11 and runs reliably throughout the season.</p>
+	<p>The <strong>Electra Wheel</strong> stands over 70 feet tall. At the top you see the entire seven-mile Saco Bay beach in both directions, the Atlantic stretching to the horizon, and the pier below. At sunset it is one of the best views in southern Maine. Do not skip it.</p>
 
 	<h3>New for 2026</h3>
 
-	<p><strong>Speedy Coaster</strong> — The park's newest addition, described as "packed with smooth twists, playful hills, and nonstop excitement." A family-friendly coaster that complements the existing <strong>Adrenalin</strong> coaster already in the lineup.</p>
+	<p>The <strong>Speedy Coaster</strong> is the park's newest addition, with smooth twists and playful hills. It joins the existing <strong>Adrenalin</strong> coaster.</p>
 
-	<h3>New in 2025 (Still Running)</h3>
+	<h3>New in 2025, Still Running</h3>
 	<ul>
-		<li><strong>Nitro Speed</strong> — Spins, twists, and orbits your car around a central hub with flashing lights and pulsing music</li>
-		<li><strong>Wind Surfer</strong> — Three-person hang glider that lifts riders 30 feet in the air. Height requirement: 46 inches minimum, no exceptions.</li>
-		<li><strong>Balloon Ride</strong> — Height requirement: 36 inches minimum, 54 inches maximum</li>
+		<li><strong>Nitro Speed</strong> spins and orbits your car around a central hub with flashing lights and pulsing music.</li>
+		<li><strong>Wind Surfer</strong> is a three-person hang glider that lifts 30 feet in the air. Height requirement: 46 inches minimum.</li>
+		<li><strong>Balloon Ride</strong> has a 36-inch minimum, 54-inch maximum height range.</li>
 	</ul>
 
 	<h3>Thrill Rides</h3>
 	<ul>
-		<li><strong>Drop Zone</strong> — Tower drop</li>
-		<li><strong>Wipeout</strong> — High-speed spinning</li>
-		<li><strong>The Pirate</strong> — Swinging ship</li>
-		<li><strong>Wave Swinger</strong> — Classic swing ride high above the beach</li>
-		<li><strong>Adrenalin</strong> — The original coaster</li>
+		<li>Drop Zone (tower drop)</li>
+		<li>Wipeout</li>
+		<li>The Pirate (swinging ship)</li>
+		<li>Wave Swinger</li>
 	</ul>
 
-	<h3>Family and Kiddie Rides</h3>
+	<h3>Family and Kids</h3>
 	<ul>
-		<li><strong>Bumper Cars</strong></li>
-		<li><strong>Carousel</strong></li>
-		<li><strong>Whales</strong> — Kiddie ride accessible at the low end of the height range</li>
+		<li>Bumper Cars</li>
+		<li>Carousel</li>
+		<li>Whales (kiddie ride)</li>
 	</ul>
 
 	<h2>Hours and Season</h2>
 
-	<p><strong>Opening weekend:</strong> Memorial Day weekend — Saturday, May 23, 2026</p>
+	<p>Opening weekend: <strong>Memorial Day weekend, Saturday May 23, 2026.</strong></p>
 
-	<p>After Memorial Day weekend, the park runs <strong>weekends only</strong> until approximately mid-June. <strong>Daily operation</strong> begins around June 18 and runs through Labor Day.</p>
+	<p>After Memorial Day, weekends only through mid-June. Daily operation from around June 18 through Labor Day.</p>
 
 	<ul>
-		<li><strong>Weekday hours:</strong> Noon to close</li>
-		<li><strong>Weekend hours:</strong> 11 AM to close</li>
+		<li>Weekday hours: Noon to close</li>
+		<li>Weekend hours: 11 AM to close</li>
 	</ul>
 
-	<p>The <strong>arcade</strong> opens in late April and stays open on weekends through September — longer than the rides.</p>
+	<p>The <strong>arcade</strong> opens in late April and runs through September on weekends.</p>
 
 	<h2>Pricing</h2>
 
 	<ul>
-		<li><strong>Single ride ticket:</strong> $1.55 each; rides require 2–5 tickets</li>
-		<li><strong>One-Day Pass (unlimited):</strong> approximately $50 for riders 48"+; approximately $41 for riders under 48"</li>
-		<li><strong>Season Pass:</strong> Available online</li>
-		<li><strong>AAA and Military discount:</strong> $3 off any pass with valid ID</li>
+		<li>Single ticket: $1.55. Rides require 2 to 5 tickets.</li>
+		<li>One-Day Pass (unlimited): about $50 for riders 48 inches and up, about $41 for under 48 inches.</li>
+		<li>Season Pass available online.</li>
+		<li>AAA and Military: $3 off any pass with valid ID.</li>
 	</ul>
 
-	<p>If your group plans to ride all day, the one-day pass beats individual tickets. Confirm current pricing at palaceplayland.com/buy-tickets before your visit.</p>
+	<p>If your group is riding all day, the day pass beats buying individual tickets. Confirm current pricing at palaceplayland.com.</p>
 
-	<h2>Practical Guide by Group Type</h2>
+	<h2>Who Gets What</h2>
 
-	<h3>With young children (under 46")</h3>
-	<p>Focus on the Balloon Ride, Whales, Carousel, and Bumper Cars — all accessible at the lower end of the height range. The arcade has plenty of games for younger kids. Avoid the Wind Surfer and Nitro Speed until they hit the height requirements.</p>
+	<p><strong>With young kids under 46 inches:</strong> Focus on the Balloon Ride, Whales, Carousel, and Bumper Cars. The arcade has plenty for younger kids. Skip the Wind Surfer and Nitro Speed until they hit the height marks.</p>
 
-	<h3>For teens and adults</h3>
-	<p>The Nitro Speed, Wind Surfer, Drop Zone, The Pirate, and Wave Swinger will satisfy. End with the Electra Wheel at sunset — it's not a thrill ride but it's the best experience in the park. The new Speedy Coaster and Adrenalin round out the coaster options.</p>
+	<p><strong>Teens and adults:</strong> Nitro Speed, Wind Surfer, Drop Zone, The Pirate, and Wave Swinger are the rides worth lining up for. End with the Ferris Wheel at sunset. Both coasters, old and new, for the coaster crowd.</p>
 
-	<h3>Arcade-focused visit</h3>
-	<p>The 24,000-square-foot arcade includes vintage 1950s games alongside modern redemption games. It's one of the largest on the East Coast and worth a few hours on its own, especially on a rainy afternoon.</p>
+	<p><strong>Rainy day:</strong> The 24,000-square-foot arcade keeps everyone busy for a few hours on its own. Vintage 1950s games alongside modern redemption games. Worth knowing about.</p>
 
-	<h2>Timing Your Visit</h2>
+	<h2>Timing</h2>
 
-	<p><strong>Weekdays are significantly less crowded</strong> than weekends in July and August. If your schedule allows, a Tuesday or Wednesday visit means shorter lines on every ride.</p>
+	<p>Weekdays in July and August are noticeably less crowded than weekends. If your schedule allows, Tuesday or Wednesday means shorter lines on every ride.</p>
 
-	<p>On summer weekends, arrive when the park opens (11 AM) and get to the major rides first. By mid-afternoon on a hot July Saturday, wait times on the popular rides stretch considerably.</p>
+	<p>On summer weekends, get there when the park opens at 11 AM and hit the popular rides first. By mid-afternoon on a hot July Saturday, lines stretch considerably.</p>
 
-	<p>July 4th weekend is the most crowded stretch of the year. If you're visiting on the holiday, ride from noon to 4 PM before the fireworks crowds move in.</p>
+	<p>July 4th weekend has the longest lines of the year. Ride from noon to 4 PM before the fireworks crowds move in.</p>
 
 	<h2>Getting There</h2>
 
-	<p>95 Old Orchard Street, Old Orchard Beach, ME 04064. Park parking fills fast on summer weekends — the same municipal lots and residential streets used for beach access are your options. See our <a href="/blog/things-to-do-old-orchard-beach">OOB guide</a> for parking details.</p>
-
-	<p>From Saco Bay Hotel: head north on Route 1, then follow signs to Old Orchard Beach. The drive is about 10 minutes.</p>
+	<p>95 Old Orchard Street, Old Orchard Beach, ME 04064. From the hotel, head north on Route 1 and follow signs into Old Orchard Beach. About 10 minutes. Same parking situation as the rest of OOB on summer weekends.</p>
 
 	<div class="tip-box">
-		<strong>Local Tip</strong>
-		<p>If you're doing Palace Playland and Funtown Splashtown USA on the same trip, spend the morning at Funtown (about 1.5 miles from Saco Bay Hotel, opens at 10:30 AM) and drive to Palace Playland in the afternoon. Both parks are open through Labor Day, and between them they cover every age group and interest.</p>
+		<strong>Combine Both Parks</strong>
+		<p>Funtown Splashtown USA opens at 10:30 AM and is 1.5 miles from the hotel. A good move is to start there in the morning, then drive to Palace Playland in the afternoon. Both parks are open through Labor Day. Two parks, one day, no overlap.</p>
 	</div>
 </BlogPost>

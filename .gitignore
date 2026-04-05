@@ -12,6 +12,7 @@ node_modules/
 .DS_Store
 public/assets/.DS_Store
 src/.DS_Store
+*.md
 
 
 # Distribution / packaging

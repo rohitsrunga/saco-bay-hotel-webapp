@@ -1,94 +1,103 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
+import heroImg from '../../assets/attractions/funtown.jpg';
+import funtownImg from '../../assets/attractions/funtown.jpg';
+import excaliburImg from '../../assets/attractions/funtown-excalibur.jpg';
 ---
 
 <BlogPost
 	title="Funtown Splashtown USA: Tips, Best Rides & How to Plan Your Day"
-	description="Maine's largest amusement and water park combo is less than 2 miles from Saco Bay Hotel. A complete guide to Excalibur, the water park, and how to make the most of a full day."
+	description="Maine's largest amusement and water park is less than 2 miles from the hotel. A full guide to Excalibur, the water slides, and how to plan a full day."
 	date="April 2026"
 	category="Attraction Guide"
 	slug="funtown-splashtown-guide"
+	heroImage={heroImg}
 >
-	<p>Funtown Splashtown USA is Maine's largest combined amusement and water park — roughly 50 rides, water slides, pools, and attractions spread across a single property on Route 1 in Saco. It's about 1.5 miles from Saco Bay Hotel. For families with kids of any age, it's the most complete park in southern Maine — different in character from Palace Playland's beachfront energy, but arguably a better full-day experience for a mixed group.</p>
+	<p>Funtown Splashtown USA is Maine's largest combined amusement and water park, about 1.5 miles from Saco Bay Hotel on Route 1. Roughly 50 rides, water slides, pools, and attractions on one property. Family-owned since 1959 and still family-owned today. For most guests, this is the most complete park in southern Maine, different in character from Palace Playland's beachfront energy, but the better full-day option for a mixed-age group.</p>
 
-	<p>The park has been family-owned since 1959 and has a cult following in New England. Here's what to know before you go.</p>
+	<figure>
+		<Image src={funtownImg} alt="Funtown Splashtown USA amusement park in Saco, Maine" loading="lazy" width={1600} height={900} />
+		<figcaption>Funtown Splashtown USA on Route 1 in Saco, about 1.5 miles from the hotel.</figcaption>
+	</figure>
 
-	<h2>The Rides: What Makes This Place Unique</h2>
+	<h2>What Makes This Place Worth a Full Day</h2>
 
-	<h3>Excalibur — Maine's Only Wooden Roller Coaster</h3>
+	<h3>Excalibur: Maine's Only Wooden Roller Coaster</h3>
 
-	<p>Excalibur opened in 1998 and remains the signature attraction: Maine's only wooden roller coaster, and the largest, tallest coaster in the state's history. It also holds the title of <strong>largest wooden coaster in Northern New England</strong>. The coaster winds through the wooded edge of the park — the trees make it feel like it goes on longer than it does. For coaster enthusiasts, this is the reason to visit.</p>
+	<figure>
+		<Image src={excaliburImg} alt="Excalibur wooden roller coaster at Funtown Splashtown USA, Saco Maine" loading="lazy" width={816} height={1089} />
+		<figcaption>Excalibur — Maine's only wooden roller coaster, right here in Saco.</figcaption>
+	</figure>
 
-	<p>Best suited for ages 8+. Minimum height: 48 inches to ride alone.</p>
+	<p>Excalibur opened in 1998 and remains the signature ride. Maine's only wooden roller coaster and the largest, tallest coaster in the state's history. It also holds the title for largest wooden coaster in Northern New England. The track winds through the wooded edge of the park, and the trees make it feel longer than it is. For coaster people, this is the reason to come.</p>
 
-	<h3>Astrosphere — The 1976 Time Capsule</h3>
+	<p>Best for ages 8 and up. Minimum height: 48 inches to ride alone.</p>
 
-	<p>Opened in 1976 and changed very little since. A fully enclosed dome combining a Scrambler-style ride with a complete laser light show — and the music is <strong>"Fire on High" by Electric Light Orchestra</strong>, playing on a loop. It's genuinely strange, genuinely beloved, and a rite of passage for anyone who grew up going to Funtown. Don't skip it.</p>
+	<h3>Astrosphere: The 1976 Time Capsule</h3>
+
+	<p>Opened in 1976. Changed very little since. A fully enclosed dome that combines a Scrambler-style ride with a complete laser light show. The music is <strong>"Fire on High" by Electric Light Orchestra</strong>, playing on a loop. It is strange, it is beloved, and it has been making people laugh and yell since before most of our guests were born. Do not skip it.</p>
 
 	<h3>Whispering Pines Haunted Hotel Dark Ride</h3>
 
-	<p>The first new ride added to the park in 20 years, opened in 2023, designed by Sally Dark Rides. Guests board custom vehicles (up to four per car) through 14 uniquely themed rooms of a cursed hotel. In 2024 it placed <strong>6th in USA Today's 10Best Reader Choice Awards for Top New Theme Park Attractions in the United States</strong> — not a local honor, a national one. Worth at least one run-through.</p>
+	<p>The first new ride added to Funtown in 20 years, opened in 2023. Designed by Sally Dark Rides. Guests ride custom vehicles through 14 rooms of a cursed hotel. In 2024 it placed <strong>6th in USA Today's 10Best Reader Choice Awards for Top New Theme Park Attractions in the United States</strong>. That is not a local award. Worth at least one run.</p>
 
 	<h3>Thunder Falls Log Flume</h3>
 
-	<p>New England's longest and tallest log flume ride. Virtually guarantees a soaking — bring a change of clothes or embrace being wet for the rest of the day.</p>
+	<p>New England's longest and tallest log flume. This will soak you. Bring a change of clothes or accept being wet for the rest of the day.</p>
 
-	<h2>Splashtown: The Water Park</h2>
+	<h2>Splashtown Water Park</h2>
 
-	<p>The water park opens approximately mid-June (2025 opening: June 14) and runs through Labor Day. Operating hours: approximately 10:30 AM – 5:00 PM.</p>
+	<p>Opens around mid-June (the 2025 opening was June 14) and runs through Labor Day. Hours roughly 10:30 AM to 5:00 PM.</p>
 
-	<p><strong>Water slides and features:</strong></p>
-	<ul>
-		<li><strong>Mammoth, Tornado, and Mount Olympus</strong> — the tallest and largest water slides of their kind in Maine</li>
-		<li><strong>Amphitrite's Challenge</strong> — a four-lane mat racer slide (head-to-head racing down parallel lanes)</li>
-	</ul>
+	<p>Highlights: <strong>Mammoth, Tornado, and Mount Olympus</strong> are the tallest and largest water slides of their kind in Maine. <strong>Amphitrite's Challenge</strong> is a four-lane mat racer where you can race your family down side-by-side.</p>
 
-	<p>The water park is a genuine standalone attraction. On a hot August day, some families spend their entire visit here without touching the amusement park side.</p>
+	<p>On a hot August day some people spend their entire visit in the water park and never touch the amusement side. That is a legitimate strategy.</p>
 
-	<h2>Season and Hours</h2>
+	<h2>Hours and Season</h2>
 
-	<p><strong>Funtown (amusement park):</strong> Opens Memorial Day weekend. Hours approximately 10:30 AM – 6:00 PM.</p>
+	<p><strong>Funtown (amusement park):</strong> Opens Memorial Day weekend. Hours approximately 10:30 AM to 6:00 PM.</p>
 
-	<p><strong>Splashtown (water park):</strong> Opens mid-June. Hours approximately 10:30 AM – 5:00 PM.</p>
+	<p><strong>Splashtown (water park):</strong> Opens mid-June. Hours approximately 10:30 AM to 5:00 PM.</p>
 
-	<p>Both run daily through Labor Day. Special <strong>21+ nights</strong> are offered select Saturday evenings in July and August — a good date-night option for adults.</p>
+	<p>Both run daily through Labor Day. Select Saturday evenings in July and August have <strong>21-plus nights</strong> if you want to come back without kids.</p>
 
 	<h2>Pricing</h2>
 
 	<ul>
-		<li><strong>General Admission (48"+ / adults):</strong> $49.00</li>
-		<li><strong>Children under 38":</strong> FREE</li>
-		<li><strong>Season Passes:</strong> Big Combo (48"+): $149.95 | Little Combo (38"–48"): $139.95 | Senior Combo (60+): $86.95</li>
+		<li>General Admission (48 inches and up): $49.00</li>
+		<li>Children under 38 inches: free</li>
+		<li>Season Passes: Big Combo (48 inches and up): $149.95 | Little Combo (38 to 48 inches): $139.95 | Senior Combo (60 and up): $86.95</li>
 	</ul>
 
-	<p>Online advance tickets are often available at a slight discount — worth checking funtownsplashtownusa.com before your visit.</p>
+	<p>Online advance tickets sometimes come in lower. Check funtownsplashtownusa.com before your visit.</p>
 
-	<h2>Height and Age Guide</h2>
+	<h2>Height Guide</h2>
 
 	<ul>
-		<li><strong>Under 38":</strong> Free admission; focus on the kiddie rides</li>
-		<li><strong>38"–48":</strong> Full access to children's section, Thunder Falls log flume, and the water park; can't ride Excalibur alone</li>
-		<li><strong>48"+:</strong> Full access to everything, including Excalibur; the wooden coaster is best for ages 8+</li>
+		<li>Under 38 inches: free admission, kiddie rides</li>
+		<li>38 to 48 inches: full kids section, log flume, water park, but not Excalibur alone</li>
+		<li>48 inches and up: full access to everything including Excalibur</li>
 	</ul>
 
-	<h2>Tips for Making the Most of Your Day</h2>
+	<h2>How to Make the Most of the Day</h2>
 
-	<p><strong>Arrive at opening (10:30 AM).</strong> Excalibur and the Whispering Pines dark ride draw the longest lines by midday. Tackle both immediately after entering, before the crowds build.</p>
+	<p><strong>Arrive at 10:30 AM.</strong> Excalibur and the Whispering Pines dark ride draw long lines by midday. Get to both as soon as you walk in.</p>
 
-	<p><strong>Weekdays are significantly less crowded</strong> than weekends and holidays — particularly Tuesdays and Wednesdays in July. If flexibility exists, visit mid-week.</p>
+	<p><strong>Weekdays are far less crowded</strong> than weekends, especially Tuesdays and Wednesdays in July. If your schedule bends, mid-week is noticeably better.</p>
 
-	<p><strong>Bring a change of clothes.</strong> Thunder Falls and the water park will soak you. There's no polite way to say "you'll be wet for four hours" — plan for it.</p>
+	<p><strong>Bring a change of clothes.</strong> Thunder Falls and the water park will soak you. There is no way around this.</p>
 
-	<p><strong>Buy tickets online in advance</strong> to save time at the gate on busy days.</p>
+	<p><strong>Buy online ahead of time</strong> to skip the gate line on busy days.</p>
 
-	<p><strong>The Astrosphere is not to be missed.</strong> It sounds like a gimmick ("1970s laser dome"), but everyone who walks out is smiling. Give it five minutes.</p>
+	<p>And seriously, do the Astrosphere. Everyone thinks it sounds cheesy. Everyone comes out smiling.</p>
 
 	<h2>Getting There</h2>
 
-	<p>774 Portland Road (Route 1), Saco, ME 04072. From Saco Bay Hotel, it's less than a 5-minute drive south on Route 1. Parking is free and plentiful on site.</p>
+	<p>774 Portland Road (Route 1), Saco, ME 04072. Less than a five-minute drive from Saco Bay Hotel going south on Route 1. Free parking on site.</p>
 
 	<div class="tip-box">
-		<strong>Combine It with Palace Playland</strong>
-		<p>Both parks are open through Labor Day and both are within a 15-minute drive of each other. A common guest strategy: spend the morning at Funtown (opens at 10:30 AM, great for families with younger kids), then drive to Old Orchard Beach in the afternoon for Palace Playland and the beach. Two parks, one day, no overlap.</p>
+		<strong>Two Parks, One Day</strong>
+		<p>Both Funtown and Palace Playland are open through Labor Day. A lot of guests do Funtown in the morning (opens at 10:30 AM) and drive to Old Orchard Beach for Palace Playland in the afternoon. About 15 minutes between the two parks. No overlap. Works well for families who want to do everything.</p>
 	</div>
 </BlogPost>

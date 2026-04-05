@@ -1,5 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image, getImage } from 'astro:assets';
+import kingImg from '../assets/rooms/king.jpg';
+import queenImg from '../assets/rooms/queen.jpg';
+import suiteImg from '../assets/rooms/suite.jpg';
+import exteriorImg from '../assets/amenities/exterior.jpg';
+import buildingImg from '../assets/location/building.jpg';
+import lobbyImg from '../assets/amenities/lobby.jpg';
+
+const optimizedLobby = await getImage({ src: lobbyImg, format: 'webp', width: 1200 });
 
 const offers = [
 	{
@@ -24,7 +33,7 @@ const roomSlides = [
 		id: 'king',
 		eyebrow: 'Room To Spread Out',
 		title: 'Deluxe King',
-		image: `${import.meta.env.BASE_URL}assets/rooms/king.webp`,
+		image: kingImg,
 		alt: 'Deluxe King room at Saco Bay Hotel Saco Maine',
 		specs: ['2 Guests', '1 King Bed', '350 SQFT'],
 		summary: 'Our biggest room, with enough space to spread out a little.',
@@ -35,7 +44,7 @@ const roomSlides = [
 		id: 'queen',
 		eyebrow: 'Easy And Simple',
 		title: 'Deluxe Queen',
-		image: `${import.meta.env.BASE_URL}assets/rooms/queen.webp`,
+		image: queenImg,
 		alt: 'Deluxe Queen room at Saco Bay Hotel Saco Maine',
 		specs: ['2 Guests', '1 Queen Bed', '280 SQFT'],
 		summary: 'A straightforward room that works well for a quick coast trip.',
@@ -46,7 +55,7 @@ const roomSlides = [
 		id: 'double',
 		eyebrow: 'More Elbow Room',
 		title: 'Suite King',
-		image: `${import.meta.env.BASE_URL}assets/rooms/suite.webp`,
+		image: suiteImg,
 		alt: 'Suite King room at Saco Bay Hotel Maine',
 		specs: ['2 Guests', '1 King Bed', 'Suite'],
 		summary: 'A full suite when you want more space than a standard room gives you.',
@@ -378,7 +387,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			</div>
 			<div class="experience-block">
 				<div class="experience-visual">
-					<img src={`${import.meta.env.BASE_URL}assets/amenities/exterior.webp`} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" decoding="async" width="4240" height="2832" />
+					<Image src={exteriorImg} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" width={1200} height={800} />
 				</div>
 					<div class="experience-content">
 					<h2 class="experience-heading"><span class="serif-italic">Your Home Base</span></h2>
@@ -403,7 +412,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 						roomSlides.map((room) => (
 							<article class="room-slide" data-room={room.id}>
 								<div class="room-slide-image">
-									<img src={room.image} alt={room.alt} loading="lazy" decoding="async" width="4240" height="2832" />
+									<Image src={room.image} alt={room.alt} loading="lazy" width={1200} height={800} />
 								</div>
 								<div class="room-slide-caption">
 									<div>
@@ -443,7 +452,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 						roomSlides.map((room) => (
 							<article class="room-mobile-card">
 								<div class="room-mobile-image">
-									<img src={room.image} alt={room.alt} loading="lazy" decoding="async" width="4240" height="2832" />
+									<Image src={room.image} alt={room.alt} loading="lazy" width={1200} height={800} />
 								</div>
 								<div class="room-mobile-content">
 									<span class="eyebrow">{room.eyebrow}</span>
@@ -598,7 +607,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			<div class="amenities-magazine-layout">
 				<div class="amenity-visual">
 					<div class="visual-stack">
-						<div class="visual-main" style={`background-image: url('${import.meta.env.BASE_URL}assets/amenities/lobby.webp')`}></div>
+						<div class="visual-main" style={`background-image: url('${optimizedLobby.src}')`}></div>
 						<div class="visual-accent"></div>
 					</div>
 				</div>
@@ -631,7 +640,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			<div class="location-map-grid">
 				<div class="location-map-info">
 					<div class="location-hotel-visual">
-						<img src={`${import.meta.env.BASE_URL}assets/location/building.webp`} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" decoding="async" width="4240" height="2832" />
+						<Image src={buildingImg} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" width={1200} height={800} />
 					</div>
 					<div class="location-text-content">
 						<h2 class="location-heading">Where to Find Us</h2>
