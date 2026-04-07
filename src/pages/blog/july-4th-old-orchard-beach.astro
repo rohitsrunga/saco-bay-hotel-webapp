@@ -1,6 +1,9 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
 import heroImg from '../../assets/oob/oob-beach-2.jpg';
+import pierImg from '../../assets/oob/oob-pier.jpg';
+import palaceImg from '../../assets/oob/palace-ferris.jpg';
 ---
 
 <BlogPost
@@ -11,6 +14,44 @@ import heroImg from '../../assets/oob/oob-beach-2.jpg';
 	slug="july-4th-old-orchard-beach"
 	heroImage={heroImg}
 >
+	<script type="application/ld+json" set:html={JSON.stringify([
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "Old Orchard Beach July 4th Fireworks 2026",
+			"startDate": "2026-07-04T21:45:00-04:00",
+			"endDate": "2026-07-04T22:30:00-04:00",
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+			"location": { "@type": "Place", "name": "Old Orchard Beach", "address": { "@type": "PostalAddress", "addressLocality": "Old Orchard Beach", "addressRegion": "ME", "addressCountry": "US" } },
+			"description": "Annual July 4th fireworks over the Atlantic at Old Orchard Beach, Maine. Launches near the Pier and Palace Playland at approximately 9:45 PM.",
+			"isAccessibleForFree": true,
+			"organizer": { "@type": "Organization", "name": "Old Orchard Beach Chamber of Commerce", "url": "https://www.oldorchardbeachmaine.com" }
+		},
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "OOB Thursday Night Fireworks — July 2, 2026",
+			"startDate": "2026-07-02T21:45:00-04:00",
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+			"location": { "@type": "Place", "name": "Old Orchard Beach", "address": { "@type": "PostalAddress", "addressLocality": "Old Orchard Beach", "addressRegion": "ME", "addressCountry": "US" } },
+			"description": "Weekly Thursday night fireworks at Old Orchard Beach, Maine. Free show visible from the main beach.",
+			"isAccessibleForFree": true
+		},
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "Ocean Park Independence Day Parade 2026",
+			"startDate": "2026-07-04T10:00:00-04:00",
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+			"location": { "@type": "Place", "name": "Ocean Park", "address": { "@type": "PostalAddress", "streetAddress": "Temple Ave at the Bell Tower", "addressLocality": "Old Orchard Beach", "addressRegion": "ME", "addressCountry": "US" } },
+			"description": "Independence Day parade in Ocean Park, the Victorian community next to Old Orchard Beach.",
+			"isAccessibleForFree": true
+		}
+	])} />
+
 	<p>July 4th is the biggest day of the summer at Old Orchard Beach. The beach fills by noon. Old Orchard Street becomes a river of people by evening. Fireworks go off over the Atlantic at 9:45 PM. The whole town runs at full capacity and it has a chaotic, festive energy that is hard to find anywhere else in New England.</p>
 
 	<p>Here is how it works and how to enjoy it without spending four hours in traffic or driving in circles looking for parking.</p>
@@ -29,6 +70,11 @@ import heroImg from '../../assets/oob/oob-beach-2.jpg';
 
 	<p><strong>2026 note:</strong> July 4th falls on a Saturday. Thursday night fireworks land on <strong>July 2</strong>. If you arrive mid-week you get two fireworks shows before the weekend.</p>
 
+	<figure>
+		<Image src={pierImg} alt="Old Orchard Beach pier extending over the Atlantic" loading="lazy" width={1200} height={700} />
+		<figcaption>The 475-foot OOB pier — best free vantage point for the fireworks.</figcaption>
+	</figure>
+
 	<h2>The Day's Events</h2>
 
 	<p><strong>Ocean Park Parade, 10:00 AM.</strong> The Independence Day Parade steps off at 10 AM on Temple Ave at the Bell Tower in Ocean Park, the Victorian community right next to OOB. Short, old-fashioned, and worth catching if you are already in the area.</p>
@@ -42,6 +88,11 @@ import heroImg from '../../assets/oob/oob-beach-2.jpg';
 	<p>The park opens at <strong>noon on weekends</strong> and stays open into the evening, typically until 10 PM or later on July 4th. The park sits right next to the fireworks launch zone, so guests inside can watch from the grounds.</p>
 
 	<p>Lines on July 4th weekend are the longest of the year. Ride from noon to 4 PM if you can. By 5 PM the park is packed.</p>
+
+	<figure>
+		<Image src={palaceImg} alt="Palace Playland ferris wheel on the Old Orchard Beach boardwalk" loading="lazy" width={1200} height={700} />
+		<figcaption>Palace Playland sits right next to the fireworks launch zone.</figcaption>
+	</figure>
 
 	<h2>Food</h2>
 

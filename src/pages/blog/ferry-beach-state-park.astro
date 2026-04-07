@@ -1,6 +1,9 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
 import heroImg from '../../assets/nature/scarborough-marsh.jpg';
+import trailImg from '../../assets/nature/eastern-trail.jpg';
+import marshImg from '../../assets/nature/scarborough-marsh-tower.jpg';
 ---
 
 <BlogPost
@@ -41,9 +44,19 @@ import heroImg from '../../assets/nature/scarborough-marsh.jpg';
 
 	<p>You can combine all three for about an hour to an hour and a half of walking through ocean beach, coastal dunes, freshwater swamp, and hardwood forest, all inside a 117-acre park.</p>
 
+	<figure>
+		<Image src={trailImg} alt="Trail through coastal Maine woodland near Saco" loading="lazy" width={1200} height={700} />
+		<figcaption>The park's trail network covers 1.7 miles through beach, dunes, swamp, and hardwood forest.</figcaption>
+	</figure>
+
 	<h2>Birdwatching</h2>
 
 	<p>Ferry Beach is a listed birding hotspot on eBird (hotspot ID: L1590215) because of the variety packed into a small area. Warblers pass through in numbers during spring and fall migration. The swamp is productive. Other wildlife: white-tailed deer, amphibians in the swamp, shorebirds on the beach. May is the peak month for warblers. Serious birders drive from Portland specifically for spring migration here.</p>
+
+	<figure>
+		<Image src={marshImg} alt="Coastal marsh observation tower in southern Maine" loading="lazy" width={1200} height={700} />
+		<figcaption>The southern Maine coast has some of the best migratory birding in New England during May and August–September.</figcaption>
+	</figure>
 
 	<h2>Fees</h2>
 

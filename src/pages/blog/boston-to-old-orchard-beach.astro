@@ -1,6 +1,9 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
 import heroImg from '../../assets/travel/maine-highway.jpg';
+import lobsterImg from '../../assets/travel/lobster-roll.jpg';
+import pierImg from '../../assets/oob/oob-pier.jpg';
 ---
 
 <BlogPost
@@ -53,6 +56,11 @@ import heroImg from '../../assets/travel/maine-highway.jpg';
 	<h3>Kennebunk/Kennebunkport (about 81 miles from Boston)</h3>
 	<p>Exit 25. Upscale coastal village, good for a lunch stop before the last stretch into Saco. Dock Square has solid restaurants. Goose Rocks Beach and Kennebunk Beach are both nearby if you want a preview of the Maine coast before you arrive.</p>
 
+	<figure>
+		<Image src={lobsterImg} alt="Maine lobster roll at a coastal seafood shack" loading="lazy" width={1200} height={700} />
+		<figcaption>A lobster roll stop in Kennebunkport or at the OOB pier is a good reason to leave Boston early.</figcaption>
+	</figure>
+
 	<h2>Parking at Old Orchard Beach</h2>
 
 	<p>This is the main challenge for anyone driving into OOB without a hotel room in town.</p>
@@ -80,6 +88,11 @@ import heroImg from '../../assets/travel/maine-highway.jpg';
 	</ul>
 
 	<p>For a day trip to OOB from Boston, the train eliminates parking costs and Friday traffic entirely. It is the better option if your schedule allows it.</p>
+
+	<figure>
+		<Image src={pierImg} alt="Old Orchard Beach pier and boardwalk from the shore" loading="lazy" width={1200} height={700} />
+		<figcaption>The OOB pier — about 95 miles and under two hours from Boston in good traffic.</figcaption>
+	</figure>
 
 	<h2>Why Saco Works Better Than Staying in OOB</h2>
 

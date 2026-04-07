@@ -3,6 +3,27 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Book Direct | Saco Bay Hotel — Best Rate Guaranteed" description="Book your stay directly at Saco Bay Hotel in Saco, Maine. Best rate guaranteed. Minutes from Old Orchard Beach and the southern Maine coast." minimalHeader={true}>
+	<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Offer",
+		"name": "Best Rate Guaranteed — Book Direct",
+		"description": "Book direct at Saco Bay Hotel for the best available rate on rooms near Old Orchard Beach, Maine. No booking fees.",
+		"url": "https://sacobayhotel.com/book",
+		"availability": "https://schema.org/InStock",
+		"seller": {
+			"@type": "LodgingBusiness",
+			"name": "Saco Bay Hotel",
+			"url": "https://sacobayhotel.com",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "352 North St",
+				"addressLocality": "Saco",
+				"addressRegion": "ME",
+				"postalCode": "04072",
+				"addressCountry": "US"
+			}
+		}
+	})} />
 	<div class="book-page">
 		<cb-immersive-experience property-code="wOOQW0" mode="standard"></cb-immersive-experience>
 	</div>

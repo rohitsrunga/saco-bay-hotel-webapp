@@ -37,16 +37,18 @@ const thingsToDoHref = `${baseUrl}things-to-do`;
 const blogHref = `${baseUrl}blog`;
 const homeBookingHref = `${baseUrl}#home`;
 const locationHref = `${baseUrl}location`;
+const isBookPage = pathname === `${basePath}/book`;
 
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<script type="text/javascript" src="https://static1.cloudbeds.com/booking-engine/latest/static/js/immersive-experience/cb-immersive-experience.js"></script>
+		{isBookPage && <script type="text/javascript" src="https://static1.cloudbeds.com/booking-engine/latest/static/js/immersive-experience/cb-immersive-experience.js"></script>}
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+		<link rel="sitemap" href="/sitemap.xml" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />

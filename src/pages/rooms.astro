@@ -93,7 +93,7 @@ const rooms = [
 		<div class="container rooms-hero-inner">
 			<span class="eyebrow">Saco Bay Hotel</span>
 			<h1>Rooms & Suites</h1>
-			<p>Three room types, all set up for an easy stay near the beach, downtown Saco, and the rest of the southern Maine coast. Saco Bay Hotel is minutes from Old Orchard Beach, Funtown Splashtown USA, and the southern Maine coast — a practical home base whether you are here for the beach or just passing through.</p>
+			<p>Three room types, all set up for an easy stay near the beach, downtown Saco, and the rest of the southern Maine coast. Saco Bay Hotel is minutes from Old Orchard Beach, Funtown Splashtown USA, and the southern Maine coast — close to everything whether you are here for the beach or just passing through.</p>
 		</div>
 	</section>
 
@@ -128,6 +128,12 @@ const rooms = [
 					))
 				}
 			</div>
+		</div>
+	</section>
+
+	<section class="rooms-amenity-note bg-warm">
+		<div class="container rooms-amenity-note-inner">
+			<p>Every room includes <strong>hot breakfast daily</strong>, free on-site parking, fast WiFi, and access to the outdoor pool. <a href="/experience">See everything that's included →</a></p>
 		</div>
 	</section>
 </Layout>
@@ -274,6 +280,30 @@ const rooms = [
 		position: absolute;
 		left: 0;
 		color: var(--accent);
+	}
+
+	.rooms-amenity-note {
+		padding: 2.5rem 0;
+		border-top: 1px solid var(--border-light);
+	}
+
+	.rooms-amenity-note-inner {
+		font-size: 1rem;
+		color: var(--text-muted);
+		line-height: 1.7;
+	}
+
+	.rooms-amenity-note-inner strong {
+		color: var(--navy-deep);
+	}
+
+	.rooms-amenity-note-inner a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	.rooms-amenity-note-inner a:hover {
+		text-decoration: underline;
 	}
 
 	@media (max-width: 960px) {

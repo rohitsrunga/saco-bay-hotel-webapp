@@ -68,7 +68,7 @@ const posts = [
 
 <Layout
 	title="Local Guide & Blog | Saco Bay Hotel"
-	description="Tips, guides, and local knowledge for visitors to Old Orchard Beach and southern Maine, from the team at Saco Bay Hotel in Saco, ME."
+	description="Tips, guides, and local knowledge for visitors to Saco, Old Orchard Beach, and southern Maine, from Saco Bay Hotel."
 >
 	<script type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
@@ -78,11 +78,24 @@ const posts = [
 			{ "@type": "ListItem", "position": 2, "name": "Local Guide", "item": "https://sacobayhotel.com/blog" }
 		]
 	})} />
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Local Guide to Saco, Old Orchard Beach & Southern Maine",
+		"description": "Travel guides and local tips for visitors to Old Orchard Beach and southern Maine, from Saco Bay Hotel.",
+		"url": "https://sacobayhotel.com/blog",
+		"itemListElement": posts.map((post, index) => ({
+			"@type": "ListItem",
+			"position": index + 1,
+			"name": post.title,
+			"url": `https://sacobayhotel.com/blog/${post.slug}`
+		}))
+	})} />
 
 	<section class="blog-hero bg-warm">
 		<div class="container blog-hero-inner">
 			<span class="eyebrow">Saco Bay Hotel</span>
-			<h1>Local Guide to Old Orchard Beach & Southern Maine</h1>
+			<h1>Local Guide to Saco, Old Orchard Beach & Southern Maine</h1>
 			<p>We have been in Saco for a long time. This is the stuff we tell every guest who asks what to do, where to go, and what is worth the drive.</p>
 		</div>
 	</section>

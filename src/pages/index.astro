@@ -14,6 +14,11 @@ const optimizedLobby = await getImage({ src: lobbyImg, format: 'webp', width: 12
 
 const offers = [
 	{
+		discount: '20% OFF',
+		title: 'Weekly Stay',
+		detail: 'Stay 7+ nights and save 20%'
+	},
+	{
 		discount: '15% OFF',
 		title: 'Stay 2+ Nights',
 		detail: 'Book any stay of two nights or more'
@@ -388,7 +393,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 					<Image src={exteriorImg} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" width={900} height={600} />
 				</div>
 					<div class="experience-content">
-					<h2 class="experience-heading"><span class="serif-italic">Your Home Base</span></h2>
+					<h2 class="experience-heading"><span class="serif-italic">Close to Everything</span></h2>
 					<p>We are in Saco, close to Old Orchard Beach, Camp Ellis, Ferry Beach, and downtown Biddeford. If you know the area, you know that means you can get to just about everything without making a whole day out of the drive.</p>
 					<p>This is a good spot for beach weekends, family trips, and a few days on the coast when you want a clean room, an easy place to park, and no nonsense.</p>
 					<a href="/book" class="btn-primary">Book Now</a>
@@ -626,6 +631,35 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="blog-teaser bg-warm">
+		<div class="container">
+			<div class="blog-teaser-header">
+				<div>
+					<span class="eyebrow">Local Guide</span>
+					<h2>Know Before You Go</h2>
+				</div>
+				<a href="/blog" class="blog-teaser-all">See all guides →</a>
+			</div>
+			<div class="blog-teaser-grid">
+				<a href="/blog/things-to-do-old-orchard-beach" class="blog-teaser-card">
+					<span class="blog-teaser-cat">Destination Guide</span>
+					<h3>The Ultimate Guide to Old Orchard Beach</h3>
+					<p>Seven miles of beach, a 500-foot wooden pier, and the last traditional beachfront amusement park in New England.</p>
+				</a>
+				<a href="/blog/funtown-splashtown-guide" class="blog-teaser-card">
+					<span class="blog-teaser-cat">Attraction Guide</span>
+					<h3>Funtown Splashtown USA: Tips & Best Rides</h3>
+					<p>Maine's largest amusement and water park is less than 2 miles from the hotel. How to plan a full day.</p>
+				</a>
+				<a href="/blog/boston-to-old-orchard-beach" class="blog-teaser-card">
+					<span class="blog-teaser-cat">Travel Guide</span>
+					<h3>Boston to Old Orchard Beach by Car</h3>
+					<p>About 95 miles up I-95. The route, tolls, traffic windows, and stops worth making.</p>
+				</a>
 			</div>
 		</div>
 	</section>
@@ -1078,6 +1112,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 		line-height: 1.1;
 		margin-bottom: 2.5rem;
 		color: var(--navy-deep);
+		font-family: var(--font-serif);
 	}
 
 	.experience-heading strong {
@@ -1087,7 +1122,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 
 	.experience-content p {
 		font-size: 1.15rem;
-		font-family: times;
+		font-family: var(--font-serif);
 		color: var(--text-muted);
 		line-height: 1.8;
 		margin-bottom: 2rem;
@@ -1383,6 +1418,81 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 
 	.amenity-detail-link:hover {
 		border-bottom-color: var(--navy-deep);
+	}
+
+	/* Blog Teaser */
+	.blog-teaser {
+		padding: 5rem 0;
+		border-top: 1px solid var(--border-light);
+	}
+
+	.blog-teaser-header {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-bottom: 3rem;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.blog-teaser-header h2 {
+		font-size: 2.8rem;
+		color: var(--navy-deep);
+		margin-top: 0.5rem;
+	}
+
+	.blog-teaser-all {
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		font-weight: 700;
+		color: var(--accent);
+		white-space: nowrap;
+		transition: opacity 0.3s ease;
+	}
+
+	.blog-teaser-all:hover { opacity: 0.7; }
+
+	.blog-teaser-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.blog-teaser-card {
+		background: rgba(255, 255, 255, 0.7);
+		border: 1px solid rgba(30, 45, 75, 0.08);
+		box-shadow: 0 8px 24px rgba(30, 45, 75, 0.06);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.blog-teaser-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 16px 40px rgba(30, 45, 75, 0.11);
+	}
+
+	.blog-teaser-cat {
+		font-size: 0.6rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		color: var(--accent);
+	}
+
+	.blog-teaser-card h3 {
+		font-size: 1.3rem;
+		color: var(--navy-deep);
+		line-height: 1.3;
+	}
+
+	.blog-teaser-card p {
+		font-size: 0.9rem;
+		line-height: 1.75;
+		color: var(--text-muted);
 	}
 
 	.location-map-style {
@@ -1889,6 +1999,10 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 
 		.testimonial-dot.is-active {
 			background: var(--white);
+		}
+
+		.blog-teaser-grid {
+			grid-template-columns: 1fr;
 		}
 
 		.location-map-style {

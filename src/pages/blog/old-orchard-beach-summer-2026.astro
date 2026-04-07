@@ -1,6 +1,9 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
 import heroImg from '../../assets/oob/oob-beach.jpg';
+import pierImg from '../../assets/oob/oob-pier-2.jpg';
+import palaceImg from '../../assets/attractions/palace-playland-ferris.jpg';
 ---
 
 <BlogPost
@@ -11,6 +14,47 @@ import heroImg from '../../assets/oob/oob-beach.jpg';
 	slug="old-orchard-beach-summer-2026"
 	heroImage={heroImg}
 >
+	<script type="application/ld+json" set:html={JSON.stringify([
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "Old Orchard Beach Thursday Night Fireworks 2026",
+			"startDate": "2026-06-25T21:45:00-04:00",
+			"endDate": "2026-08-27T22:30:00-04:00",
+			"eventSchedule": { "@type": "Schedule", "byDay": "https://schema.org/Thursday", "repeatFrequency": "P1W", "startTime": "21:45", "endTime": "22:30" },
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+			"location": { "@type": "Place", "name": "Old Orchard Beach", "address": { "@type": "PostalAddress", "addressLocality": "Old Orchard Beach", "addressRegion": "ME", "addressCountry": "US" } },
+			"description": "Weekly Thursday night fireworks at Old Orchard Beach, Maine, from late June through late August. Free, visible from anywhere on the main beach near the pier.",
+			"isAccessibleForFree": true
+		},
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "OOB Pier Festival 2026",
+			"startDate": "2026-07-23T19:00:00-04:00",
+			"endDate": "2026-07-26T22:00:00-04:00",
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+			"location": { "@type": "Place", "name": "Old Orchard Beach Pier", "address": { "@type": "PostalAddress", "addressLocality": "Old Orchard Beach", "addressRegion": "ME", "addressCountry": "US" } },
+			"description": "Annual OOB Pier Festival — free family event with music, giveaways, and activities on the Old Orchard Beach pier.",
+			"isAccessibleForFree": true,
+			"organizer": { "@type": "Organization", "name": "The Salvation Army" }
+		},
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "Old Orchard Beach Beach Olympics 2026",
+			"startDate": "2026-08-15T09:00:00-04:00",
+			"endDate": "2026-08-17T18:00:00-04:00",
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+			"location": { "@type": "Place", "name": "Town Square & Palace Playland, Old Orchard Beach", "address": { "@type": "PostalAddress", "addressLocality": "Old Orchard Beach", "addressRegion": "ME", "addressCountry": "US" } },
+			"description": "Annual Beach Olympics at Old Orchard Beach — athletic events, music, and Special Olympics Maine presentation.",
+			"isAccessibleForFree": true
+		}
+	])} />
+
 	<p>Old Orchard Beach is seven miles of white sand, a wooden pier out over the Atlantic, and a summer energy unlike anywhere else in Maine. From Memorial Day through Labor Day, everything runs at full capacity. Rides open on the beach, fireworks go off every Thursday night, concerts happen on the lawn. It is loud, crowded, and exactly what it is supposed to be.</p>
 
 	<p>We are about two miles from the pier. Here is what is happening this summer and what to know before you drive up.</p>
@@ -26,6 +70,11 @@ import heroImg from '../../assets/oob/oob-beach.jpg';
 	<p>Every Thursday night from late June through late August, fireworks launch from the beach near the Pier and Palace Playland at around <strong>9:45 PM</strong>. Free, visible from anywhere on the main beach. Full professional shows, not the small town kind.</p>
 
 	<p>The season runs late June through late August. Exact dates at oobmaine.com. <strong>July 4th falls on a Saturday in 2026</strong>, which means Thursday night fireworks land on July 2. If you get here mid-week, you get two fireworks shows in four days.</p>
+
+	<figure>
+		<Image src={pierImg} alt="Old Orchard Beach pier at sunset over the Atlantic" loading="lazy" width={1200} height={700} />
+		<figcaption>The OOB pier — fireworks launch from the beach near here every Thursday night all summer.</figcaption>
+	</figure>
 
 	<h2>Rock the Park Concerts</h2>
 
@@ -50,6 +99,11 @@ import heroImg from '../../assets/oob/oob-beach.jpg';
 	<h2>The Car Show</h2>
 
 	<p>One of the largest car shows in New England, held in mid-September at the Chamber of Commerce on First Street. Muscle cars, hot rods, antiques, rare builds. Gates open at 6 AM. If you come in September, this is worth knowing about.</p>
+
+	<figure>
+		<Image src={palaceImg} alt="Palace Playland ferris wheel at Old Orchard Beach" loading="lazy" width={1200} height={700} />
+		<figcaption>Palace Playland on the OOB boardwalk — new rides added for the 2026 season.</figcaption>
+	</figure>
 
 	<h2>When to Visit</h2>
 
