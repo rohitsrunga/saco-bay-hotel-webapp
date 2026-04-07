@@ -23,6 +23,8 @@ const categories = [
 				link: 'https://www.maine.gov/cgi-bin/online/doc/parksearch/details.pl?park_id=8',
 				linkText: 'maine.gov — Ferry Beach',
 				note: 'Dogs are allowed on-leash in the park. The tupelo trail is worth the extra 20 minutes.',
+				blogLink: '/blog/ferry-beach-state-park',
+				blogLinkText: 'Read our Ferry Beach guide →',
 			},
 			{
 				name: 'Camp Ellis Beach',
@@ -55,6 +57,8 @@ const categories = [
 				link: 'https://www.palaceplayland.com',
 				linkText: 'palaceplayland.com',
 				note: 'Wristbands are better value if you plan to ride more than 4–5 rides. Buy online to save on price.',
+				blogLink: '/blog/palace-playland-guide',
+				blogLinkText: 'Read our Palace Playland guide →',
 			},
 			{
 				name: 'Funtown Splashtown USA',
@@ -63,6 +67,8 @@ const categories = [
 				link: 'https://www.funtownsplashtown.com',
 				linkText: 'funtownsplashtown.com',
 				note: 'Combo tickets for both parks offer the best value. Arrive early — lines for the wooden coaster get long by noon.',
+				blogLink: '/blog/funtown-splashtown-guide',
+				blogLinkText: 'Read our Funtown Splashtown guide →',
 			},
 			{
 				name: 'Aquaboggan Water Park',
@@ -201,11 +207,25 @@ const categories = [
 			{ "@type": "ListItem", "position": 2, "name": "Things to Do", "item": "https://sacobayhotel.com/things-to-do" }
 		]
 	})} />
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Things to Do Near Old Orchard Beach",
+		"description": "Top beaches, amusement parks, nature areas, day trips, and dining near Saco Bay Hotel in Saco, Maine.",
+		"itemListElement": categories.flatMap((cat, catIndex) =>
+			cat.items.map((item, itemIndex) => ({
+				"@type": "ListItem",
+				"position": categories.slice(0, catIndex).reduce((sum, c) => sum + c.items.length, 0) + itemIndex + 1,
+				"name": item.name,
+				"url": item.link ?? undefined
+			}))
+		)
+	})} />
 
 	<section class="ttd-hero bg-warm">
 		<div class="container ttd-hero-inner">
 			<span class="eyebrow">Southern Maine</span>
-			<h1>Things to Do</h1>
+			<h1>Things to Do Near Old Orchard Beach</h1>
 			<p>From Old Orchard Beach to Portland, the southern Maine coast has more going on than most people expect. Here is what is worth your time, with honest notes on each.</p>
 		</div>
 	</section>
@@ -243,6 +263,11 @@ const categories = [
 							{item.link && (
 								<a href={item.link} target="_blank" rel="noopener" class="ttd-ext-link">
 									{item.linkText} ↗
+								</a>
+							)}
+							{item.blogLink && (
+								<a href={item.blogLink} class="ttd-blog-link">
+									{item.blogLinkText}
 								</a>
 							)}
 						</article>
@@ -421,6 +446,20 @@ const categories = [
 
 	.ttd-ext-link:hover {
 		opacity: 0.7;
+	}
+
+	.ttd-blog-link {
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-weight: 700;
+		color: var(--navy-deep);
+		margin-top: auto;
+		transition: color 0.3s ease;
+	}
+
+	.ttd-blog-link:hover {
+		color: var(--accent);
 	}
 
 	/* CTA Section */

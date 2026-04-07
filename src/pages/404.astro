@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page Not Found | Saco Bay Hotel" description="The page you were looking for doesn't exist. Find your way back to Saco Bay Hotel.">
+	<section class="not-found bg-warm">
+		<div class="container not-found-inner">
+			<span class="eyebrow">404</span>
+			<h1>Page Not Found</h1>
+			<p>The page you were looking for doesn't exist or has moved. Here are a few good places to head next.</p>
+			<nav class="not-found-links">
+				<a href="/" class="btn-primary">Back to Home</a>
+				<a href="/rooms">See Our Rooms</a>
+				<a href="/things-to-do">Things to Do</a>
+				<a href="/experience">Amenities</a>
+				<a href="/location">Location</a>
+				<a href="/blog">Local Guide</a>
+			</nav>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.not-found {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		padding: 8rem 0;
+	}
+
+	.not-found-inner {
+		max-width: 640px;
+	}
+
+	.not-found h1 {
+		font-size: clamp(3rem, 7vw, 5rem);
+		line-height: 1;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+	}
+
+	.not-found p {
+		font-size: 1.1rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		margin-bottom: 3rem;
+		max-width: 480px;
+	}
+
+	.not-found-links {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1.5rem 2.5rem;
+	}
+
+	.not-found-links a:not(.btn-primary) {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-weight: 700;
+		color: var(--navy-deep);
+		transition: color 0.3s ease;
+	}
+
+	.not-found-links a:not(.btn-primary):hover {
+		color: var(--accent);
+	}
+</style>

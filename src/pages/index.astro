@@ -12,11 +12,6 @@ const optimizedLobby = await getImage({ src: lobbyImg, format: 'webp', width: 12
 
 const offers = [
 	{
-		discount: '25% OFF',
-		title: 'Easter Escape Deal 🐰🌸',
-		detail: 'Stay 2 nights · Apr 3 – Apr 5'
-	},
-	{
 		discount: '15% OFF',
 		title: 'Stay 2+ Nights',
 		detail: 'Book any stay of two nights or more'
@@ -70,7 +65,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 
 <Layout title="Saco Bay Hotel | Minutes from Old Orchard Beach, Maine" description="Stay at Saco Bay Hotel in Saco, ME — 3 miles from Old Orchard Beach pier, Palace Playland & southern Maine's best beaches. Book direct for best rates.">
 	<section id="home" class="hero-press">
-		<div id="hero-placeholder" class="hero-image-overlay" style={`background: url('${import.meta.env.BASE_URL}main-hero-bg.webp') center/cover no-repeat;`}></div>
+		<div id="hero-placeholder" class="hero-image-overlay" style={`background: url('${import.meta.env.BASE_URL}main-hero-bg.jpg') center/cover no-repeat;`}></div>
 
 		<video id="hero-video" class="hero-video" autoplay muted loop playsinline>
 			<source src={`${import.meta.env.BASE_URL}saco_bay_intro.mp4`} type="video/mp4" />

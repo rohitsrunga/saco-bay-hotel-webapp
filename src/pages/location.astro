@@ -38,7 +38,7 @@ const categoryColors: Record<string, string> = {
 
 <Layout
 	title="Location & Getting Here | Saco Bay Hotel — Saco, Maine"
-	description="Saco Bay Hotel is located at 352 North St in Saco, Maine — minutes from Old Orchard Beach, Palace Playland, Funtown Splashtown, and I-95 Exit 36."
+	description="Saco Bay Hotel is located at 352 North St in Saco, Maine — minutes from Old Orchard Beach, Palace Playland, Funtown Splashtown, and I-95 Exit 35."
 >
 	<script type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
@@ -48,12 +48,34 @@ const categoryColors: Record<string, string> = {
 			{ "@type": "ListItem", "position": 2, "name": "Location", "item": "https://sacobayhotel.com/location" }
 		]
 	})} />
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "LodgingBusiness",
+		"name": "Saco Bay Hotel",
+		"url": "https://sacobayhotel.com",
+		"telephone": "+12077470368",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "352 North St",
+			"addressLocality": "Saco",
+			"addressRegion": "ME",
+			"postalCode": "04072",
+			"addressCountry": "US"
+		},
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": "43.5009",
+			"longitude": "-70.4428"
+		},
+		"hasMap": "https://www.google.com/maps/search/?api=1&query=352+North+St+Saco+ME",
+		"image": "https://sacobayhotel.com/assets/exterior_property.jpg"
+	})} />
 
 	<section class="location-hero bg-warm">
 		<div class="container location-hero-inner">
 			<span class="eyebrow">Saco Bay Hotel</span>
-			<h1>Where to Find Us</h1>
-			<p>We are at 352 North Street in Saco, Maine — right off I-95 Exit 36, minutes from Old Orchard Beach and everything the southern Maine coast has to offer.</p>
+			<h1>Location & Getting Here</h1>
+			<p>We are at 352 North Street in Saco, Maine — right off I-95 Exit 35, minutes from Old Orchard Beach and everything the southern Maine coast has to offer.</p>
 			<div class="hero-ctas">
 				<a href="https://www.google.com/maps/search/?api=1&query=352+North+St+Saco+ME" target="_blank" rel="noopener" class="btn-primary">Open in Maps</a>
 				<a href="/book" class="btn-outline">Book Your Stay</a>
@@ -75,7 +97,7 @@ const categoryColors: Record<string, string> = {
 			<div class="address-divider"></div>
 			<div class="address-item">
 				<span class="address-label">From I-95</span>
-				<span class="address-value">Maine Turnpike Exit 36 (Saco)</span>
+				<span class="address-value">Maine Turnpike Exit 35 (Saco)</span>
 			</div>
 			<div class="address-divider"></div>
 			<div class="address-item">
@@ -109,7 +131,7 @@ const categoryColors: Record<string, string> = {
 						</div>
 						<div class="direction-step">
 							<span class="step-num">2</span>
-							<p>Take <strong>Exit 36</strong> (Saco / Old Orchard Beach). Toll booth accepts cash and E-ZPass.</p>
+							<p>Take <strong>Exit 35</strong> (Saco / Old Orchard Beach). Toll booth accepts cash and E-ZPass.</p>
 						</div>
 						<div class="direction-step">
 							<span class="step-num">3</span>

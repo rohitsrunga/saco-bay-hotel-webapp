@@ -3,11 +3,13 @@ interface Props {
 	title: string;
 	description?: string;
 	minimalHeader?: boolean;
+	ogImage?: string;
 }
 
 import '../styles/global.css';
 
-const { title, description = "Saco Bay Hotel in Saco, Maine, near Old Orchard Beach and the southern Maine coast.", minimalHeader = false } = Astro.props;
+const { title, description = "Saco Bay Hotel in Saco, Maine, near Old Orchard Beach and the southern Maine coast.", minimalHeader = false, ogImage } = Astro.props;
+const ogImageUrl = ogImage ?? "https://sacobayhotel.com/assets/exterior_property.jpg";
 const normalizePath = (value: string) => {
 	if (!value || value === '/') return '';
 	return value.endsWith('/') ? value.slice(0, -1) : value;
@@ -22,6 +24,9 @@ const breadcrumbMap: Record<string, string> = {
 	[`${basePath}/rooms`]: 'Rooms',
 	[`${basePath}/experience`]: 'Experience',
 	[`${basePath}/book`]: 'Book',
+	[`${basePath}/location`]: 'Location',
+	[`${basePath}/things-to-do`]: 'Things to Do',
+	[`${basePath}/blog`]: 'Local Guide',
 };
 const breadcrumbName = !isHome ? breadcrumbMap[pathname] : undefined;
 
@@ -31,7 +36,7 @@ const experienceHref = `${baseUrl}experience`;
 const thingsToDoHref = `${baseUrl}things-to-do`;
 const blogHref = `${baseUrl}blog`;
 const homeBookingHref = `${baseUrl}#home`;
-const locationHref = isHome ? '#location' : `${baseUrl}location`;
+const locationHref = `${baseUrl}location`;
 
 ---
 
@@ -50,14 +55,12 @@ const locationHref = isHome ? '#location' : `${baseUrl}location`;
 		<meta property="og:url" content={`https://sacobayhotel.com${Astro.url.pathname}`} />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Saco Bay Hotel" />
-		<meta property="og:image" content="https://sacobayhotel.com/assets/gallery/exterior_property.webp" />
-		<meta property="og:image:width" content="4240" />
-		<meta property="og:image:height" content="2832" />
+		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:image:alt" content="Saco Bay Hotel exterior — Saco, Maine" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content="https://sacobayhotel.com/assets/gallery/exterior_property.webp" />
+		<meta name="twitter:image" content={ogImageUrl} />
 		<link rel="canonical" href={`https://sacobayhotel.com${Astro.url.pathname}`} />
 		{isHome && <script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
@@ -95,11 +98,10 @@ const locationHref = isHome ? '#location' : `${baseUrl}location`;
 				{ "@type": "LocationFeatureSpecification", "name": "Park & Fly", "value": true }
 			],
 			"image": [
-				"https://sacobayhotel.com/assets/gallery/exterior_property.webp",
-				"https://sacobayhotel.com/assets/location/building.webp",
-				"https://sacobayhotel.com/assets/rooms/king.webp",
-				"https://sacobayhotel.com/assets/rooms/queen.webp",
-				"https://sacobayhotel.com/assets/rooms/suite.webp"
+				"https://sacobayhotel.com/assets/exterior_property.jpg",
+				"https://sacobayhotel.com/assets/rooms/king.jpg",
+				"https://sacobayhotel.com/assets/rooms/queen.jpg",
+				"https://sacobayhotel.com/assets/rooms/suite.jpg"
 			],
 			"description": "Saco Bay Hotel is a hotel in Saco, Maine, located minutes from Old Orchard Beach, Palace Playland, Funtown Splashtown USA, and the southern Maine coast. Hot breakfast included daily.",
 			"sameAs": []
@@ -192,6 +194,11 @@ const locationHref = isHome ? '#location' : `${baseUrl}location`;
 							<h4>Explore</h4>
 							<a href={experienceHref}>Experience</a>
 							<a href={locationHref}>Location</a>
+						</div>
+						<div class="footer-nav-col">
+							<h4>Discover</h4>
+							<a href={thingsToDoHref}>Things To Do</a>
+							<a href={blogHref}>Local Guide</a>
 						</div>
 						<div class="footer-nav-col">
 							<h4>Stay</h4>
