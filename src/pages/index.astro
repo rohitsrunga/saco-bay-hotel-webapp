@@ -7,7 +7,9 @@ import suiteImg from '../assets/rooms/suite.jpg';
 import exteriorImg from '../assets/amenities/exterior.jpg';
 import buildingImg from '../assets/location/building.jpg';
 import lobbyImg from '../assets/amenities/lobby.jpg';
+import heroImg from '../assets/main-hero-bg.jpg';
 
+const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1920, quality: 75 });
 const optimizedLobby = await getImage({ src: lobbyImg, format: 'webp', width: 1200 });
 
 const offers = [
@@ -64,10 +66,11 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 ---
 
 <Layout title="Saco Bay Hotel | Minutes from Old Orchard Beach, Maine" description="Stay at Saco Bay Hotel in Saco, ME — 3 miles from Old Orchard Beach pier, Palace Playland & southern Maine's best beaches. Book direct for best rates.">
+	<link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" slot="head" />
 	<section id="home" class="hero-press">
-		<div id="hero-placeholder" class="hero-image-overlay" style={`background: url('${import.meta.env.BASE_URL}main-hero-bg.jpg') center/cover no-repeat;`}></div>
+		<div id="hero-placeholder" class="hero-image-overlay" style={`background: url('${optimizedHero.src}') center/cover no-repeat;`}></div>
 
-		<video id="hero-video" class="hero-video" autoplay muted loop playsinline>
+		<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="none">
 			<source src={`${import.meta.env.BASE_URL}saco_bay_intro.mp4`} type="video/mp4" />
 		</video>
 
@@ -382,7 +385,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			</div>
 			<div class="experience-block">
 				<div class="experience-visual">
-					<Image src={exteriorImg} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" width={1200} height={800} />
+					<Image src={exteriorImg} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" width={900} height={600} />
 				</div>
 					<div class="experience-content">
 					<h2 class="experience-heading"><span class="serif-italic">Your Home Base</span></h2>
@@ -404,10 +407,10 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			<div class="rooms-carousel-viewport">
 				<div class="rooms-carousel-track">
 					{
-						roomSlides.map((room) => (
+						roomSlides.map((room, i) => (
 							<article class="room-slide" data-room={room.id}>
 								<div class="room-slide-image">
-									<Image src={room.image} alt={room.alt} loading="lazy" width={1200} height={800} />
+									<Image src={room.image} alt={room.alt} loading={i === 0 ? 'eager' : 'lazy'} width={900} height={600} />
 								</div>
 								<div class="room-slide-caption">
 									<div>
@@ -444,10 +447,10 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			<div class="rooms-mobile-viewport">
 				<div class="rooms-mobile-stack">
 					{
-						roomSlides.map((room) => (
+						roomSlides.map((room, i) => (
 							<article class="room-mobile-card">
 								<div class="room-mobile-image">
-									<Image src={room.image} alt={room.alt} loading="lazy" width={1200} height={800} />
+									<Image src={room.image} alt={room.alt} loading={i === 0 ? 'eager' : 'lazy'} width={800} height={534} />
 								</div>
 								<div class="room-mobile-content">
 									<span class="eyebrow">{room.eyebrow}</span>
@@ -635,7 +638,7 @@ const experienceHref = `${import.meta.env.BASE_URL}experience`;
 			<div class="location-map-grid">
 				<div class="location-map-info">
 					<div class="location-hotel-visual">
-						<Image src={buildingImg} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" width={1200} height={800} />
+						<Image src={buildingImg} alt="Saco Bay Hotel exterior building in Saco Maine" loading="lazy" width={800} height={534} />
 					</div>
 					<div class="location-text-content">
 						<h2 class="location-heading">Where to Find Us</h2>

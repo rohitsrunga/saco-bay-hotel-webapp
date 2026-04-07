@@ -170,8 +170,8 @@ const categories = [
 				name: 'Downtown Biddeford',
 				distance: '4 mi · 10 min',
 				description: 'Biddeford has had a genuine restaurant renaissance over the past decade. The former mill town now has some of the most interesting independent restaurants on the southern Maine coast — from the Palace Diner (a classic pre-WWII diner car, James Beard semifinalist) to Roustabout (wood-fired New American). Worth a dinner reservation.',
-				link: 'https://www.biddefordmaine.org',
-				linkText: 'biddefordmaine.org',
+				link: 'https://heartofbiddeford.org/',
+				linkText: 'heartofbiddeford.org',
 				note: 'Make reservations for Palace Diner — it is tiny and fills up fast.',
 			},
 			{
@@ -287,6 +287,21 @@ const categories = [
 			<div class="ttd-cta-actions">
 				<a href="/book" class="btn-primary">Check Availability</a>
 				<a href="/rooms" class="ttd-rooms-link">See Our Rooms →</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="ttd-region bg-mist">
+		<div class="container ttd-region-inner">
+			<span class="eyebrow">Regional Resources</span>
+			<p>Official tourism guides for the southern Maine coast:</p>
+			<div class="ttd-region-links">
+				<a href="https://visitmaine.com/places-to-go/maine-beaches/biddeford-saco/" target="_blank" rel="noopener">Visit Maine — Biddeford & Saco</a>
+				<a href="https://themainebeaches.com/" target="_blank" rel="noopener">The Maine Beaches</a>
+				<a href="https://www.oldorchardbeachmaine.com/" target="_blank" rel="noopener">Old Orchard Beach Chamber</a>
+				<a href="https://biddefordsacochamber.org/" target="_blank" rel="noopener">Biddeford-Saco Chamber</a>
+				<a href="https://sacomainstreet.org/" target="_blank" rel="noopener">Saco Main Street</a>
+				<a href="https://www.visitportland.com/" target="_blank" rel="noopener">Visit Portland</a>
 			</div>
 		</div>
 	</section>
@@ -509,6 +524,46 @@ const categories = [
 
 	.ttd-rooms-link:hover {
 		color: var(--white);
+	}
+
+	/* Regional Resources */
+	.ttd-region {
+		padding: 3rem 0;
+		border-top: 1px solid var(--border-light);
+	}
+
+	.ttd-region-inner {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 1rem 2.5rem;
+	}
+
+	.ttd-region-inner p {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		color: var(--text-muted);
+		white-space: nowrap;
+	}
+
+	.ttd-region-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem 1.5rem;
+	}
+
+	.ttd-region-links a {
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-weight: 700;
+		color: var(--navy-muted);
+		transition: color 0.3s ease;
+	}
+
+	.ttd-region-links a:hover {
+		color: var(--accent);
 	}
 
 	@media (max-width: 1024px) {

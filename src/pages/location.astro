@@ -270,6 +270,16 @@ const categoryColors: Record<string, string> = {
 					<p>Thirty minutes south on I-95. The classic Maine coastal village — good for a morning drive, a lobster roll, and a walk around Dock Square.</p>
 					<a href="https://www.visitthekennebunks.com" target="_blank" rel="noopener" class="text-link-light">Visit the Kennebunks →</a>
 				</div>
+				<div class="area-link-card">
+					<h3>Southern Maine Coast</h3>
+					<p>Plan your time on the Maine coast with regional guides from the state tourism office and the Maine Beaches Association.</p>
+					<a href="https://themainebeaches.com/plan-your-trip/" target="_blank" rel="noopener" class="text-link-light">The Maine Beaches →</a>
+				</div>
+				<div class="area-link-card">
+					<h3>Biddeford & Saco</h3>
+					<p>The region's chamber of commerce covers both cities — restaurants, events, and local businesses in our backyard.</p>
+					<a href="https://biddefordsacochamber.org/" target="_blank" rel="noopener" class="text-link-light">Biddeford-Saco Chamber →</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -658,7 +668,7 @@ const categoryColors: Record<string, string> = {
 
 	.area-links {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 		gap: 1.5rem;
 	}
 
