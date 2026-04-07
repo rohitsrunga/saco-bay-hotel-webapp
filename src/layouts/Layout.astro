@@ -44,6 +44,14 @@ const isBookPage = pathname === `${basePath}/book`;
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DGMDCNMNWB"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'G-DGMDCNMNWB');
+		</script>
 		{isBookPage && <script type="text/javascript" src="https://static1.cloudbeds.com/booking-engine/latest/static/js/immersive-experience/cb-immersive-experience.js"></script>}
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -69,7 +77,7 @@ const isBookPage = pathname === `${basePath}/book`;
 			"@type": "Hotel",
 			"name": "Saco Bay Hotel",
 			"url": "https://sacobayhotel.com",
-			"telephone": "+12077470368",
+			"telephone": "+12072869600",
 			"email": "frontdesk@sacobayhotel.com",
 			"address": {
 				"@type": "PostalAddress",
@@ -171,7 +179,7 @@ const isBookPage = pathname === `${basePath}/book`;
 				<div class="menu-dropdown-footer">
 					<p>352 North St, Saco, ME 04072</p>
 					<p>-</p>
-					<p>(207) 747-0368</p>
+					<p>(207) 286-9600</p>
 				</div>
 			</div>
 		</nav>
@@ -187,7 +195,7 @@ const isBookPage = pathname === `${basePath}/book`;
 						<h3 class="logo-text footer-logo" style="color: var(--navy-deep);">Saco Bay Hotel</h3>
 						<address>
 							<p class="address">352 North St, Saco, ME 04072</p>
-							<p class="phone"><a href="tel:+12077470368">(207) 747-0368</a></p>
+							<p class="phone"><a href="tel:+12072869600">(207) 286-9600</a></p>
 							<p class="email"><a href="mailto:frontdesk@sacobayhotel.com">frontdesk@sacobayhotel.com</a></p>
 						</address>
 					</div>
@@ -217,7 +225,7 @@ const isBookPage = pathname === `${basePath}/book`;
 					</nav>
 				</div>
 				<div class="footer-bottom">
-					<p>&copy; {new Date().getFullYear()} Saco Bay Hotel. A good place to stay in Saco.</p>
+					<p>&copy; {new Date().getFullYear()} Saco Bay Hotel. A good place to stay in Saco. &nbsp;·&nbsp; <a href="/privacy" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Privacy Policy</a></p>
 				</div>
 			</div>
 		</footer>

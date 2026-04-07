@@ -3,6 +3,9 @@ import BlogPost from '../../layouts/BlogPost.astro';
 import { Image } from 'astro:assets';
 import heroImg from '../../assets/nature/scarborough-marsh-tower.jpg';
 import scarboroughMarshImg from '../../assets/nature/scarborough-marsh.jpg';
+import sacoRiverImg from '../../assets/nature/saco-river.jpg';
+import sacoRiverFallsImg from '../../assets/nature/saco-river-falls.jpg';
+import easternTrailImg from '../../assets/nature/eastern-trail.jpg';
 ---
 
 <BlogPost
@@ -13,68 +16,70 @@ import scarboroughMarshImg from '../../assets/nature/scarborough-marsh.jpg';
 	slug="things-to-do-saco-maine-outdoors"
 	heroImage={heroImg}
 >
-	<p>Most visitors to this part of Maine come for Old Orchard Beach and the amusement parks. Those are worth the trip. But within 15 miles of Saco Bay Hotel there is a national wildlife refuge, one of the most-used boat ramps in the state, New England's largest salt marsh, productive birding spots that draw people from across the region, and a network of trails through forest and wetland that most tourists drive past completely.</p>
+	<p>Most guests come here for Old Orchard Beach and the parks, and those are worth the trip. But within 15 miles of Saco Bay Hotel there's a national wildlife refuge, one of the most-used boat ramps in the state, New England's largest salt marsh, and trail networks through forest and wetland that most tourists drive past entirely.</p>
 
-	<p>Here is what is worth your time beyond the boardwalk.</p>
+	<p>This is the list we hand guests who ask what's out here beyond the boardwalk. It's a good list.</p>
 
 	<h2>Ferry Beach State Park</h2>
 
-	<p>Two miles from the hotel. A 117-acre state park with a wide Atlantic beach (same sand as Old Orchard, far fewer people), 1.7 miles of barrier-free trails, and a stand of Tupelo (black gum) trees growing at the northern edge of the species' range. The <strong>Tupelo Trail</strong> is a 0.4-mile raised boardwalk through the swamp, flat and accessible for strollers and wheelchairs. Unlike anything else in the area.</p>
+	<p>Two miles from the hotel. Same white sand as Old Orchard Beach, same Saco Bay, about a tenth of the crowd. A 117-acre state park with 1.7 miles of barrier-free trails and a stand of tupelo trees growing at the northern edge of their natural range. The Tupelo Trail is a 0.4-mile raised boardwalk through the freshwater swamp behind the dunes, completely flat, accessible for strollers and wheelchairs.</p>
 
-	<p>Full detail in our <a href="/blog/ferry-beach-state-park">Ferry Beach State Park guide</a>. As a day: do the Tupelo Trail and White Oak Trail in the morning (about an hour of walking), then spend the afternoon on the beach. Day-use fee: $4.50 for non-residents, $3.00 for Maine residents 12 and up.</p>
+	<p>Full detail in our <a href="/blog/ferry-beach-state-park">Ferry Beach State Park guide</a>. As a morning: do the Tupelo Trail and White Oak Trail (about an hour of easy walking), then spend the rest of the day on the beach. Day-use fee: $4.50 for non-residents, $3.00 for Maine residents 12 and up.</p>
 
 	<h2>Saco River Paddling</h2>
 
-	<p>The Saco River empties into Saco Bay at Camp Ellis, about four miles from the hotel. The river is a popular paddling destination, flat and manageable for beginners. Three public boat ramps serve the Saco River in the area. The state ramp at <strong>Meeting House Eddy</strong> is reportedly the most-used boat ramp in all of Maine, over 300 launches per day during peak season. Visit Maine has a dedicated three-day Saco River itinerary, which tells you something about the corridor.</p>
+	<figure>
+		<Image src={sacoRiverImg} alt="The Saco River near Saco, Maine" loading="lazy" width={1600} height={900} />
+		<figcaption>The Saco River empties into Saco Bay at Camp Ellis, about four miles from the hotel. Flat, manageable, popular.</figcaption>
+	</figure>
+
+	<p>The Saco River empties into Saco Bay at Camp Ellis, about four miles from the hotel. The river is flat and manageable for beginners, and the state ramp at Meeting House Eddy is reportedly the most-used boat ramp in all of Maine, over 300 launches per day in peak season. Visit Maine has a dedicated three-day Saco River itinerary, which tells you something about the corridor.</p>
 
 	<p>Kayak and canoe rentals are available locally. Ask at the front desk for current outfitter options.</p>
 
-	<h2>Camp Ellis: Fishing and the Jetty</h2>
-
-	<p>Camp Ellis is the quiet neighborhood at the mouth of the Saco River, about four miles from us. The <strong>Camp Ellis Pier and Jetty</strong> is a working fishing pier and rock jetty that is well-known locally for <strong>mackerel and striped bass fishing</strong>. Charter boats operate out of Camp Ellis. The jetty itself is the prime angling spot and is busy most summer mornings with locals who know what they're doing.</p>
-
-	<p>Camp Ellis Beach is quieter than Old Orchard Beach, with bathhouses and paid parking in summer. Worth knowing on a day when you want sand without the carnival atmosphere. <strong>Huot's Seafood Restaurant</strong> has been a Camp Ellis institution for decades. Stop there after time on the water.</p>
+	<h2>Saco River Falls</h2>
 
 	<figure>
-		<Image src={scarboroughMarshImg} alt="Scarborough Marsh, Maine's largest salt marsh" loading="lazy" width={1600} height={900} />
-		<figcaption>Scarborough Marsh, about 7 miles north of Saco Bay Hotel.</figcaption>
+		<Image src={sacoRiverFallsImg} alt="Saco River falls near downtown Saco, Maine" loading="lazy" width={1600} height={900} />
+		<figcaption>The Saco River falls in downtown Saco. Worth a stop if you're spending any time in the city.</figcaption>
 	</figure>
+
+	<p>The falls on the Saco River in downtown Saco are a short walk from the historic mill district. It's the kind of spot locals take for granted but visitors consistently want to see when they find out about it. Worth a 20-minute stop if you're driving through downtown.</p>
+
+	<h2>Camp Ellis: Fishing and the Jetty</h2>
+
+	<p>Camp Ellis is the quiet neighborhood at the mouth of the Saco River, about four miles from us. The Camp Ellis Pier and Jetty is a working fishing pier well-known locally for mackerel and striped bass. Charter boats operate out of Camp Ellis. The jetty is the prime angling spot and is busy most summer mornings with people who know what they're doing.</p>
+
+	<p>Camp Ellis Beach is quieter than Old Orchard, with bathhouses and paid parking in summer. Good on a day when you want sand without the carnival. <strong>Huot's Seafood Restaurant</strong> has been a Camp Ellis institution for decades. Stop there after time on the water.</p>
 
 	<h2>Scarborough Marsh Audubon Center</h2>
 
-	<p>About 15 minutes north, Scarborough Marsh is <strong>Maine's largest salt marsh</strong>, 3,100 acres of tidal marsh, estuary, and upland habitat managed by Maine Audubon. The Audubon Center rents kayaks and canoes and runs guided naturalist tours through the marsh from late June through late August.</p>
+	<figure>
+		<Image src={scarboroughMarshImg} alt="Scarborough Marsh, Maine's largest salt marsh, north of Saco" loading="lazy" width={1600} height={900} />
+		<figcaption>Scarborough Marsh is 3,100 acres of tidal marsh, estuary, and upland habitat. About 15 minutes north on Route 1.</figcaption>
+	</figure>
 
-	<p>The marsh channels open into wider water, herons and egrets are everywhere, and the light in the late afternoon is something else. A different experience than the beach, and genuinely worth a half day. About 10 miles north of the hotel via Route 1. Rental season and tour schedule at maineaudubon.org.</p>
+	<p>About 15 minutes north, Scarborough Marsh is Maine's largest salt marsh: 3,100 acres managed by Maine Audubon. The Audubon Center rents kayaks and canoes and runs guided naturalist tours through the marsh from late June through late August. The channels open into wider water, herons and egrets are everywhere, and the light in late afternoon is something else entirely. A different experience than the beach, and worth a half day. About 10 miles north via Route 1. Schedule at maineaudubon.org.</p>
 
 	<h2>Rachel Carson National Wildlife Refuge</h2>
 
-	<p>About 15 miles south in Wells. The refuge protects over 9,000 acres of coastal habitat across 50 miles of southern Maine shoreline. The main visitor access point is the <strong>Carson Trail</strong>, a one-mile flat loop with gravel and boardwalk, 11 interpretive stops through salt marsh and upland forest. Free. Leashed pets welcome. Restroom at the trailhead.</p>
-
-	<p>Easy 45-minute walk. More informative than strenuous. The interpretive signs explain the salt marsh ecosystem in detail. For birders, the refuge is among the best spots in southern Maine during spring and fall migration.</p>
+	<p>About 15 miles south in Wells, the refuge protects over 9,000 acres of coastal habitat across 50 miles of southern Maine shoreline. The Carson Trail is a one-mile flat loop with gravel and boardwalk, 11 interpretive stops through salt marsh and upland forest. Free. Leashed pets welcome. Easy 45-minute walk. The interpretive signs on the salt marsh ecosystem are genuinely good. For birders, this is among the best spots in southern Maine during spring and fall migration.</p>
 
 	<h2>Local Trails Near Saco</h2>
 
-	<p>Several short-to-moderate trails are within Saco or just across the city line:</p>
-
-	<ul>
-		<li><strong>Saco Heath Preserve Trail</strong>, 2.1 miles off Route 112. Wetland and upland habitat. Leashed dogs welcome.</li>
-		<li><strong>Horton Woods Trail</strong>, 2.4-mile loop near the Saco-Buxton line off Route 112. Moderate difficulty, about an hour. Leashed dogs welcome.</li>
-		<li><strong>Cascade Trail</strong>, 0.5-mile easy loop on Cascade Road. Good for a quick morning walk.</li>
-		<li><strong>Sylvan Trail</strong>, 1.6-mile lightly trafficked loop on Flag Pond Road. Leashed dogs welcome.</li>
-	</ul>
-
-	<p>These are local trails, not destination hikes. But they are within a few minutes of the hotel and useful on a morning when you want to move before the beach crowds build.</p>
+	<p>Several short trails are within Saco or just across the city line. Saco Heath Preserve Trail (2.1 miles off Route 112, wetland and upland habitat), Horton Woods Trail (2.4-mile loop near Saco-Buxton line, about an hour, moderate), Cascade Trail (0.5-mile easy loop on Cascade Road), Sylvan Trail (1.6-mile lightly trafficked loop on Flag Pond Road). These aren't destination hikes. But they're within a few minutes of the hotel and useful on a morning when you want to move before the beach crowds build.</p>
 
 	<h2>The Eastern Trail</h2>
 
-	<p>The Eastern Trail is a multi-use rail-trail that runs through Saco and connects to Old Orchard Beach, continuing north toward Portland and south toward Kennebunk. From the hotel it is a bikeable route directly into Old Orchard Beach without ever getting in a car. Bike rentals are available locally. Ask at the front desk.</p>
+	<figure>
+		<Image src={easternTrailImg} alt="The Eastern Trail, a multi-use rail trail through Saco and Old Orchard Beach" loading="lazy" width={1200} height={700} />
+		<figcaption>The Eastern Trail runs directly from Saco through Old Orchard Beach and north toward Portland. You can bike to OOB without touching Route 1.</figcaption>
+	</figure>
 
-	<h2>Scarborough Beach State Park</h2>
-
-	<p>About 15 minutes north of the hotel, Scarborough Beach is known for relatively warmer water, good surf for bodyboarding and paddleboarding, and a less crowded beach than OOB. The Scarborough Marsh Audubon Center sits right next to the park, so combining the state beach with a morning kayak rental is a natural day. No dogs April through October.</p>
+	<p>The Eastern Trail is a multi-use rail-trail running through Saco and connecting directly to Old Orchard Beach, continuing north toward Portland and south toward Kennebunk. From the hotel it's a bikeable route into OOB without ever getting in a car or dealing with Route 1. Bike rentals are available locally. Ask at the front desk.</p>
 
 	<div class="tip-box">
-		<strong>A Good Morning From the Hotel</strong>
-		<p>Drive to Ferry Beach State Park, do the Tupelo Trail boardwalk (30 minutes, completely flat, unlike anything else around here), then walk onto the beach for a swim before 10 AM. Come back, have breakfast, and figure out the afternoon from there. That is a better start to the day than any amusement park can offer, and it costs $4.50.</p>
+		<strong>The Morning We Recommend Most</strong>
+		<p>Drive to Ferry Beach State Park, do the Tupelo Trail boardwalk (30 minutes, completely flat, unlike anything else around here), then walk onto the beach for a swim before 10 AM. Come back for breakfast and figure out the afternoon from there. That is a better start to the day than any amusement park can offer, and it costs $4.50.</p>
 	</div>
 </BlogPost>

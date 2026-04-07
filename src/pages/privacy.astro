@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Privacy Policy | Saco Bay Hotel"
+	description="Privacy policy for Saco Bay Hotel, Saco, Maine. Information on data collection, cookies, and Google Analytics."
+>
+	<section class="privacy-hero bg-warm">
+		<div class="container privacy-inner">
+			<span class="eyebrow">Saco Bay Hotel</span>
+			<h1>Privacy Policy</h1>
+			<p class="privacy-date">Last updated: April 2026</p>
+
+			<div class="privacy-body">
+				<p>Saco Bay Hotel operates sacobayhotel.com. This page explains what information we collect when you visit the site and how we use it.</p>
+
+				<h2>Analytics</h2>
+				<p>We use Google Analytics to understand how visitors use this site — which pages are visited, how long people stay, and where traffic comes from. Google Analytics collects data through cookies and assigns an anonymous identifier to each session. We do not have access to personally identifiable information through this tool.</p>
+				<p>Google Analytics data is processed by Google under their own privacy policy. You can learn more at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>. If you'd prefer not to be tracked by Google Analytics, you can install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+				<h2>Cookies</h2>
+				<p>This site uses cookies placed by Google Analytics to distinguish between visits and track usage patterns. No other cookies are set by this site directly. The booking engine (Cloudbeds), available on our reservations page, may set its own cookies subject to Cloudbeds' privacy policy.</p>
+				<p>You can disable cookies in your browser settings at any time. Doing so will not affect your ability to browse or use this site.</p>
+
+				<h2>Information You Provide</h2>
+				<p>If you contact us by phone or email, we use the information you provide only to respond to your inquiry. We do not sell, rent, or share contact information with third parties.</p>
+				<p>Reservations made through the Cloudbeds booking engine are subject to Cloudbeds' terms and privacy policy. Saco Bay Hotel does not store payment card information.</p>
+
+				<h2>Third-Party Links</h2>
+				<p>This site links to external websites including Google Maps, Amtrak, Maine state parks, and local tourism organizations. We are not responsible for the privacy practices of those sites.</p>
+
+				<h2>Children</h2>
+				<p>This site is not directed at children under 13 and we do not knowingly collect information from children.</p>
+
+				<h2>Contact</h2>
+				<p>Questions about this policy can be sent to <a href="mailto:frontdesk@sacobayhotel.com">frontdesk@sacobayhotel.com</a> or by calling <a href="tel:+12072869600">(207) 286-9600</a>.</p>
+				<p>Saco Bay Hotel<br />352 North St, Saco, ME 04072</p>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.privacy-hero {
+		padding: 11rem 0 7rem;
+	}
+
+	.privacy-inner {
+		max-width: 760px;
+	}
+
+	.privacy-inner h1 {
+		font-size: clamp(3rem, 7vw, 5rem);
+		line-height: 1;
+		color: var(--navy-deep);
+		margin-bottom: 0.75rem;
+	}
+
+	.privacy-date {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: var(--text-muted);
+		margin-bottom: 3.5rem;
+	}
+
+	.privacy-body h2 {
+		font-size: 1.3rem;
+		color: var(--navy-deep);
+		margin: 2.5rem 0 0.75rem;
+	}
+
+	.privacy-body p {
+		font-size: 0.97rem;
+		line-height: 1.85;
+		color: var(--text-muted);
+		margin-bottom: 1rem;
+	}
+
+	.privacy-body a {
+		color: #2E6DA4;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.privacy-body a:hover {
+		color: var(--navy-deep);
+	}
+
+	@media (max-width: 768px) {
+		.privacy-hero {
+			padding: 9rem 0 5rem;
+		}
+	}
+</style>
