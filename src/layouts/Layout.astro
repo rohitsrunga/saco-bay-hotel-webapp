@@ -56,7 +56,7 @@ const isBookPage = pathname === `${basePath}/book`;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
-		<link rel="sitemap" href="/sitemap.xml" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -113,6 +113,14 @@ const isBookPage = pathname === `${basePath}/book`;
 				"https://sacobayhotel.com/assets/rooms/queen.jpg",
 				"https://sacobayhotel.com/assets/rooms/suite.jpg"
 			],
+			"numberOfRooms": 60,
+			"starRating": { "@type": "Rating", "ratingValue": "3" },
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "4.5",
+				"reviewCount": "50",
+				"bestRating": "5"
+			},
 			"description": "Saco Bay Hotel is a hotel in Saco, Maine, located minutes from Old Orchard Beach, Palace Playland, Funtown Splashtown USA, and the southern Maine coast. Hot breakfast included daily.",
 			"sameAs": []
 		})} />}

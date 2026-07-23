@@ -1,0 +1,405 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import exteriorImg from '../assets/amenities/exterior.jpg';
+import oobBeachImg from '../assets/oob/oob-beach.jpg';
+import kingImg from '../assets/rooms/king.jpg';
+import queenImg from '../assets/rooms/queen.jpg';
+import suiteImg from '../assets/rooms/suite.jpg';
+---
+
+<Layout
+	title="Hotel Near Old Orchard Beach, Maine | Saco Bay Hotel"
+	description="Saco Bay Hotel is 3 miles from Old Orchard Beach — free parking, hot breakfast, outdoor pool. The closest full-service hotel to the pier, Palace Playland, and Funtown Splashtown USA."
+>
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "LodgingBusiness",
+		"name": "Saco Bay Hotel",
+		"url": "https://sacobayhotel.com",
+		"telephone": "+12072869600",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "352 North St",
+			"addressLocality": "Saco",
+			"addressRegion": "ME",
+			"postalCode": "04072",
+			"addressCountry": "US"
+		},
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": "43.5009",
+			"longitude": "-70.4428"
+		},
+		"description": "Saco Bay Hotel is a hotel near Old Orchard Beach, Maine — 3 miles from the pier, boardwalk, Palace Playland, and Funtown Splashtown USA. Free parking, hot breakfast included, outdoor pool.",
+		"amenityFeature": [
+			{ "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+			{ "@type": "LocationFeatureSpecification", "name": "Hot Breakfast Included", "value": true },
+			{ "@type": "LocationFeatureSpecification", "name": "Outdoor Pool", "value": true },
+			{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true }
+		],
+		"image": "https://sacobayhotel.com/assets/exterior_property.jpg"
+	})} />
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sacobayhotel.com/" },
+			{ "@type": "ListItem", "position": 2, "name": "Hotel Near Old Orchard Beach", "item": "https://sacobayhotel.com/old-orchard-beach-hotel" }
+		]
+	})} />
+
+	<section class="lp-hero bg-warm">
+		<div class="container lp-hero-inner">
+			<span class="eyebrow">Saco Bay Hotel &middot; Saco, Maine</span>
+			<h1>Hotel Near Old Orchard Beach</h1>
+			<p>Saco Bay Hotel is 3 miles from Old Orchard Beach — a 7-minute drive to the pier, boardwalk, and Palace Playland. We are right off Maine Turnpike Exit 35 in Saco, with free parking, hot breakfast every morning, and an outdoor pool. Close to everything, without the resort-town pricing.</p>
+			<div class="lp-hero-ctas">
+				<a href="/book" class="btn-primary">Book Now</a>
+				<a href="/rooms" class="btn-secondary">See Rooms</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="lp-proximity bg-coastal textured">
+		<div class="container">
+			<div class="lp-split">
+				<div class="lp-split-image">
+					<Image src={oobBeachImg} alt="Old Orchard Beach, 3 miles from Saco Bay Hotel" loading="lazy" width={1000} height={667} />
+				</div>
+				<div class="lp-split-content">
+					<span class="eyebrow">Location</span>
+					<h2>3 Miles from the Beach</h2>
+					<p>Old Orchard Beach has seven miles of white sand, a 500-foot wooden pier, and the only traditional oceanfront amusement park left in New England. We are the closest full-service hotel off Maine Turnpike Exit 35 — the exit for Old Orchard Beach, Funtown Splashtown USA, and the southern Maine coast.</p>
+					<ul class="lp-distances">
+						<li><strong>Old Orchard Beach Pier & Boardwalk</strong> — 3 mi, 7 min</li>
+						<li><strong>Palace Playland</strong> — 3 mi, 7 min</li>
+						<li><strong>Funtown Splashtown USA</strong> — 1.5 mi, 5 min</li>
+						<li><strong>Ferry Beach State Park</strong> — 2 mi, 6 min</li>
+						<li><strong>Aquaboggan Water Park</strong> — 1 mi, 4 min</li>
+						<li><strong>Downtown Biddeford</strong> — 4 mi, 10 min</li>
+						<li><strong>Portland Old Port</strong> — 20 mi, 28 min</li>
+					</ul>
+					<a href="/location" class="link-underlined">See full location details &rarr;</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="lp-included bg-warm">
+		<div class="container">
+			<div class="lp-split reverse">
+				<div class="lp-split-image">
+					<Image src={exteriorImg} alt="Saco Bay Hotel exterior with free parking in Saco, Maine" loading="lazy" width={1000} height={667} />
+				</div>
+				<div class="lp-split-content">
+					<span class="eyebrow">What's Included</span>
+					<h2>No Hidden Fees</h2>
+					<p>Hotels in Old Orchard Beach charge for parking, skip breakfast, and add resort fees. We do not. Everything listed here is included with every room, every night.</p>
+					<ul class="lp-amenities-list">
+						<li>Hot breakfast every morning</li>
+						<li>Free on-site parking</li>
+						<li>Outdoor pool (seasonal)</li>
+						<li>Fast WiFi</li>
+						<li>Mini fridge and microwave (select rooms)</li>
+						<li>Keurig coffee maker</li>
+						<li>Air conditioning</li>
+					</ul>
+					<a href="/experience" class="link-underlined">See all amenities &rarr;</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="lp-rooms bg-coastal textured">
+		<div class="container">
+			<div class="section-header section-header-dark">
+				<span class="eyebrow">Our Rooms</span>
+				<h2>Three Room Types</h2>
+				<p>Every room comes with the same basics. The main question is how much space you want.</p>
+			</div>
+			<div class="lp-room-cards">
+				<div class="lp-room-card">
+					<Image src={kingImg} alt="Deluxe King room at Saco Bay Hotel near Old Orchard Beach" loading="lazy" width={600} height={400} />
+					<div class="lp-room-info">
+						<h3>Deluxe King</h3>
+						<p>King bed, dedicated desk, the most space of our standard rooms.</p>
+					</div>
+				</div>
+				<div class="lp-room-card">
+					<Image src={queenImg} alt="Deluxe Double Queen room at Saco Bay Hotel" loading="lazy" width={600} height={400} />
+					<div class="lp-room-info">
+						<h3>Deluxe Double Queen</h3>
+						<p>Two queen beds. Works well for families or small groups.</p>
+					</div>
+				</div>
+				<div class="lp-room-card">
+					<Image src={suiteImg} alt="Suite King room at Saco Bay Hotel" loading="lazy" width={600} height={400} />
+					<div class="lp-room-info">
+						<h3>Suite King</h3>
+						<p>King bed with a separate living area. The most room to work with.</p>
+					</div>
+				</div>
+			</div>
+			<div class="lp-rooms-cta">
+				<a href="/rooms" class="btn-primary">View Room Details</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="lp-why bg-warm">
+		<div class="container">
+			<span class="eyebrow">Why Stay in Saco</span>
+			<h2>Close to Old Orchard Beach, Without the Old Orchard Beach Price Tag</h2>
+			<p>Old Orchard Beach in July is a resort town running at full capacity. Great for a day trip. Intense for a multi-night stay. Saco sits right next to OOB, directly off the Maine Turnpike — the natural first stop off the highway.</p>
+			<p>From Saco Bay Hotel, the OOB pier is a 7-minute drive. Funtown Splashtown is 1.5 miles. Ferry Beach State Park is 2 miles. Downtown Biddeford — with some of the most acclaimed restaurants in Maine — is 10 minutes. You spend your days at the beach and your evenings somewhere completely different.</p>
+			<p>Most guests who have done it both ways prefer the Saco setup. <a href="/book">Book direct</a> for the best rate.</p>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.lp-hero {
+		padding: 11rem 0 5rem;
+	}
+
+	.lp-hero-inner {
+		max-width: 760px;
+	}
+
+	.lp-hero h1 {
+		font-size: clamp(3.8rem, 9vw, 6.5rem);
+		line-height: 0.95;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+	}
+
+	.lp-hero p {
+		font-size: 1.15rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		max-width: 660px;
+		margin-bottom: 2rem;
+	}
+
+	.lp-hero-ctas {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.btn-secondary {
+		padding: 1rem 2.5rem;
+		border: 1px solid var(--navy-deep);
+		background: transparent;
+		color: var(--navy-deep);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.12rem;
+		font-size: 0.75rem;
+		transition: all 0.3s ease;
+		cursor: pointer;
+		font-family: var(--font-sans);
+	}
+
+	.btn-secondary:hover {
+		background: var(--navy-deep);
+		color: var(--white);
+	}
+
+	/* Split layout */
+	.lp-proximity,
+	.lp-included {
+		padding: 5rem 0;
+	}
+
+	.lp-split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.lp-split.reverse .lp-split-image {
+		order: 2;
+	}
+
+	.lp-split-image img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.lp-split-content h2 {
+		font-size: 2.8rem;
+		color: var(--navy-deep);
+		margin-bottom: 1.25rem;
+		line-height: 1.05;
+	}
+
+	.lp-split-content p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		margin-bottom: 1.5rem;
+	}
+
+	.lp-distances,
+	.lp-amenities-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 2rem;
+	}
+
+	.lp-distances li,
+	.lp-amenities-list li {
+		padding: 0.6rem 0;
+		border-bottom: 1px solid var(--border-light);
+		font-size: 0.92rem;
+		color: var(--text-main);
+	}
+
+	.lp-distances li:last-child,
+	.lp-amenities-list li:last-child {
+		border-bottom: none;
+	}
+
+	.link-underlined {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-weight: 700;
+		color: var(--accent);
+	}
+
+	.link-underlined:hover {
+		text-decoration: underline;
+	}
+
+	/* Room cards */
+	.lp-rooms {
+		padding: 5rem 0;
+	}
+
+	.lp-rooms .section-header-dark {
+		margin-bottom: 3rem;
+	}
+
+	.lp-rooms h2 {
+		font-size: 2.8rem;
+		color: var(--navy-deep);
+		margin-bottom: 1rem;
+	}
+
+	.lp-rooms .section-header-dark p {
+		font-size: 1rem;
+		color: var(--text-muted);
+	}
+
+	.lp-room-cards {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+		position: relative;
+		z-index: 2;
+	}
+
+	.lp-room-card {
+		background: rgba(255, 255, 255, 0.74);
+		border: 1px solid rgba(30, 45, 75, 0.08);
+		box-shadow: 0 12px 32px rgba(30, 45, 75, 0.07);
+		backdrop-filter: blur(10px);
+		overflow: hidden;
+	}
+
+	.lp-room-card img {
+		width: 100%;
+		height: 220px;
+		object-fit: cover;
+		display: block;
+	}
+
+	.lp-room-info {
+		padding: 1.5rem;
+	}
+
+	.lp-room-info h3 {
+		font-size: 1.4rem;
+		color: var(--navy-deep);
+		margin-bottom: 0.5rem;
+	}
+
+	.lp-room-info p {
+		font-size: 0.9rem;
+		line-height: 1.7;
+		color: var(--text-muted);
+	}
+
+	.lp-rooms-cta {
+		text-align: center;
+		margin-top: 2.5rem;
+		position: relative;
+		z-index: 2;
+	}
+
+	/* Why section */
+	.lp-why {
+		padding: 5rem 0 6rem;
+	}
+
+	.lp-why h2 {
+		font-size: 2.4rem;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+		max-width: 760px;
+		line-height: 1.15;
+	}
+
+	.lp-why p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		max-width: 700px;
+		margin-bottom: 1.25rem;
+	}
+
+	.lp-why a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	@media (max-width: 960px) {
+		.lp-split,
+		.lp-split.reverse {
+			grid-template-columns: 1fr;
+			gap: 2.5rem;
+		}
+
+		.lp-split.reverse .lp-split-image {
+			order: 0;
+		}
+
+		.lp-room-cards {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.lp-hero {
+			padding: 9rem 0 4rem;
+		}
+
+		.lp-hero h1 {
+			font-size: 3.4rem;
+		}
+
+		.lp-split-content h2,
+		.lp-rooms h2 {
+			font-size: 2.2rem;
+		}
+
+		.lp-why h2 {
+			font-size: 1.8rem;
+		}
+	}
+</style>

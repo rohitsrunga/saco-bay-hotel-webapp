@@ -1,0 +1,341 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import exteriorImg from '../assets/amenities/exterior.jpg';
+import lobbyImg from '../assets/amenities/lobby.jpg';
+import kingImg from '../assets/rooms/king.jpg';
+---
+
+<Layout
+	title="Park and Fly Hotel Near Portland Jetport (PWM) | Saco Bay Hotel"
+	description="Park and fly at Saco Bay Hotel — 25 minutes from Portland International Jetport (PWM). Free parking, hot breakfast, and an easy drive to the airport."
+>
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "LodgingBusiness",
+		"name": "Saco Bay Hotel",
+		"url": "https://sacobayhotel.com",
+		"telephone": "+12072869600",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "352 North St",
+			"addressLocality": "Saco",
+			"addressRegion": "ME",
+			"postalCode": "04072",
+			"addressCountry": "US"
+		},
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": "43.5009",
+			"longitude": "-70.4428"
+		},
+		"description": "Park and fly hotel near Portland International Jetport (PWM) in Saco, Maine. Free parking while you travel, hot breakfast included, 25 minutes from the terminal.",
+		"amenityFeature": [
+			{ "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+			{ "@type": "LocationFeatureSpecification", "name": "Park & Fly", "value": true },
+			{ "@type": "LocationFeatureSpecification", "name": "Hot Breakfast Included", "value": true },
+			{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true }
+		],
+		"image": "https://sacobayhotel.com/assets/exterior_property.jpg"
+	})} />
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sacobayhotel.com/" },
+			{ "@type": "ListItem", "position": 2, "name": "Park & Fly", "item": "https://sacobayhotel.com/park-and-fly" }
+		]
+	})} />
+
+	<section class="pf-hero bg-warm">
+		<div class="container pf-hero-inner">
+			<span class="eyebrow">Saco Bay Hotel &middot; Saco, Maine</span>
+			<h1>Park & Fly Near Portland Jetport</h1>
+			<p>Stay the night before your flight, leave your car with us while you travel, and skip the airport parking fees. Saco Bay Hotel is 18 miles from Portland International Jetport (PWM) — about 25 minutes on I-95. Free parking the entire time you are away.</p>
+			<a href="/book" class="btn-primary">Book Your Stay</a>
+		</div>
+	</section>
+
+	<section class="pf-how bg-coastal textured">
+		<div class="container">
+			<div class="pf-split">
+				<div class="pf-split-image">
+					<Image src={exteriorImg} alt="Saco Bay Hotel exterior with free parking lot" loading="lazy" width={1000} height={667} />
+				</div>
+				<div class="pf-split-content">
+					<span class="eyebrow">How It Works</span>
+					<h2>Simple Park & Fly</h2>
+					<ol class="pf-steps">
+						<li><strong>Check in the night before your flight.</strong> Get a full night's sleep in a real bed instead of driving to the airport at 4 AM.</li>
+						<li><strong>Eat breakfast on us.</strong> Hot breakfast is included every morning. Coffee, eggs, the usual — enough to start your travel day right.</li>
+						<li><strong>Drive to the airport.</strong> PWM is 25 minutes north on I-95. Early morning traffic is light.</li>
+						<li><strong>Leave your car here while you travel.</strong> Free parking, on-site, for the duration of your trip. No daily fees, no shuttle lots, no walking a half-mile from a remote garage.</li>
+						<li><strong>Pick up your car when you land.</strong> Drive back from PWM, your car is where you left it.</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="pf-comparison bg-warm">
+		<div class="container">
+			<span class="eyebrow">The Math</span>
+			<h2>Airport Parking vs. Park & Fly</h2>
+			<p>Portland Jetport parking runs $14 to $18 per day in the main garage. A week-long trip costs $98 to $126 in parking alone — and you still need to get to the airport. Offsite shuttle lots run $8 to $12 per day, plus the shuttle wait.</p>
+			<p>With Saco Bay Hotel's park and fly, your parking is free. You get a room for the night, hot breakfast in the morning, and a 25-minute drive to the terminal. For most travelers, the hotel room costs less than a week of airport parking — and you start your trip rested instead of rushed.</p>
+		</div>
+	</section>
+
+	<section class="pf-details bg-coastal textured">
+		<div class="container">
+			<div class="pf-split reverse">
+				<div class="pf-split-image">
+					<Image src={kingImg} alt="Deluxe King room at Saco Bay Hotel" loading="lazy" width={1000} height={667} />
+				</div>
+				<div class="pf-split-content">
+					<span class="eyebrow">Your Stay</span>
+					<h2>What's Included</h2>
+					<ul class="pf-included-list">
+						<li>One night in a Deluxe King, Double Queen, or Suite King room</li>
+						<li>Hot breakfast the morning of your flight</li>
+						<li>Free parking for the duration of your trip</li>
+						<li>Fast WiFi</li>
+						<li>Keurig coffee maker (fridge and microwave in select rooms)</li>
+						<li>Outdoor pool access (seasonal)</li>
+					</ul>
+					<p class="pf-note">Call the front desk at <a href="tel:+12072869600">(207) 286-9600</a> or email <a href="mailto:frontdesk@sacobayhotel.com">frontdesk@sacobayhotel.com</a> to confirm park and fly availability and parking duration for your dates.</p>
+					<a href="/rooms" class="link-underlined">See room details &rarr;</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="pf-cta bg-warm">
+		<div class="container pf-cta-inner">
+			<h2>Book Your Park & Fly Stay</h2>
+			<p>Sleep in Saco, fly out of Portland. Your car stays here until you get back.</p>
+			<a href="/book" class="btn-primary">Book Now</a>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.pf-hero {
+		padding: 11rem 0 5rem;
+	}
+
+	.pf-hero-inner {
+		max-width: 760px;
+	}
+
+	.pf-hero h1 {
+		font-size: clamp(3.8rem, 9vw, 6.5rem);
+		line-height: 0.95;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+	}
+
+	.pf-hero p {
+		font-size: 1.15rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		max-width: 660px;
+		margin-bottom: 2rem;
+	}
+
+	/* Split layout */
+	.pf-how,
+	.pf-details {
+		padding: 5rem 0;
+	}
+
+	.pf-split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.pf-split.reverse .pf-split-image {
+		order: 2;
+	}
+
+	.pf-split-image img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.pf-split-content h2 {
+		font-size: 2.8rem;
+		color: var(--navy-deep);
+		margin-bottom: 1.25rem;
+		line-height: 1.05;
+	}
+
+	.pf-split-content p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		margin-bottom: 1.5rem;
+	}
+
+	.pf-steps {
+		list-style: none;
+		padding: 0;
+		counter-reset: pf-step;
+	}
+
+	.pf-steps li {
+		counter-increment: pf-step;
+		padding: 0.8rem 0;
+		padding-left: 2.5rem;
+		position: relative;
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--text-main);
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.pf-steps li:last-child {
+		border-bottom: none;
+	}
+
+	.pf-steps li::before {
+		content: counter(pf-step);
+		position: absolute;
+		left: 0;
+		top: 0.8rem;
+		width: 1.6rem;
+		height: 1.6rem;
+		background: var(--navy-deep);
+		color: var(--white);
+		border-radius: 50%;
+		font-size: 0.7rem;
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-sans);
+	}
+
+	.pf-included-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.5rem;
+	}
+
+	.pf-included-list li {
+		padding: 0.6rem 0;
+		padding-left: 1.1rem;
+		position: relative;
+		font-size: 0.92rem;
+		color: var(--text-main);
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.pf-included-list li:last-child {
+		border-bottom: none;
+	}
+
+	.pf-included-list li::before {
+		content: "—";
+		position: absolute;
+		left: 0;
+		color: var(--accent);
+	}
+
+	.pf-note {
+		font-size: 0.88rem;
+		color: var(--text-muted);
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+	}
+
+	.pf-note a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	.link-underlined {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-weight: 700;
+		color: var(--accent);
+	}
+
+	.link-underlined:hover {
+		text-decoration: underline;
+	}
+
+	/* Comparison section */
+	.pf-comparison {
+		padding: 5rem 0;
+	}
+
+	.pf-comparison h2 {
+		font-size: 2.4rem;
+		color: var(--navy-deep);
+		margin-bottom: 1.5rem;
+		line-height: 1.1;
+	}
+
+	.pf-comparison p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: var(--text-muted);
+		max-width: 700px;
+		margin-bottom: 1.25rem;
+	}
+
+	/* CTA */
+	.pf-cta {
+		padding: 5rem 0 6rem;
+		border-top: 1px solid var(--border-light);
+	}
+
+	.pf-cta-inner {
+		text-align: center;
+	}
+
+	.pf-cta h2 {
+		font-size: 2.4rem;
+		color: var(--navy-deep);
+		margin-bottom: 1rem;
+	}
+
+	.pf-cta p {
+		font-size: 1.05rem;
+		color: var(--text-muted);
+		margin-bottom: 2rem;
+	}
+
+	@media (max-width: 960px) {
+		.pf-split,
+		.pf-split.reverse {
+			grid-template-columns: 1fr;
+			gap: 2.5rem;
+		}
+
+		.pf-split.reverse .pf-split-image {
+			order: 0;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.pf-hero {
+			padding: 9rem 0 4rem;
+		}
+
+		.pf-hero h1 {
+			font-size: 3.4rem;
+		}
+
+		.pf-split-content h2,
+		.pf-comparison h2,
+		.pf-cta h2 {
+			font-size: 2rem;
+		}
+	}
+</style>

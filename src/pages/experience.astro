@@ -99,7 +99,7 @@ const amenityGroups = [
 			'Conference Center & Meeting Rooms',
 			'Complimentary on-site parking',
 			'Fast WiFi',
-			'Refrigerator and microwave',
+			'Refrigerator and microwave (select rooms)',
 			'Keurig coffee makers',
 			'Plush bedding and linens',
 			'Dedicated work surface in all rooms',
@@ -150,11 +150,15 @@ const faqs = [
 	{
 		question: 'Getting around',
 		answer: 'Old Orchard Beach is a quick drive. Downtown Saco and Biddeford are close by, and Portland is far enough north to be doable without needing to stay there. If you want local food or beach suggestions, just ask.'
+	},
+	{
+		question: 'Pool',
+		answer: 'We have a seasonal outdoor pool available to all guests, open during the summer months.'
 	}
 ];
 ---
 
-<Layout title="Amenities & Local Attractions | Saco Bay Hotel" description="Explore Saco Bay Hotel's amenities and the best things to do near Old Orchard Beach, Maine — beaches, amusement parks, trails, and dining.">
+<Layout title="Hotel Amenities & Things to Do Near Old Orchard Beach | Saco Bay Hotel" description="Explore Saco Bay Hotel's amenities and the best things to do near Old Orchard Beach, Maine — beaches, amusement parks, trails, and dining.">
 	<script type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "FAQPage",
@@ -193,6 +197,11 @@ const faqs = [
 				"@type": "Question",
 				"name": "How far is Saco Bay Hotel from Portland, Maine?",
 				"acceptedAnswer": { "@type": "Answer", "text": "Portland, Maine is approximately 20 miles north — about a 28-minute drive from Saco Bay Hotel." }
+			},
+			{
+				"@type": "Question",
+				"name": "Does Saco Bay Hotel have a pool?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Yes. Saco Bay Hotel has a seasonal outdoor pool available to all guests during the summer months." }
 			}
 		]
 	})} />

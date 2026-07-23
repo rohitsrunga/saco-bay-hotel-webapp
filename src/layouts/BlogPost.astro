@@ -17,6 +17,11 @@ interface Props {
 
 const { title, description, date, category, slug, heroImage } = Astro.props;
 
+const displayDate = (() => {
+	const d = new Date(`${date}T00:00:00`);
+	return isNaN(d.getTime()) ? date : d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+})();
+
 let heroOgSrc: string | undefined;
 if (heroImage) {
 	const ogImg = await getImage({ src: heroImage, format: 'jpg', width: 1200, height: 630 });
@@ -70,7 +75,7 @@ if (heroImage) {
 				<p class="post-deck">{description}</p>
 				<div class="post-meta-bar">
 					<span class="post-by">Saco Bay Hotel · Saco, Maine</span>
-					<span class="post-date-pub">{date}</span>
+					<time datetime={date} class="post-date-pub">{displayDate}</time>
 				</div>
 			</div>
 		</header>

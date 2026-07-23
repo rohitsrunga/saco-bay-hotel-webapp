@@ -14,7 +14,7 @@ const rooms = [
 		specs: ['2 Guests', '1 King Bed'],
 		description:
 			'Our largest room, with a king bed, a desk, and enough room to spread out a bit. A good choice if you are staying more than a night or just do not like a cramped room.',
-		highlights: ['Dedicated desk', 'Mini fridge & microwave', 'Keurig coffee maker', 'Fast WiFi']
+		highlights: ['Dedicated desk', 'Keurig coffee maker', 'Fridge & microwave (select rooms)', 'Fast WiFi']
 	},
 	{
 		eyebrow: 'Straightforward Stay',
@@ -24,7 +24,7 @@ const rooms = [
 		specs: ['2–4 Guests', '2 Queen Beds'],
 		description:
 			'A double queen room that keeps things simple. It has the same basic amenities as the larger rooms, just in a layout that works well for a quick stay or a small group.',
-		highlights: ['Two queen beds', 'Simple, efficient layout', 'Fast WiFi', 'Keurig, fridge & microwave']
+		highlights: ['Two queen beds', 'Simple, efficient layout', 'Fast WiFi', 'Keurig coffee maker', 'Fridge & microwave (select rooms)']
 	},
 	{
 		eyebrow: 'Most Room',
@@ -34,7 +34,7 @@ const rooms = [
 		specs: ['2–4 Guests', '1 King Bed', 'Suite'],
 		description:
 			'The Suite King gives you the most room to work with. If you want a little breathing room after a long beach day or a long drive up the coast, this is the one.',
-		highlights: ['King bed', 'Full suite layout', 'Fast WiFi', 'Mini fridge & microwave']
+		highlights: ['King bed', 'Full suite layout', 'Fast WiFi', 'Keurig coffee maker', 'Fridge & microwave (select rooms)']
 	}
 ];
 ---
@@ -45,13 +45,11 @@ const rooms = [
 			"@context": "https://schema.org",
 			"@type": "HotelRoom",
 			"name": "Deluxe King",
-			"description": "Spacious king room with a dedicated desk, mini fridge, microwave, and Keurig at Saco Bay Hotel in Saco, Maine — minutes from Old Orchard Beach.",
+			"description": "Spacious king room with a dedicated desk and Keurig at Saco Bay Hotel in Saco, Maine — minutes from Old Orchard Beach. Fridge and microwave available in select rooms.",
 			"occupancy": { "@type": "QuantitativeValue", "maxValue": 2 },
 			"bed": { "@type": "BedDetails", "typeOfBed": "King", "numberOfBeds": 1 },
 			"amenityFeature": [
 				{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
-				{ "@type": "LocationFeatureSpecification", "name": "Mini Fridge", "value": true },
-				{ "@type": "LocationFeatureSpecification", "name": "Microwave", "value": true },
 				{ "@type": "LocationFeatureSpecification", "name": "Keurig Coffee Maker", "value": true },
 				{ "@type": "LocationFeatureSpecification", "name": "Dedicated Desk", "value": true }
 			],
@@ -66,8 +64,6 @@ const rooms = [
 			"bed": { "@type": "BedDetails", "typeOfBed": "Queen", "numberOfBeds": 2 },
 			"amenityFeature": [
 				{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
-				{ "@type": "LocationFeatureSpecification", "name": "Mini Fridge", "value": true },
-				{ "@type": "LocationFeatureSpecification", "name": "Microwave", "value": true },
 				{ "@type": "LocationFeatureSpecification", "name": "Keurig Coffee Maker", "value": true }
 			],
 			"image": "https://sacobayhotel.com/assets/rooms/queen.jpg"
@@ -82,8 +78,6 @@ const rooms = [
 			"amenityFeature": [
 				{ "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
 				{ "@type": "LocationFeatureSpecification", "name": "Separate Living Area", "value": true },
-				{ "@type": "LocationFeatureSpecification", "name": "Mini Fridge", "value": true },
-				{ "@type": "LocationFeatureSpecification", "name": "Microwave", "value": true },
 				{ "@type": "LocationFeatureSpecification", "name": "Keurig Coffee Maker", "value": true }
 			],
 			"image": "https://sacobayhotel.com/assets/rooms/suite.jpg"
@@ -102,7 +96,7 @@ const rooms = [
 			<div class="section-heading">
 				<span class="eyebrow">Choose Your Stay</span>
 				<h2 class="navy-text">Pick What Fits</h2>
-				<p>Every room comes with the same basics: WiFi, Keurig, fridge, microwave, and a clean place to land at the end of the day. The main question is how much space you want.</p>
+				<p>Every room comes with the same basics: WiFi, Keurig, and a clean place to land at the end of the day. A fridge and microwave are available in select rooms. The main question is how much space you want.</p>
 			</div>
 
 			<div class="rooms-editorial-stack">
